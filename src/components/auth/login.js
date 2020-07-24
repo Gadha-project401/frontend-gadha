@@ -44,6 +44,9 @@ class Login extends React.Component{
                 <button>Login</button>
               </form> 
             </Show>
+            <Show condition={this.context.error}>
+                <p>Invalid username/password, please try again.</p>
+            </Show>
           </>
       )
   }

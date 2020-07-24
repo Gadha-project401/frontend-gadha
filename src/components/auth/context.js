@@ -3,7 +3,6 @@ import cookie from 'react-cookies';
 import jwt from 'jsonwebtoken';
 import superagent from 'superagent';
 require('dotenv').config();
-const secret = process.env.REACT_APP_PASSKEY;
 
 const API = process.env.REACT_APP_API;
 
@@ -18,19 +17,21 @@ class LoginProvider extends React.Component{
       logout: this.logout,
       signup:this.signup,
       user: {},
+      error: false,
     }
   }
 
   login = (username,password) => {
       console.log(API);
     superagent.get(`${API}/signin`)
-    .set('content-type', 'application/json')
     .auth(username,password)
-    .then(result=>{
-      console.log('This is the basic auth result');
-      console.log(result);
+    .then(res=>{
+      this.validateToken(res.body.token)
     })
-    .catch(e=>console.error(e));
+    .catch(e=>{
+      console.error(e);
+      this.setState({error:true});
+    });
   }
 
   logout = () => {
@@ -40,9 +41,7 @@ class LoginProvider extends React.Component{
   validateToken = token => {
     try{
       let user = jwt.verify(token, process.env.REACT_APP_PASSKEY);
-      console.log(user);
       this.setLoginState(true, token, user);
-
     } catch (e){
       this.logout();
       console.log(e)
@@ -50,12 +49,12 @@ class LoginProvider extends React.Component{
   }
 
   setLoginState = (loggedIn, token, user) => {
-    cookie.save('auth', token);
-    this.setState({token, loggedIn, user});
+    cookie.save('gadha-auth', token);
+    this.setState({token, loggedIn, user,error:false});
   }
 
   componentDidMount() {
-    const cookieToken = cookie.load('auth');
+    const cookieToken = cookie.load('gadha-auth');
     const token = cookieToken || null;
     this.validateToken(token);
   }
