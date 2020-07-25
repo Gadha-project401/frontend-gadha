@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginContext from './components/auth/context';
 
 //Components importation
 import Header from './components/header/header';
@@ -8,9 +9,11 @@ import Footer from './components/footer/footer';
 const App = props =>{
   return(
     <>
-      <Header/>
-      <Body/>
-      <Footer/>
+      <LoginContext>
+        <Header/>
+        <Body/>
+        <Footer/>
+      </LoginContext>
     </>
   )
 }
