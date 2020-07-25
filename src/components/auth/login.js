@@ -1,5 +1,6 @@
 import React from 'react';
 import Show from './show';
+import { NavLink } from 'react-router-dom';
 import { LoginContext } from './context';
 
 
@@ -41,7 +42,8 @@ class Login extends React.Component{
                     type="password"
                     onChange={this.handleChange}
                   />
-                <button>Login</button>
+                <button>Sign In</button>
+                <NavLink to="/signup"><button>Sign Up</button></NavLink>
               </form> 
             </Show>
             <Show condition={this.context.error}>
