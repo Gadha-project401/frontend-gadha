@@ -18,11 +18,12 @@ class LoginProvider extends React.Component{
       signup:this.signup,
       user: {},
       error: false,
+      signupError:false,
     }
   }
 
   login = (username,password) => {
-      console.log(API);
+
     superagent.get(`${API}/signin`)
     .auth(username,password)
     .then(res=>{
@@ -31,6 +32,23 @@ class LoginProvider extends React.Component{
     .catch(e=>{
       console.error(e);
       this.setState({error:true});
+    });
+  }
+
+  signup = (username,fullName,password,gender,country,birthday,profilePic) => {
+    let userObject = {};
+
+    //Add profile picture only if it exists
+    profilePic ? userObject = {username,fullName,password,gender,country,birthday,profilePic} : userObject = {username,fullName,password,gender,country,birthday};
+
+    superagent.post(`${API}/signup`)
+    .send(userObject)
+    .then(res=>{
+      this.validateToken(res.body.token);
+    })
+    .catch(e=>{
+      console.log(e);
+      this.setState({signupError:true});
     });
   }
 
