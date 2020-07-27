@@ -2,7 +2,7 @@ import React from 'react';
 import LoginContext from './components/auth/context';
 
 //Components importation
-import Header from './components/header/header';
+import Header from './components/header/homeHeader';
 import Body from './components/body/body';
 import Signup from './components/auth/signup';
 import Footer from './components/footer/footer';
@@ -13,12 +13,8 @@ const App = props =>{
     <>
       <LoginContext>
         <Header/>
-
-        <Route path="/signup" exact> <Signup/> </Route>
-
-        <Body/>
-
-        <Footer/>
+        {/* <Body/>
+        <Footer/> */}
       </LoginContext>
     </>
   )
