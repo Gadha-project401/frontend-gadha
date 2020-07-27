@@ -1,5 +1,5 @@
 let initialState = {
-    myGoals : []
+    myGoals : [],
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +10,17 @@ export default (state = initialState, action) => {
       console.log(state);
       let reversed = payload.reverse();
       return {myGoals:reversed};
+    
+    case 'UPDATEMYGOALS':
+      let newGoals = state.myGoals.map(goal=>{
+        
+        if(goal._id == payload._id){
+          return {...payload,virtualOwner: goal.virtualOwner};
+        }
+          return goal;
+      })
+      
+      return {myGoals:newGoals};
     default:
       return state;
   }
