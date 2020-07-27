@@ -13,7 +13,8 @@ const Dashboard = props =>{
   let user = useContext(LoginContext);
 
   const [object,setObject] = useState({});
-
+  const [addPost, setAddPost] = useState(false);
+  const [post, setPost] = useState({});
 
 
   useEffect(()=>{
@@ -49,8 +50,60 @@ const Dashboard = props =>{
     props.delOwn(id);
   }
 
+  const showAddForm = e =>{
+    setAddPost(!addPost);
+  }
+
+  const addPostSubmit = e =>{
+    e.preventDefault();
+    console.log(post);
+  }
+
+  const addPostHandler = e =>{
+    setPost({ ...post,[e.target.name] : e.target.value})
+    console.log(post)
+  }
+
   return(
     <>
+    <button onClick={showAddForm}>Add new goal</button>
+    <Show condition={addPost}>
+      <p>This is a very secret form</p>
+      <form onSubmit={addPostSubmit}>
+
+          <label>Goal Title: 
+              <input type='text' placeholder='Enter Goal Title' name='title' required onChange={addPostHandler}/>
+          </label><br/>
+
+          <label>Goal Story: 
+              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler}/>
+          </label><br/>
+
+          <label>Goal Status: 
+              <select name='status' onChange={addPostHandler} required>
+                <option value='' hidden >Set Status</option>
+                <option value='inprogress'>In Progress</option>
+                <option value='complete'>Complete</option>
+                <option value='failed'>Failed</option>
+              </select>
+          </label><br/>
+
+          <label>Goal Privacy: 
+              <select name='private' onChange={addPostHandler} required>
+                <option value='' hidden >Set Privacy</option>
+                <option value='true'>Private</option>
+                <option value='false'>Public</option>
+              </select>
+          </label><br/>
+
+          <label>Goal Due in : 
+              <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler}/> Days
+          </label><br/>
+
+        <button>Add Goal</button>
+      </form>
+    </Show>
+
     <button onClick={checkConsole}>CHECK CONSOLE</button>
     <Show condition={user.loggedIn}>
     <p className="progresss">Progress Percentage: {props.myGoals.progress.progress} </p>
