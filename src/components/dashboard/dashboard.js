@@ -12,19 +12,24 @@ const Dashboard = props =>{
 
   let user = useContext(LoginContext);
 
-  const [id,setId] = useState({});
   const [object,setObject] = useState({});
 
 
 
   useEffect(()=>{
     props.getOwn();
+    props.progress();
     console.log(user);
     console.log(props);
   },[]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(()=>{
+    props.progress();
+  },[props.myGoals.myGoals]);  // eslint-disable-line react-hooks/exhaustive-deps
+
   const checkConsole = () =>{
     console.log(user);
+    console.log(props);
   }
 
   const updateSubmit = (id,e) => {
@@ -39,17 +44,23 @@ const Dashboard = props =>{
     console.log(object)
   }
 
+  const handleDelete = id =>{
+    console.log(id);
+    props.delOwn(id);
+  }
+
   return(
     <>
     <button onClick={checkConsole}>CHECK CONSOLE</button>
     <Show condition={user.loggedIn}>
-    <p className="progress">Progress Percentage: </p>
+    <p className="progresss">Progress Percentage: {props.myGoals.progress.progress} </p>
     
     {props.myGoals.myGoals.map(post=>{
         return(
             <section key={post._id}>
             <div>
                 <img className="profilePic" src={post.virtualOwner.profilePic} alt='profilePic' />
+                <button onClick={()=>handleDelete(post._id)}>DELETE ITEM</button>
                 <p className="title">Title: {post.title}</p>
                 <p className="story">Story: {post.story}</p>
                 <p className="dueBy">Due By: {post.dueBy} </p>
@@ -105,6 +116,8 @@ const mapStateToProps = state =>({
 const mapDispatchToProps = dispatch =>({
   getOwn: () => dispatch(actions.getOwnGoalsAPI()),
   updOwn: (obj,id) => dispatch(actions.updateOwnGoalsAPI(obj,id)),
+  delOwn: id => dispatch(actions.deleteOwnGoalsAPI(id)),
+  progress: () => dispatch(actions.progressAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

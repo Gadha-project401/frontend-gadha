@@ -1,26 +1,35 @@
 let initialState = {
     myGoals : [],
+    progress: [],
 };
 
 export default (state = initialState, action) => {
   let { type, payload } = action;
   switch(type){
     case 'MYGOALS':
-      console.log(type,payload);
-      console.log(state);
       let reversed = payload.reverse();
-      return {myGoals:reversed};
+      return {...state, myGoals:reversed};
     
     case 'UPDATEMYGOALS':
       let newGoals = state.myGoals.map(goal=>{
-        
-        if(goal._id == payload._id){
+        if(goal._id === payload._id){
           return {...payload,virtualOwner: goal.virtualOwner};
         }
           return goal;
-      })
-      
-      return {myGoals:newGoals};
+      });
+      return {progress: state.progress,myGoals:newGoals};
+
+    case 'DELETEMYGOALS':
+      // eslint-disable-next-line
+      let deletedGoals = state.myGoals.filter(goal=>{
+        if(goal._id !== payload._id) return goal;
+      });
+      return {progress: state.progress,myGoals:deletedGoals};
+
+
+    case 'PROGRESS':
+      console.log(state);
+      return {...state,progress:payload};
     default:
       return state;
   }

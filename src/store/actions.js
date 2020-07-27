@@ -52,6 +52,27 @@ export const updateOwnGoalsAPI = (id,object) => dispatch =>{
   });
 }
 
+export const deleteOwnGoalsAPI = id => dispatch =>{
+  superagent
+  .delete(`${API}/goals/${id}`)
+  .set('Authorization', 'Bearer ' + cookie.load('gadha-auth'))
+  .then(res=>{
+    dispatch(deleteOwnGoals(res.body));
+  })
+  .catch(e=>{
+    console.log(e);
+  });
+}
+
+export const progressAPI = () => dispatch =>{
+  superagent.get(`${API}/goals/progress`)
+  .set('Authorization', 'Bearer ' + cookie.load('gadha-auth'))
+  .then(data => {
+    console.log(data.body);
+    dispatch(progress(data.body))
+  });
+}
+
 
 
 // Function Methods
@@ -79,6 +100,20 @@ export const getOwnGoals = payload => {
 export const updateOwnGoals = payload => {
   return{
     type: 'UPDATEMYGOALS',
+    payload: payload
+  }
+}
+
+export const deleteOwnGoals = payload => {
+  return{
+    type: 'DELETEMYGOALS',
+    payload: payload
+  }
+}
+
+export const progress = payload => {
+  return{
+    type: 'PROGRESS',
     payload: payload
   }
 }
