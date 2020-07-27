@@ -19,7 +19,7 @@ const Footer = props =>{
     </div>
 
     <div className="div-about">
-      <a href="#" className="about"> About Gadha </a>
+      <a href="https://deploy-preview-11--gadha.netlify.app" className="about"> About Gadha </a>
        </div>
        
     <div id="last">
