@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Gloria+Hallelujah&family=Grenze+Gotisch:wght@500&family=Open+Sans&family=Permanent+Marker&family=Satisfy&display=swap');
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 21%;
+    width: 100%;
+    background-color: #613D61;
+    color: white;
+    text-align: center;
+      }
+      footer:after{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      content:'';
+      background: inherit;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      transform-origin: top right ;
+      transform: skewY(5.5deg);
+      z-index: -1;
+      }
+
+
+.social-media{
+        margin-top: -3%;
+        text-align: center;
+    
+}
+.social-media p{
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+a.social{
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-block;
+}
+
+a.social:hover{
+    transform: translateY(-10px);
+    color: honeydew;
+}
+
+a.facebook{
+    color: #F8D271;
+}
+a.twitter{
+    color: #F8D271;
+}
+
+a.instagram {
+ color: #F8D271;
+}
+a.pinterest{
+    color: #F8D271;
+}
+
+.div-2{
+    font-family: sans-serif;
+    
+}
+div.div-about{
+        text-align: end;
+        margin-right: 11%;
+}
+
+.div-about a.about {
+    font-family: 'Satisfy', cursive;
+            text-decoration: none;
+    color: honeydew;
+    border: 1px solid yellow;
+    font-size: 25px;
+    border-radius: 27px;
+    padding: 0.4%;
+}
+
+
+
+.div-2 p{
+    text-align: center;
+}
+.div-2 p.contact{
+    padding-top: 0.8%;
+}
+.div-2 span{
+    padding-left: 5%;
+}
+.div-2 .info {
+    margin-top: -1%;
+}
+
+p.rights{
+    font-family: sans-serif;
+}
+
+
+@media (max-width: 900px) {
+
+
+    .div-about a.about {
+        font-family: 'Satisfy', cursive;
+                text-decoration: none;
+        color: honeydew;
+        border: 1px solid yellow;
+        font-size: 25px;
+        border-radius: 27px;
+        padding: 0.4%;
+        display: none;
+    }
+
+    .div-2 {
+        margin-top: 3%;
+    }
+
+
+
+}
