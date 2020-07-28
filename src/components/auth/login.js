@@ -32,8 +32,8 @@ class Login extends React.Component {
         </Show>
         <Show condition={!this.context.loggedIn}>
           <form onSubmit={this.handleSubmit} >
-            <div class="row">
-              <div class="input-group input-group-icon">
+            <div className="row">
+              <div className="input-group input-group-icon">
                 <input
                   required
                   type="text"
@@ -41,9 +41,9 @@ class Login extends React.Component {
                   name="username"
                   onChange={this.handleChange}
                 />
-                <div class="input-icon"><i class="fa fa-user"></i></div>
+                <div className="input-icon"><i className="fa fa-user"></i></div>
               </div>
-              <div class="input-group input-group-icon">
+              <div className="input-group input-group-icon">
                 <input
                  required
                   placeholder="Enter your password"
@@ -51,7 +51,7 @@ class Login extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <div class="input-icon"><i class="fa fa-key"></i></div>
+                <div className="input-icon"><i className="fa fa-key"></i></div>
               </div>
             </div>
             <button className="signBtn">Sign In</button>

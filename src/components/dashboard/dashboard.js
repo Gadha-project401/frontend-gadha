@@ -60,10 +60,12 @@ const Dashboard = props =>{
   const addPostHandler = e =>{
     setPost({ ...post,[e.target.name] : e.target.value})
   }
-
+  
   return(
     <>
     <button onClick={showAddForm}>Add new goal</button>
+
+    <img className="profilePic" src={user.user.userPic} alt='ProfilePic' />
     <Show condition={addPost}>
       <form onSubmit={addPostSubmit}>
 
@@ -107,7 +109,6 @@ const Dashboard = props =>{
         return(
             <section key={post._id}>
             <div>
-                <img className="profilePic" src={post.virtualOwner.profilePic} alt='profilePic' />
                 <button onClick={()=>handleDelete(post._id)}>DELETE GOAL</button>
                 <p className="title">Title: {post.title}</p>
                 <p className="story">Story: {post.story}</p>
