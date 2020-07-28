@@ -239,41 +239,41 @@ select option {
   color: white;
   font-family: fantasy;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 5%;
-  margin-left: 8%;
   cursor: pointer;
   transition-duration: 0.4s;
-  border-radius: 20px;
+  border-radius: 30px;
   width: 35%;
   background-color: transparent;
-  letter-spacing: 1px;
+  border: 5px solid #613d60;
+  padding:10px 5px;
 }
 
 .buttons {
   color: white;
   font-family: fantasy;
-  padding: 2px 26px;
+  width: 35%;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 5%;
-  margin-left: 8%;
   cursor: pointer;
   transition-duration: 0.4s;
   background-color: transparent;
   border: 0px;
-  letter-spacing: 1px;
+  padding:10px 5px;
 }
 
 .buttons:hover {
-  background-color:  #6949B5;
-  border: 2px solid #E7AD34;
+  background-color:  #613d60;
+  border: 5px solid #E7AD34;
   color: white;
+  border-radius: 30px;
 }
 .buttons1:hover {
-  background-color:  #6949B5;
-  border: 2px solid #E7AD34;
+  background-color:  #613d60;
   color: white;
+  
 }
 
 
@@ -285,3 +285,12 @@ select option {
 .modalTitle{
   color: #6949B5;
 }
+
+@media only screen and (max-width: 767px) {
+  .buttons , .buttons1 {
+      width: 100%;
+      border:2px solid #6949B5;
+      border-radius: 0px;
+  }
+  
+  }

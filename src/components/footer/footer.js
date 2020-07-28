@@ -9,6 +9,7 @@ const Footer = props => {
 
   return (
     <>
+    <div className="clear"></div>
       <Container fluid className="footer">
         <Container fluid>
           <Row>

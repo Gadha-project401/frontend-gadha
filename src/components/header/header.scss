@@ -35,7 +35,7 @@
       margin-left: 8%;
       cursor: pointer;
       transition-duration: 0.4s;
-      border-radius: 12%;
+	  border-radius: 12%;
     }
 
     .button:hover {
@@ -354,7 +354,8 @@
 }
 .header1{
 	padding-bottom:125px;
-	background-image:URL('../../img/banner.png');
+	background-color: #E7AD34;
+	background-image:URL('../../img/banner.jpg');
 	background-position:bottom;
 	background-repeat:no-repeat;
 	background-size:100%;
@@ -363,4 +364,14 @@
 .headerLogo{
 	margin: 0px auto;
 
+}
+.sp-content-res{display: none}
+@media only screen and (max-width: 767px) {
+.headerLogo {
+    width: 65px;
+}
+.sp-content{display: none;}
+.sp-content-res{display: block;
+	margin-top: -100px;}
+	.sp-content-res h1{color:#613D61}
 }

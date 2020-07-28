@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Gloria+Hallelujah&family=Grenze+Gotisch:wght@500&family=Open+Sans&family=Permanent+Marker&family=Satisfy&display=swap');
 
 .footer{
-    padding-top:125px;
+    padding-top:25px;
     padding-bottom:125px;
+    background-color: #613D61;
     background-image:URL('../../img/footer.jpg');
-    background-position:bottom;
+    background-position:top;
     background-repeat:no-repeat;
     background-size:100%;
 }
@@ -141,3 +142,7 @@ p.rights{
 
 
 }
+@media (max-width: 767px) {
+.logo {
+    top: 0px; 
+}}

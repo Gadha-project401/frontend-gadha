@@ -22,8 +22,8 @@ const Home = props => {
           </Col>
         </Row>
         <Row className="secondRow">
-        <Col xs={4} md={4} xl={4} lg={4} className="justify-content-center text-center" ></Col>
-          <Col xs={8} md={8} xl={8} lg={8} className="text" >
+        <Col xs={12} md={12} xl={4} lg={4} className="justify-content-center text-center" ></Col>
+          <Col xs={12} md={12} xl={8} lg={8} className="text" >
             <div className="sp-container justify-content-center">
               <div className="sp-content">
                 {/* <div className="sp-globe"></div> */}
@@ -36,6 +36,10 @@ const Home = props => {
                   <span> And You Will ,</span>
                   <span> Change Your Life.</span>
                 </h2>
+              </div>
+              <div className="sp-content-res">
+
+              <h1>Missing The Inspiration <br /> You Need To Go ?!</h1>
               </div>
             </div>
           </Col>
