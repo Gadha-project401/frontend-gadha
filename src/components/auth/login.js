@@ -1,6 +1,5 @@
 import React from 'react';
 import Show from './show';
-import { NavLink } from 'react-router-dom';
 import { LoginContext } from './context';
 import './auth.scss';
 

@@ -24,18 +24,18 @@ const HomePage = props => {
         <>
             <Container container className="sec1">
                 <Row>
-                    <Col xs={12} md={1} xl={1} lg={1}></Col>
-                    <Col xs={12} md={4} xl={4} lg={4}>
+                    {/* <Col xs={12} md={1} xl={1} lg={1}></Col> */}
+                    <Col xs={12} md={5} xl={5} lg={5}>
                         <h1 className="text-center">WE ARE GADHA</h1>
                         <p className="text-center">Gadha is a very strong and mainingful word a word hold lots of empathy and motivation in it specially if you say it in southern Jordanian language, our brand GADHA is Bold, solid and powerful.... and this is the impact we want to reach every one of us.
                         <br />Gadha is the assistance and the mentor you need to keep going forword in every aspect of your life.</p>
                     </Col>
                     <Col xs={12} md={2} xl={2} lg={2}></Col>
-                    <Col xs={12} md={4} xl={4} lg={4}>
+                    <Col xs={12} md={5} xl={5} lg={5}>
                         <h1 className="text-center">WE ARE SPECIAL</h1>
                         <p className="text-center">is we are the Companian of your success story...to we do not tell the story for you... we do not spread toyr word for you... we are the shadow follows and back you up at every single step... we are here to help, motivate and tap on ypue sholders when you take one step forward... </p>
                     </Col>
-                    <Col xs={12} md={1} xl={1} lg={1}></Col>
+                    {/* <Col xs={12} md={1} xl={1} lg={1}></Col> */}
                 </Row>
                 <Row className="justify-content-center">
                     <Col xs={12} md={12} xl={12} lg={12} className="justify-content-center text-center">
@@ -215,32 +215,32 @@ const HomePage = props => {
                                     <span>FATEMA AL-.ZAHRAA OWEDAH </span>
                                 </div>
                                 <div className="content">
-                                    <img src={pStar} />
-                                    <img src={pStar} />
-                                    <img src={pStar} />
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt=""/>
                                     <span>Israa Othman</span>
                                 </div>
                                 <div className="content">
-                                    <img src={pStar} />
-                                    <img src={pStar} />
-                                    <img src={pStar} />
+                                    <img src={pStar} alt=""/>
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt=""/>
                                     <span>Anas Zain </span>
                                 </div>
                                 <div className="content">
-                                    <img src={pStar} />
-                                    <img src={pStar} />
-                                    <img src={pStar} />
+                                    <img src={pStar} alt=""/>
+                                    <img src={pStar} alt=""/>
+                                    <img src={pStar} alt="" />
                                     <span>Ammar Badwan </span>
                                 </div>
                                 <div className="content">
-                                    <img src={pStar} />
-                                    <img src={pStar} />
-                                    <img src={pStar} />
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt="" />
                                     <span>FATEMA AL-.ZAHRAA OWEDAH </span>
                                 </div>
                                 <div className="controller">
-                                    <a href="#" ><img src={next} /></a>
-                                    <a href="#" ><img src={prev} /></a>
+                                    <a href="#" ><img src={next} alt="" /></a>
+                                    <a href="#" ><img src={prev} alt=""/></a>
                                 </div>
                             </div>
                         </Col>
@@ -251,7 +251,7 @@ const HomePage = props => {
             <Container container className="sec5">
                 <Row>
                     <Col xs={12} md={12} xl={4} lg={4} >
-                        <img src={img7} className="w-100" />
+                        <img src={img7} className="w-100" alt="" />
                     </Col>
                     <Col xs={12} md={12} xl={8} lg={8} >
                         <h1>STORIES<br />OF HAPPINESS<br />PURSUERS</h1>

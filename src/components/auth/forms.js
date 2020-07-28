@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './auth.scss';
-import {Container, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal'
 

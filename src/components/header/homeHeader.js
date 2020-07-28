@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
-import Post from '../posts/motivations';
-import { NavLink, Route } from 'react-router-dom';
-import PostForm from '../forms/addPost';
+import React from 'react';
 import './header.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Modal from 'react-bootstrap/Modal';
 import logoheader from '../../img/logoheader.png';
 
 import Form from '../auth/forms';
