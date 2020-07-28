@@ -39,6 +39,19 @@ export const getOwnGoalsAPI = () => dispatch =>{
   });
 }
 
+export const postOwnGoalsAPI = object => dispatch =>{
+  superagent
+  .post(`${API}/goals`)
+  .set('Authorization', 'Bearer ' + cookie.load('gadha-auth'))
+  .send(object)
+  .then(res=>{
+      dispatch(postOwnGoals(res.body));
+  })
+  .catch(e=>{
+    console.log(e);
+  });
+}
+
 export const updateOwnGoalsAPI = (id,object) => dispatch =>{
   superagent
   .put(`${API}/goals/${id}`)
@@ -93,6 +106,13 @@ export const postAction = payload => {
 export const getOwnGoals = payload => {
   return {
     type: 'MYGOALS',
+    payload: payload
+  }
+}
+
+export const postOwnGoals = payload => {
+  return {
+    type: 'POSTGOALS',
     payload: payload
   }
 }
