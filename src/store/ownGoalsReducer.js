@@ -19,6 +19,12 @@ export default (state = initialState, action) => {
       });
       return {progress: state.progress,myGoals:newGoals};
 
+    case 'POSTGOALS':
+      console.log(payload);
+      let postedGoals = [...state.myGoals]
+      postedGoals.unshift(payload);
+      return {myGoals:postedGoals,progress:state.progress};
+
     case 'DELETEMYGOALS':
       // eslint-disable-next-line
       let deletedGoals = state.myGoals.filter(goal=>{
