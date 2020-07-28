@@ -36,28 +36,28 @@ class Signup extends React.Component {
     return (
 
       <form className="sigupForm" onSubmit={this.handleSubmit}>
-        <div class="row">
+        <div className="row">
           <h4>Account</h4>
-          <div class="input-group input-group-icon">
+          <div className="input-group input-group-icon">
             <input type='text' placeholder='Enter your full name' name='fullName' required onChange={this.handleChange} />
-            <div class="input-icon"><i class="fa fa-user"></i></div>
+            <div className="input-icon"><i className="fa fa-user"></i></div>
           </div>
 
-          <div class="input-group input-group-icon">
+          <div className="input-group input-group-icon">
             <input type='text' placeholder='Enter your user name' name='username' required onChange={this.handleChange} />
-            <div class="input-icon"><i class="fa fa-user"></i></div>
+            <div className="input-icon"><i className="fa fa-user"></i></div>
           </div>
 
-          <div class="input-group input-group-icon">
+          <div className="input-group input-group-icon">
             <input type='password' placeholder='Enter your password' name='password' required onChange={this.handleChange} />
-            <div class="input-icon"><i class="fa fa-key"></i></div>
+            <div className="input-icon"><i className="fa fa-key"></i></div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-half">
+        <div className="row">
+          <div className="col-half">
             <h4>Gender</h4>
-            <div class="input-group">
+            <div className="input-group">
               <select name='gender' onChange={this.handleChange}>
                 <option value='male'>Male</option>
                 <option value='female'>Female</option>
@@ -65,14 +65,14 @@ class Signup extends React.Component {
               </select>
             </div>
           </div>
-          <div class="col-half">
+          <div className="col-half">
             <h4>Birthday</h4>
             <input type='date' min='1900-01-01' max={new Date().toISOString().split("T")[0]} name='birthday' onChange={this.handleBirthday} required />
           </div>
         </div>
-        <div class="row">
+        <div className="row">
           <h4>Country</h4>
-          <div class="input-group">
+          <div className="input-group">
             <select name='country' onChange={this.handleChange}>
               <option value="Jordan">Jordan</option>
               <option value="Afghanistan">Afghanistan</option>
@@ -323,7 +323,7 @@ class Signup extends React.Component {
           </div>
         </div>
 
-        <div class="row">
+        <div className="row">
           <h4>Profile Pic</h4>
           <input placeholder='URL [Optional]' name='profilePic' onChange={this.handleChange} />
         </div>

@@ -1,6 +1,7 @@
 // React Dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginContext from './components/auth/context';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './app';
@@ -14,7 +15,9 @@ class Main extends React.Component{
     return(
       <Provider store={store}>
         <BrowserRouter>
-          <App/>
+          <LoginContext>
+            <App/>
+          </LoginContext>
         </BrowserRouter>
       </Provider>
     )

@@ -22,7 +22,7 @@ function Example() {
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-sm">
+            <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
             Log In
             </Modal.Title>
           </Modal.Header>
@@ -40,8 +40,8 @@ function Example() {
          
         >
           <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-lg">
-            Sign Up 
+            <Modal.Title id="example-modal-sizes-title-lg" className='modalTitle'>
+            Sign Up
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>

@@ -59,7 +59,7 @@ input[type="radio"]:checked + label,
 input:checked + label:before,
 select:focus,
 select:active {
-  background-color: #7ed321;
+  background-color: #6949B5;
   color: #fff;
   border-color: #64ac15;
 }
@@ -111,7 +111,7 @@ select:active {
   outline: 0;
 }
 select option {
-  background-color: #7ed321;
+  background-color: #6949B5;
   color: #fff;
 }
 .input-group {
@@ -263,4 +263,8 @@ select option {
 .modalBody{
   padding-right: 8%;
   padding-left: 8%;
+}
+
+.modalTitle{
+  color: #6949B5;
 }
