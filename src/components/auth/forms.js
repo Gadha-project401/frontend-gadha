@@ -14,7 +14,7 @@ function Example() {
     return (
       <>
         <button className="buttons" onClick={() => setSmShow(true)}>Log In</button>{' '}
-        <button className="buttons" onClick={() => setLgShow(true)}>Sign Up</button>
+        <button className="buttons1" onClick={() => setLgShow(true)}>Sign Up</button>
         <Modal
           
           show={smShow}
