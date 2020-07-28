@@ -1,24 +1,24 @@
-.bigHeader{
-  background-color: #E7AD34;
-  position: relative;
-}
-body{
-	overflow-x: hidden;
-}
-.bigHeader:after{
-position: absolute;
-width: 100%;
-height: 100%;
-content:'';
-background: inherit;
-top: 0;
-right: 0;
-left: 0;
-bottom: 0;
-transform-origin: top right ;
-transform: skewY(-4deg);
-z-index: -1;
-}
+// .bigHeader{
+//   background-color: #E7AD34;
+//   position: relative;
+// }
+// body{
+// 	overflow-x: hidden;
+// }
+// .bigHeader:after{
+// position: absolute;
+// width: 100%;
+// height: 100%;
+// content:'';
+// background: inherit;
+// top: 0;
+// right: 0;
+// left: 0;
+// bottom: 0;
+// transform-origin: top right ;
+// transform: skewY(-4deg);
+// z-index: -1;
+// }
 
 .sign{
   .button {
@@ -47,19 +47,6 @@ z-index: -1;
   
 }
 
-.logo{
-  background-image: url('../../images/gadha.PNG');
-  background-repeat: no-repeat;
-  background-size: contain;
-  
-}
-.image{
-  background-image: url('../../images/goal.PNG');
-  background-repeat: no-repeat;
-  background-size: contain;
-  // margin-left: 3%;
-  margin-top: 3%;
-}
 .text{
   text-align: center;
   position: relative;
@@ -72,14 +59,6 @@ z-index: -1;
   }
 }
 
-
-
-.main{
-  background-color: saddlebrown;
-}
-.footer{
-  background-color: seagreen;
-}
 // ///////////////////////////
 .header{
   height: 30em;
@@ -368,4 +347,16 @@ z-index: -1;
 		opacity: 1;
 		transform: scale(1) rotate(0deg);
 	}
+}
+.header1{
+	padding-bottom:125px;
+	background-image:URL('../../img/banner.png');
+	background-position:bottom;
+	background-repeat:no-repeat;
+	background-size:100%;
+	height: 92vh;
+}
+.headerLogo{
+	margin: 0px auto;
+
 }
