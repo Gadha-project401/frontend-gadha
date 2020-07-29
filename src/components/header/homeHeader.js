@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import Post from '../posts/motivations';
-import { NavLink, Route } from 'react-router-dom';
-import PostForm from '../forms/addPost';
+import React from 'react';
 import './header.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Modal from 'react-bootstrap/Modal'
+import logoheader from '../../img/logoheader.png';
 
 import Form from '../auth/forms';
 
@@ -13,37 +10,42 @@ import Form from '../auth/forms';
 const Home = props => {
 
   return (
-    <Container fluid>
-      <Row className="bigHeader">
-        <Container className="header" fluid>
-          <Row className="nav">
-            <Col md={2} className="logo"></Col>
-            <Col md={{ span: 3, offset: 7 }} className="sign">
-              <Form />
-            </Col>
-          </Row>
-          <Row className="secondRow">
-            <Col  xs={6} md={4} className="image"></Col>
-            <Col xs={12} md={8} className="text" >
-              <div className="sp-container">
-                <div className="sp-content">
-                  {/* <div className="sp-globe"></div> */}
-                  <h2 className="frame-1">Missing The Inspiration You Need To Go ?!</h2>
-                  <h2 className="frame-2">Don't have A Support Team To Help You Change ?! </h2>
-                  <h2 className="frame-3">Times Fly By Without Being Able To Achive Your Goals ?!</h2>
-                  <h2 className="frame-4">Don't Worry!</h2>
-                  <h2 className="frame-5">
-                    <span>With Gadha, You Can ,</span>
-                    <span> And You Will ,</span>
-                    <span> Change Your Life.</span>
-                  </h2>
-                </div>
+    <Container fluid className="header1">
+      <Container fluid>
+        <Row className="nav">
+          <Col xs={4} md={2} xl={2} lg={2} className="justify-content-center text-center">
+            <img src={logoheader} alt="" className="headerLogo" />
+          </Col>
+          <Col xs={4} md={6} xl={6} lg={6} className="justify-content-center text-center" ></Col>
+          <Col className="sign" xs={4} md={4} xl={4} lg={4} className="justify-content-center text-center" >
+            <Form />
+          </Col>
+        </Row>
+        <Row className="secondRow">
+        <Col xs={12} md={12} xl={4} lg={4} className="justify-content-center text-center" ></Col>
+          <Col xs={12} md={12} xl={8} lg={8} className="text" >
+            <div className="sp-container justify-content-center">
+              <div className="sp-content">
+                {/* <div className="sp-globe"></div> */}
+                <h2 className="frame-1">Missing The Inspiration <br /> You Need To Go ?!</h2>
+                <h2 className="frame-2">Don't have A Support <br /> Team To Help You Change ?! </h2>
+                <h2 className="frame-3">Times Fly By Without <br /> Being Able To Achive Your Goals ?!</h2>
+                <h2 className="frame-4">Don't Worry!</h2>
+                <h2 className="frame-5">
+                  <span>With Gadha, You Can ,</span>
+                  <span> And You Will ,</span>
+                  <span> Change Your Life.</span>
+                </h2>
               </div>
-            </Col>
-          </Row>
+              <div className="sp-content-res">
 
-        </Container>
-      </Row>
+              <h1>Missing The Inspiration <br /> You Need To Go ?!</h1>
+              </div>
+            </div>
+          </Col>
+        </Row>
+
+      </Container>
     </Container>
   )
 }
