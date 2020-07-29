@@ -29,7 +29,7 @@
 }
 .logo{
     position: relative;
-  top: 150px;
+  top: 100px;
 }
 
 a.social{
@@ -84,7 +84,7 @@ a.about {
     border-radius: 27px;
     padding: 0.4%;
     position: relative;
-  top: 120px;
+  top: 70px;
 
 }
 
@@ -95,7 +95,7 @@ a.about {
     font-size: 17px;
     color: #F8D271;
     position: relative;
-  top: 120px;
+  top: 100px;
 }
 .div-2 p.contact{
     padding-top: 0.8%;
@@ -112,12 +112,12 @@ p.rights{
     font-family: sans-serif;
     color: #F8D271;
     position: relative;
-  top: 120px;
+  top: 100px;
   font-size: 17px;
 }
 .footerLogo{
     position: relative;
-  top: 120px;
+  top: 100px;
 }
 
 
@@ -144,5 +144,5 @@ p.rights{
 }
 @media (max-width: 767px) {
 .logo {
-    top: 0px; 
+    top: -20px; 
 }}
