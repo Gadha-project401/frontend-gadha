@@ -1,6 +1,7 @@
 let initialState = {
     myGoals : [],
     progress: [],
+    publicGoals: [],
 };
 
 export default (state = initialState, action) => {
@@ -17,21 +18,24 @@ export default (state = initialState, action) => {
         }
           return goal;
       });
-      return {progress: state.progress,myGoals:newGoals};
+      return {...state,myGoals:newGoals};
 
     case 'POSTGOALS':
       console.log(payload);
       let postedGoals = [...state.myGoals]
       postedGoals.unshift(payload);
-      return {myGoals:postedGoals,progress:state.progress};
+      return {...state,myGoals:postedGoals};
 
     case 'DELETEMYGOALS':
       // eslint-disable-next-line
       let deletedGoals = state.myGoals.filter(goal=>{
         if(goal._id !== payload._id) return goal;
       });
-      return {progress: state.progress,myGoals:deletedGoals};
+      return {...state,myGoals:deletedGoals};
 
+    case 'GOALSLOAD':
+      let reversedPub = payload.reverse();
+      return {...state,publicGoals:reversedPub};
 
     case 'PROGRESS':
       console.log(state);

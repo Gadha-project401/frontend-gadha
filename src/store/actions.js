@@ -81,8 +81,15 @@ export const progressAPI = () => dispatch =>{
   superagent.get(`${API}/goals/progress`)
   .set('Authorization', 'Bearer ' + cookie.load('gadha-auth'))
   .then(data => {
-    console.log(data.body);
     dispatch(progress(data.body))
+  });
+}
+
+export const goalsAPI = () => dispatch =>{
+  superagent.get(`${API}/goals`)
+  .then(data => {
+    console.log(data.body);
+    dispatch(goals(data.body))
   });
 }
 
@@ -134,6 +141,13 @@ export const deleteOwnGoals = payload => {
 export const progress = payload => {
   return{
     type: 'PROGRESS',
+    payload: payload
+  }
+}
+
+export const goals = payload => {
+  return{
+    type: 'GOALSLOAD',
     payload: payload
   }
 }

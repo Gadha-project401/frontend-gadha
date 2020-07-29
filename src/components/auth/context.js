@@ -19,9 +19,15 @@ class LoginProvider extends React.Component{
       user: {},
       error: false,
       signupError:false,
+      active:{homepage:true,dashboard:false,publicGoals:false,about:false},
+      activePage:this.activePage,
     }
   }
 
+  activePage =value => {
+    this.setState({active:value});
+  }
+  
   login = (username,password) => {
 
     superagent.get(`${API}/signin`)
