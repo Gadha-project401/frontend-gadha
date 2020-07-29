@@ -10,20 +10,30 @@ import Show from './components/auth/show';
 import Signup from './components/auth/signup';
 import Footer from './components/footer/footer';
 import { Route } from 'react-router-dom';
+import NewUser from './components/dashboard/newUser' 
 
 const App = props =>{
   let user = useContext(LoginContext);
   return(
     <>
-    <Header/>
+    {/* <Header/> */}
+
+
+    {/* if it is not new user show this  */}
 
     <Show condition={user.loggedIn}>
       <Dashboard/>
     </Show>
 
-      <Body/>
 
-      <Footer/>
+    {/* if this is a new user show this : */}
+        {/* <NewUser/> */}
+
+
+
+      {/* <Body/> */}
+
+      {/* <Footer/> */}
     </>
   )
 }
