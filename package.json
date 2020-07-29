@@ -1,0 +1,61 @@
+{
+  "name": "frontend-gadha",
+  "version": "1.0.0",
+  "description": "1. Israa Othman  \r  2. Fatema Owedah  \r  3. Anas Zain  \r  4. Ammar Badwan",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gadha-project401/frontend-gadha.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gadha-project401/frontend-gadha/issues"
+  },
+  "homepage": ".",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "compass": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.2.2",
+    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table2-paginator": "^2.1.2",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-image": "^4.0.3",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "react-visibility-sensor": "^5.1.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "superagent": "^5.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}
