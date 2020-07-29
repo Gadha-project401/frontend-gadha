@@ -35,6 +35,7 @@ export default (state = initialState, action) => {
 
     case 'PROGRESS':
       console.log(state);
+      payload.progress= payload.progress.split('%')[0];
       return {...state,progress:payload};
     default:
       return state;

@@ -86,7 +86,7 @@ const Dashboard = props => {
           <Col sm={8}>
             <Row>
               <Col>
-              <ProgressBar variant="success" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}`}/>
+              <ProgressBar variant="success" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`}/>
               </Col>
             </Row>
             <Row>
