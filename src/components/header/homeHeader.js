@@ -32,8 +32,8 @@ const Home = props => {
                 <h2 className="frame-3">Times Fly By Without <br /> Being Able To Achive Your Goals ?!</h2>
                 <h2 className="frame-4">Don't Worry!</h2>
                 <h2 className="frame-5">
-                  <span>With Gadha, You Can ,</span>
-                  <span> And You Will ,</span>
+                  <span>With Gadha, You Can,</span>
+                  <span> And You Will,</span>
                   <span> Change Your Life.</span>
                 </h2>
               </div>

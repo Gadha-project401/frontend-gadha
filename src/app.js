@@ -16,14 +16,15 @@ const App = props =>{
   let user = useContext(LoginContext);
   return(
     <>
-    {/* <Header/> */}
+    <Header/>
+     
 
 
     {/* if it is not new user show this  */}
 
-    <Show condition={user.loggedIn}>
+    {/* <Show condition={user.loggedIn}>
       <Dashboard/>
-    </Show>
+    </Show> */}
 
 
     {/* if this is a new user show this : */}
@@ -31,9 +32,9 @@ const App = props =>{
 
 
 
-      {/* <Body/>
+      <Body/>
 
-      <Footer/> */}
+      <Footer/>
     </>
   )
 }

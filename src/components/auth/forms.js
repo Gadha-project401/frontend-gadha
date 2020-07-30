@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal'
 import SignUp from './signup';
 import Login from './login';
 
-function Example() {
+function Form() {
     const [smShow, setSmShow] = useState(false);
     const [lgShow, setLgShow] = useState(false);
   
@@ -52,4 +52,4 @@ function Example() {
     );
   }
   
-export default Example ;
+export default Form ;
