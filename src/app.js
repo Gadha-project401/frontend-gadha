@@ -31,9 +31,9 @@ const App = props =>{
 
 
 
-      {/* <Body/> */}
+      {/* <Body/>
 
-      {/* <Footer/> */}
+      <Footer/> */}
     </>
   )
 }

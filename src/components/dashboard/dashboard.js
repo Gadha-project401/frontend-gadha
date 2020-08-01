@@ -25,6 +25,10 @@ const Dashboard = props => {
   const [inprogress, setInprogress] = useState([]);
   const [complete, setComplete] = useState([]);
   const [showActive, setShowActive] = useState(false);
+  const [showMyGoals, setShowMyGoals] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
+  const [uniqueState, setUniqueState] = useState([]);
+  const [title, setTitle] = useState('');
   const [activeGoal, setActiveGoal] = useState({
     createdBy: "alaaa",
     image: "https://lunawood.com/wp-content/uploads/2018/02/placeholder-image.png",
@@ -65,6 +69,7 @@ const Dashboard = props => {
     completeFunction();
     inprogressFunction();
     todoFunction();
+    uniqueTitles();
   }, [props.myGoals.myGoals]);  // eslint-disable-line react-hooks/exhaustive-deps
 
   const completeFunction = () => {
@@ -126,8 +131,27 @@ const Dashboard = props => {
     setPost({ ...post, [e.target.name]: e.target.value })
   }
 
+  const uniqueTitles = () => {
+
+    let resArr = [];
+    props.myGoals.myGoals.forEach(function (item) {
+      let i = resArr.findIndex(x => x.title == item.title);
+      if (i <= -1) {
+        resArr.push({ ...item });
+      }
+    });
+    setUniqueState(resArr);
+  }
+
+  const sendTitle = (title) => {
+    setTitle(title);
+     setShowMyGoals(!showMyGoals);
+    //  setShowDetails(!showDetails);
+    console.log('title', title);
+  }
   return (
     <>
+
       <Container>
         <Row>
           <Col sm={4}>
@@ -139,24 +163,40 @@ const Dashboard = props => {
                 <li onClick={showAddForm}> Add new goal</li>
                 <li>Motivational Posts</li>
                 <li>Users achievements</li>
+                <li onClick={e=>setShowMyGoals(true)}>My Goals</li>
                 <li>Logout</li>
               </ul>
             </Row>
           </Col>
-          <Col  sm={8}>
+          <Col sm={8}>
             <Row>
               <Col>
                 <ProgressBar variant="success" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
               </Col>
             </Row>
+             <Show condition={showMyGoals}>
             <Row>
-
+             
+                {uniqueState.map(post => {
+                  return <button onClick={e => (sendTitle(post.title))}>{post.title}</button>
+                })}
+            
+            </Row>
+              </Show>
+              <Show condition={!showMyGoals}>
+                <Row>
+                   <div>
+                     <p>{title}</p>
+                     
+                   </div>
+                </Row>
+            <Row>      
               <Col className="goal">
                 <div> <p>To Do List</p>
-                  {todo.map(post => {
+                  {todo.filter(filtered => filtered.title === title).map(post => {
                     return (
                       <section key={post._id}>
-                        <button  className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.title} </button>
+                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
                       </section>
                     )
                   })}
@@ -166,10 +206,10 @@ const Dashboard = props => {
 
               <Col className="goal">
                 <div> <p>In Progress List</p>
-                  {inprogress.map(post => {
+                  {inprogress.filter(filtered => filtered.title === title).map(post => {
                     return (
                       <section key={post._id}>
-                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.title} </button>
+                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
                       </section>
                     )
                   })}
@@ -177,59 +217,60 @@ const Dashboard = props => {
               </Col>
               <Col className="goal">
                 <div> <p>Accomplished List</p>
-                  {complete.map(post => {
+                  {complete.filter(filtered => filtered.title === title).map(post => {
                     return (
                       <section key={post._id}>
-                        <button  className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.title} </button>
+                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
                       </section>
                     )
                   })}
                 </div>
               </Col>
             </Row>
+            
             <Show condition={showActive}>
-          <div>
-              <button onClick={()=>handleDelete(activeGoal._id)}>DELETE GOAL</button>
-              <p className="title">Title: {activeGoal.title}</p>
-              <p className="story">Story: {activeGoal.story}</p>
-              <p className="dueBy">Due By: {activeGoal.dueBy} </p>
-              <p className="status">Status: {activeGoal.status} </p>
-              <h5 className="createdBy" >Created By: {activeGoal.createdBy}</h5>
-              <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
-              <p className="privacy">Private: {activeGoal.private.toString()} </p>
-          </div>
-          <button name={activeGoal._id} onClick={showEditForm}>Edit Goal</button>
-          <Show condition={edit[activeGoal._id]}>
-          <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
-            <label>Title
+              <div>
+                <button onClick={() => handleDelete(activeGoal._id)}>DELETE GOAL</button>
+                <p className="title">Title: {activeGoal.title}</p>
+                <p className="story">Story: {activeGoal.story}</p>
+                <p className="dueBy">Due By: {activeGoal.dueBy} </p>
+                <p className="status">Status: {activeGoal.status} </p>
+                <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
+                <p className="privacy">Private: {activeGoal.private.toString()} </p>
+              </div>
+              <button name={activeGoal._id} onClick={showEditForm}>Edit Goal</button>
+              <Show condition={edit[activeGoal._id]}>
+                <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
+                  <label>Title
                 <input type='text' placeholder={activeGoal.title} name='title' onChange={handleChange} />
-            </label><br/>
-            <label>Story
+                  </label><br />
+                  <label>Story
                 <input type='text' placeholder={activeGoal.story} name='story' onChange={handleChange} />
-            </label><br/>
-            <label>Status
+                  </label><br />
+                  <label>Status
               <select name='status' onChange={handleChange}>
-                <option value='' hidden >Choose Progress</option>
-                <option value='todo'>Todo</option>
-                <option value='inprogress'>In-Progress</option>
-                <option value='complete'>Complete</option>
-              </select>
-            </label><br/>
-            <label>Privacy
+                      <option value='' hidden >Choose Progress</option>
+                      <option value='todo'>Todo</option>
+                      <option value='inprogress'>In-Progress</option>
+                      <option value='complete'>Complete</option>
+                    </select>
+                  </label><br />
+                  <label>Privacy
               <select name='private' onChange={handleChange}>
-                <option value='' hidden >Choose Privacy</option>
-                <option value='true'>Private</option>
-                <option value='false'>Public</option>
-              </select>
-            </label><br/>
-            <button>Update Goal</button>
-          </form>
-          </Show>
-          </Show>
+                      <option value='' hidden >Choose Privacy</option>
+                      <option value='true'>Private</option>
+                      <option value='false'>Public</option>
+                    </select>
+                  </label><br />
+                  <button>Update Goal</button>
+                </form>
+              </Show>
+            </Show>
+            </Show>
           </Col>
-          
+
         </Row>
-        
+
       </Container>
 
 
