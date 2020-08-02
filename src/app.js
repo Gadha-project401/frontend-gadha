@@ -27,7 +27,7 @@ const App = props =>{
       {/* < add header two instead of header one here /> */}
       <LoggedHeader/>
       <Dashboard/>
-      {/* <Chat/> */}
+      <Chat/>
     </Show>
 
 

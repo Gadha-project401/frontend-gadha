@@ -3,8 +3,8 @@
     display: block;
     height: 62px;
     position: fixed;
-    bottom: 50px;
-    right: 125px;
+    bottom: 5%;
+    right: 5%;
     padding: 10px;
     
     
@@ -27,6 +27,7 @@
     visibility: hidden;
     animation-name:disappear;
     animation-fill-mode: forwards;
+    border: 3px solid lightblue;
     animation-duration: 1s;
     width: 300px;
     height: 350px;
@@ -142,12 +143,12 @@
 }
 .chatUser{
     font-weight: bolder;
-    background-size: 1% auto;
+    margin-right: 2%;
     word-wrap: break-word;
     width: 30%;
 }
 .chatMsg{
-    width: 70%;
+    width: 68%;
     word-wrap: break-word;
 }
 

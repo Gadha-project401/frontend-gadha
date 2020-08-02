@@ -32,7 +32,7 @@ const Chat = props =>{
       }
     });
     
-  },[msg]);
+  },[msg]);// eslint-disable-line react-hooks/exhaustive-deps
   
 
   const userName = e =>{
@@ -88,7 +88,7 @@ const Chat = props =>{
           
           {msg.map((post,idx)=>{
             return(
-              <div className='chatBox' key={idx}> <span className='chatUser'>{post.user}:</span><span className='chatMsg'>{post.msg}</span> </div>
+              <div className='chatBox' key={idx}> <span className='chatUser'>{post.user}</span><span className='chatMsg'>{post.msg}</span> </div>
             )
           })}
 
