@@ -48,10 +48,10 @@ class Signup extends React.Component {
         .then(url =>{
           console.log(url);
           this.setState({profilePic:url});
+          this.context.signup(this.state.username, this.state.fullName, this.state.password, this.state.gender, this.state.country, this.state.birthday, this.state.profilePic);
         })
       }
     )
-    this.context.signup(this.state.username, this.state.fullName, this.state.password, this.state.gender, this.state.country, this.state.birthday, this.state.profilePic);
   }
 
   handleBirthday = e => {
