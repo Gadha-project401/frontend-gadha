@@ -1,7 +1,10 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from 'react-bootstrap/Modal'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './homepage.scss';
+import SignUp from '../auth/signup';
 import Sec1img from "../../img/img1.png";
 import star from "../../img/star.png";
 import in1 from "../../img/in1.jpg";
@@ -19,21 +22,21 @@ import img7 from "../../img/img7.png";
 
 
 const HomePage = props => {
-
+    const [lgShow, setLgShow] = useState(false);
     return (
         <>
             <Container container className="sec1">
                 <Row>
                     {/* <Col xs={12} md={1} xl={1} lg={1}></Col> */}
-                    <Col xs={12} md={5} xl={5} lg={5}>
+                    <Col className="zoom " xs={12} md={5} xl={5} lg={5}>
                         <h1 className="text-center">WE ARE GADHA</h1>
-                        <p className="text-center">Gadha is a very strong and mainingful word a word hold lots of empathy and motivation in it specially if you say it in southern Jordanian language, our brand GADHA is Bold, solid and powerful.... and this is the impact we want to reach every one of us.
+                        <p className="text-center" >Gadha is a very strong and mainingful word a word hold lots of empathy and motivation in it specially if you say it in southern Jordanian language, our brand GADHA is Bold, solid and powerful.... and this is the impact we want to reach every one of us.
                         <br />Gadha is the assistance and the mentor you need to keep going forword in every aspect of your life.</p>
                     </Col>
                     <Col xs={12} md={2} xl={2} lg={2}></Col>
-                    <Col xs={12} md={5} xl={5} lg={5}>
+                    <Col className="zoom " xs={12} md={5} xl={5} lg={5}>
                         <h1 className="text-center">WE ARE SPECIAL</h1>
-                        <p className="text-center">is we are the Companian of your success story...to we do not tell the story for you... we do not spread toyr word for you... we are the shadow follows and back you up at every single step... we are here to help, motivate and tap on ypue sholders when you take one step forward... </p>
+                        <p className="text-center">We are the Companian of your success story...to we do not tell the story for you... we do not spread toyr word for you... we are the shadow follows and back you up at every single step... we are here to help, motivate and tap on ypue sholders when you take one step forward... </p>
                     </Col>
                     {/* <Col xs={12} md={1} xl={1} lg={1}></Col> */}
                 </Row>
@@ -51,22 +54,22 @@ const HomePage = props => {
                         </Col>
                         <Col xs={12} md={12} xl={1} lg={1}></Col>
                         <Col xs={12} md={12} xl={3} lg={3}>
-                            <img src={star} alt="" />
-                            <p>keep you on track without pushing you.. by sending you nice quotes.. intrested videos how to videos regularly</p>
+                            <img src={star} alt="" className="w3-spin" />
+                            <p>Keep you on track without pushing you.. by sending you nice quotes.. intrested videos how to videos regularly</p>
 
-                            <img src={star} alt="" />
-                            <p>and what is nicer than to look at your own proud and achievements.. each member will have a wall of acheivments..</p>
+                            <img src={star} alt="" className="w3-spin" />
+                            <p>And what is nicer than to look at your own proud and achievements.. each member will have a wall of acheivments..</p>
 
                         </Col>
                         <Col xs={12} md={12} xl={1} lg={1}></Col>
                         <Col xs={12} md={12} xl={3} lg={3}>
-                            <img src={star} alt="" />
-                            <p>providing you with a big support group of friends sharing you the same goal</p>
+                            <img src={star} alt="" className="w3-spin" />
+                            <p>Providing you with a big support group of friends sharing you the same goal</p>
 
-                            <img src={star} alt="" />
-                            <p>we know.. we all have our ups and downs.. we create a 911 chat for you.. by a one click from you.. red buzzers buzz at your friends dashboards.. calling them to help you immediately..</p>
-                            <img src={star} alt="" />
-                            <p>the most important feature.. is to share honost moments.. proud small steps.. those that make real different.. how... by writing your dairy of achievent  as notes.. and you can motivate others.. by share the note your wrote today from your diary to public</p>
+                            <img src={star} alt="" className="w3-spin" />
+                            <p>We know.. we all have our ups and downs.. we create a 911 chat for you.. by a one click from you.. red buzzers buzz at your friends dashboards.. calling them to help you immediately..</p>
+                            <img src={star} alt="" className="w3-spin" />
+                            <p>The most important feature.. is to share honost moments.. proud small steps.. those that make real different.. how... by writing your dairy of achievent  as notes.. and you can motivate others.. by share the note your wrote today from your diary to public</p>
                         </Col>
                     </Row>
                 </Container>
@@ -82,9 +85,27 @@ const HomePage = props => {
                 </Row>
                 <Row className="justify-content-center">
                     <Col xs={12} md={12} xl={12} lg={12} className="justify-content-center text-center">
-                        <Button className="rounded-pill" variant="#EE9E6D" >
+                        <Button onClick={() => setLgShow(true)} className="rounded-pill joinBtn " variant="#EE9E6D" >
                             Join us now!
                         </Button>
+                        {/* signup modal */}
+                        <Modal
+                            show={lgShow}
+                            onHide={() => setLgShow(false)}
+                            centered
+
+                        >
+                            <Modal.Header closeButton>
+                                <Modal.Title id="example-modal-sizes-title-lg" className='modalTitle'>
+                                    Sign Up
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+
+                                <SignUp />
+                            </Modal.Body>
+                        </Modal>
+                        {/* end of signup modal */}
                     </Col>
                 </Row>
             </Container>
@@ -100,44 +121,44 @@ const HomePage = props => {
                         <Col xs={12} md={12} xl={3} lg={3}>
                             <img src={in1} alt="" />
                             <div>
+                                <h4>Nick Vujicic</h4>
                                 <img src={Qout} alt="" className="qoute" />
                                 <p>providing you with a big support group of friends sharing you the same goal</p>
                                 <img src={Qout1} alt="" className="qoute" />
-                                <h4>Nick Vujicic</h4>
                             </div>
                         </Col>
                         <Col xs={12} md={12} xl={3} lg={3}>
                             <img src={in2} alt="" />
                             <div>
+                                <h4>Robin Sharma</h4>
                                 <img src={Qout} alt="" className="qoute" />
                                 <p>Dreamers are mocked as impractical. The truth is they are the most practical, as their innovations lead to progress and a better way of life for all of us..</p>
                                 <img src={Qout1} alt="" className="qoute" />
-                                <h4>Robin Sharma</h4>
                             </div>
                         </Col>
                         <Col xs={12} md={12} xl={3} lg={3}>
                             <img src={in3} alt="" />
                             <div>
+                                <h4>Les Brown</h4>
                                 <img src={Qout} alt="" className="qoute" />
                                 <p>When life knocks you down, try to land on your back. Because if you can look up, you can get up. Let your reason get you back up</p>
                                 <img src={Qout1} alt="" className="qoute" />
-                                <h4>Les Brown</h4>
                             </div>
                         </Col>
                         <Col xs={12} md={12} xl={3} lg={3}>
                             <img src={in4} alt="" />
                             <div>
+                                <h4>Brian Tracy</h4>
                                 <img src={Qout} alt="" className="qoute" />
                                 <p>No one lives long enough to learn everything they need to learn starting from scratch. To be successful, we absolutely, positively have to find people who have already paid the price to learn the things that we need to learn to achieve our goals.</p>
                                 <img src={Qout1} alt="" className="qoute" />
-                                <h4>Brian Tracy</h4>
                             </div>
                         </Col>
                     </Row>
 
                 </Container>
             </Container>
-            <Col xs={12} md={12} xl={12} lg={12} className="p-0 m-0"><img src={imgCut} className="w-100"  alt=""/></Col>
+            <Col xs={12} md={12} xl={12} lg={12} className="p-0 m-0"><img src={imgCut} className="w-100" alt="" /></Col>
             <Container fluid className="sec4">
                 <Container container>
                     <Row>
@@ -217,18 +238,18 @@ const HomePage = props => {
                                 <div className="content">
                                     <img src={pStar} alt="" />
                                     <img src={pStar} alt="" />
-                                    <img src={pStar} alt=""/>
+                                    <img src={pStar} alt="" />
                                     <span>Israa Othman</span>
                                 </div>
                                 <div className="content">
-                                    <img src={pStar} alt=""/>
                                     <img src={pStar} alt="" />
-                                    <img src={pStar} alt=""/>
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt="" />
                                     <span>Anas Zain </span>
                                 </div>
                                 <div className="content">
-                                    <img src={pStar} alt=""/>
-                                    <img src={pStar} alt=""/>
+                                    <img src={pStar} alt="" />
+                                    <img src={pStar} alt="" />
                                     <img src={pStar} alt="" />
                                     <span>Ammar Badwan </span>
                                 </div>
@@ -240,7 +261,7 @@ const HomePage = props => {
                                 </div>
                                 <div className="controller">
                                     <a href="#" ><img src={next} alt="" /></a>
-                                    <a href="#" ><img src={prev} alt=""/></a>
+                                    <a href="#" ><img src={prev} alt="" /></a>
                                 </div>
                             </div>
                         </Col>
@@ -251,7 +272,7 @@ const HomePage = props => {
             <Container container className="sec5">
                 <Row>
                     <Col xs={12} md={12} xl={4} lg={4} >
-                        <img src={img7} className="w-100" alt="" />
+                        <img src={img7} className="w-100 w3-spin" alt="" />
                     </Col>
                     <Col xs={12} md={12} xl={8} lg={8} >
                         <h1>STORIES<br />OF HAPPINESS<br />PURSUERS</h1>
