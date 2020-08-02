@@ -1,0 +1,50 @@
+.bigHeader{
+    background-color: #E7AD34;
+    height: 6.5em;
+  }
+  .loggedInLogo{
+    background-image: url('../../images/gadha.PNG');
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 3%;
+    cursor: pointer;
+  }
+  div.bigHeader.row{
+    padding-top: 1%;
+  }
+  h2.username{
+    cursor: pointer;
+  }
+  .ayKelme{
+    border-radius: 50%;
+  }
+  // ///////////////////////////
+ div.dropdown-menu.show{ 
+  padding: 3% 3.5% 1% 2%;
+ }
+ button#dropdown-basic.dropdown-toggle.btn.btn-failed{
+    float: right;
+    margin-right: 4%;
+ }
+ .dropItem{
+     background-color: orange;
+ }
+ a.dropItem.dropdown-item:hover {
+    background-color: #C8B2E2;
+}
+button.dropdown-btn{
+  border: none;
+  background-color: white;
+  color: #417BFF;
+  border-radius: 10px ;
+}
+div.circle_reactGradientProgress__1_0UG{
+  margin: -8% 0% -9% 57%;
+}
+img.col-img{
+  margin: -27% 0% -8% -10%;
+}
+h5.username {
+  font-size: 1.25rem;
+  margin: -29% 0% 8% 42%;;
+}
