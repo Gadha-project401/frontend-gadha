@@ -5,6 +5,7 @@ import Show from '../auth/show';
 import './dashboard.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import Modal from 'react-bootstrap/Modal'
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 
 
@@ -26,7 +27,9 @@ const Dashboard = props => {
   const [complete, setComplete] = useState([]);
   const [showActive, setShowActive] = useState(false);
   const [showMyGoals, setShowMyGoals] = useState(true);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showAddGoal, setShowAddGoal] = useState(false);
+  const [showEditGoal, setShowEditGoal] = useState(false);
+  const [showAddStep, setShowAddStep] = useState(false);
   const [uniqueState, setUniqueState] = useState([]);
   const [title, setTitle] = useState('');
   const [activeGoal, setActiveGoal] = useState({
@@ -99,6 +102,7 @@ const Dashboard = props => {
     e.preventDefault()
     props.updOwn(id, object)
     setShowActive(!showActive);
+    setShowEditGoal(false);
   };
 
   const handleChange = e => {
@@ -109,22 +113,24 @@ const Dashboard = props => {
     props.delOwn(id);
   }
 
-  const showAddForm = e => {
-    setAddPost(!addPost);
-  }
+  // const showAddForm = e => {
+  //   setAddPost(!addPost);
+  // }
 
-  const showEditForm = e => {
-    if (edit[e.target.name] === undefined) {
-      setEdit({ ...edit, [e.target.name]: true })
-    } else {
-      setEdit({ ...edit, [e.target.name]: !edit[e.target.name] });
-    }
-  }
+  // const showEditForm = e => {
+  //   if (edit[e.target.name] === undefined) {
+  //     setEdit({ ...edit, [e.target.name]: true })
+  //   } else {
+  //     setEdit({ ...edit, [e.target.name]: !edit[e.target.name] });
+  //   }
+  // }
 
   const addPostSubmit = e => {
     e.preventDefault();
     props.postGoal(post);
     setAddPost(!addPost);
+    setShowAddGoal(false)
+    setShowAddStep(false)
   }
 
   const addPostHandler = e => {
@@ -145,10 +151,17 @@ const Dashboard = props => {
 
   const sendTitle = (title) => {
     setTitle(title);
-     setShowMyGoals(!showMyGoals);
+    setShowMyGoals(!showMyGoals);
     //  setShowDetails(!showDetails);
     console.log('title', title);
   }
+
+  const addToList = (status, title) => {
+    setPost({ status, title });
+    setShowAddStep(true);
+    // console.log('post',type,title);
+  }
+
   return (
     <>
 
@@ -160,10 +173,11 @@ const Dashboard = props => {
             </Row>
             <Row>
               <ul>
-                <li onClick={showAddForm}> Add new goal</li>
+                {/* <li onClick={showAddForm}> Add new goal</li> */}
+                <li onClick={() => setShowAddGoal(true)}> Add new goal</li>
                 <li>Motivational Posts</li>
                 <li>Users achievements</li>
-                <li onClick={e=>setShowMyGoals(true)}>My Goals</li>
+                <li onClick={e => setShowMyGoals(true)}>My Goals</li>
                 <li>Logout</li>
               </ul>
             </Row>
@@ -174,155 +188,285 @@ const Dashboard = props => {
                 <ProgressBar variant="success" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
               </Col>
             </Row>
-             <Show condition={showMyGoals}>
-            <Row>
-             
+            <Show condition={showMyGoals}>
+              <Row>
+
                 {uniqueState.map(post => {
                   return <button onClick={e => (sendTitle(post.title))}>{post.title}</button>
                 })}
-            
-            </Row>
-              </Show>
-              <Show condition={!showMyGoals}>
-                <Row>
-                   <div>
-                     <p>{title}</p>
-                     
-                   </div>
-                </Row>
-            <Row>      
-              <Col className="goal">
-                <div> <p>To Do List</p>
-                  {todo.filter(filtered => filtered.title === title).map(post => {
-                    return (
-                      <section key={post._id}>
-                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
-                      </section>
-                    )
-                  })}
-                </div>
 
-              </Col>
-
-              <Col className="goal">
-                <div> <p>In Progress List</p>
-                  {inprogress.filter(filtered => filtered.title === title).map(post => {
-                    return (
-                      <section key={post._id}>
-                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
-                      </section>
-                    )
-                  })}
-                </div>
-              </Col>
-              <Col className="goal">
-                <div> <p>Accomplished List</p>
-                  {complete.filter(filtered => filtered.title === title).map(post => {
-                    return (
-                      <section key={post._id}>
-                        <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
-                      </section>
-                    )
-                  })}
-                </div>
-              </Col>
-            </Row>
-            
-            <Show condition={showActive}>
-              <div>
-                <button onClick={() => handleDelete(activeGoal._id)}>DELETE GOAL</button>
-                <p className="title">Title: {activeGoal.title}</p>
-                <p className="story">Story: {activeGoal.story}</p>
-                <p className="dueBy">Due By: {activeGoal.dueBy} </p>
-                <p className="status">Status: {activeGoal.status} </p>
-                <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
-                <p className="privacy">Private: {activeGoal.private.toString()} </p>
-              </div>
-              <button name={activeGoal._id} onClick={showEditForm}>Edit Goal</button>
-              <Show condition={edit[activeGoal._id]}>
-                <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
-                  <label>Title
-                <input type='text' placeholder={activeGoal.title} name='title' onChange={handleChange} />
-                  </label><br />
-                  <label>Story
-                <input type='text' placeholder={activeGoal.story} name='story' onChange={handleChange} />
-                  </label><br />
-                  <label>Status
-              <select name='status' onChange={handleChange}>
-                      <option value='' hidden >Choose Progress</option>
-                      <option value='todo'>Todo</option>
-                      <option value='inprogress'>In-Progress</option>
-                      <option value='complete'>Complete</option>
-                    </select>
-                  </label><br />
-                  <label>Privacy
-              <select name='private' onChange={handleChange}>
-                      <option value='' hidden >Choose Privacy</option>
-                      <option value='true'>Private</option>
-                      <option value='false'>Public</option>
-                    </select>
-                  </label><br />
-                  <button>Update Goal</button>
-                </form>
-              </Show>
+              </Row>
             </Show>
+            <Show condition={!showMyGoals}>
+              <Row>
+                <div>
+                  <p>{title}</p>
+                </div>
+              </Row>
+              <Row>
+                <Col className="goal">
+                  <div> <p>To Do List</p>
+                    {todo.filter(filtered => filtered.title === title).map(post => {
+                      return (
+                        <section key={post._id}>
+                          <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
+                        </section>
+                      )
+                    })}
+                    <button onClick={() => addToList('todo', title)}>+</button>
+                  </div>
+                </Col>
+                <Col className="goal">
+                  <div> <p>In Progress List</p>
+                    {inprogress.filter(filtered => filtered.title === title).map(post => {
+                      return (
+                        <section key={post._id}>
+                          <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
+                        </section>
+                      )
+                    })}
+                    <button onClick={() => addToList('inprogress', title)}>+</button>
+                  </div>
+                </Col>
+                <Col className="goal">
+                  <div> <p>Accomplished List</p>
+                    {complete.filter(filtered => filtered.title === title).map(post => {
+                      return (
+                        <section key={post._id}>
+                          <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
+                        </section>
+                      )
+                    })}
+                    <button onClick={() => addToList('complete', title)}>+</button>
+                  </div>
+                </Col>
+              </Row>
+              {/* <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} /> */}
+              <Show condition={showActive}>
+                <div>
+                  <button onClick={() => handleDelete(activeGoal._id)}>DELETE GOAL</button>
+                  <p className="title">Title: {activeGoal.title}</p>
+                  <p className="story">Story: {activeGoal.story}</p>
+                  <p className="dueBy">Due By: {activeGoal.dueBy} </p>
+                  <p className="status">Status: {activeGoal.status} </p>
+                  <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
+                  <p className="privacy">Private: {activeGoal.private.toString()} </p>
+                </div>
+                {/* <button name={activeGoal._id} onClick={showEditForm}>Edit Goal</button> */}
+                <button name={activeGoal._id} onClick={() => setShowEditGoal(true)}>Edit Goal</button>
+                <Modal
+
+                  show={showEditGoal}
+                  onHide={() => setShowEditGoal(false)}
+                  centered
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
+                      Edit Goal
+                   </Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body >
+                    {/* <Show condition={edit[activeGoal._id]}> */}
+                    <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
+                      <input type='hidden' value={activeGoal.title} name='title' onChange={handleChange} />
+                      <br />
+                      <label><h5>Story</h5>
+                        <input type='text' placeholder={activeGoal.story} name='story' onChange={handleChange} />
+                      </label><br />
+                      <div>
+                        <h5> Status :</h5>
+                        <select name='status' onChange={handleChange}>
+                          <option value='' hidden >Choose Progress</option>
+                          <option value='todo'>Todo</option>
+                          <option value='inprogress'>In-Progress</option>
+                          <option value='complete'>Complete</option>
+                        </select>
+                      </div>
+                      <br />
+                      <br />
+                      <br />
+                      <div>
+                        <h5>
+                          Privacy
+                        </h5>
+                        <select name='private' onChange={handleChange}>
+                          <option value='' hidden >Choose Privacy</option>
+                          <option value='true'>Private</option>
+                          <option value='false'>Public</option>
+                        </select>
+                      </div>
+                      <br />
+                      <br />
+                      <br />
+                      <button className="signBtn">Update Goal</button>
+                    </form>
+                    {/* </Show> */}
+                  </Modal.Body>
+                </Modal>
+              </Show>
             </Show>
           </Col>
-
         </Row>
-
       </Container>
-
-
-
       {/* <button onClick={showAddForm}>Add new goal</button> */}
-
       {/* <img className="profilePic" src={user.user.userPic} alt='ProfilePic' /> */}
-      <Show condition={addPost}>
-        <form onSubmit={addPostSubmit}>
+      {/* <Show condition={addPost}> */}
+      <Modal
 
-          <label>Goal Title:
+        show={showAddGoal}
+        onHide={() => setShowAddGoal(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
+            Add New Goal
+            </Modal.Title>
+        </Modal.Header>
+        <Modal.Body >
+          <form onSubmit={addPostSubmit}>
+            <label><h5>Goal Title:</h5>
               <input type='text' placeholder='Enter Goal Title' name='title' required onChange={addPostHandler} />
-          </label><br />
-
-          <label>Goal Story:
+            </label><br />
+            <label><h5>Goal Story:</h5>
               <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
-          </label><br />
-
-          <label>Goal Status:
+            </label><br />
+            {/* <label>  */}
+            <div>
+              <h5> Goal Status:</h5>
               <select name='status' onChange={addPostHandler} required>
-              <option value='' hidden >Set Status</option>
-              <option value='todo'>To Do</option>
-              <option value='inprogress'>In Progress</option>
-              <option value='complete'>Complete</option>
-            </select>
-          </label><br />
-
-          <label>Goal Privacy:
+                <option value='' hidden >Set Status</option>
+                <option value='todo'>To Do</option>
+                <option value='inprogress'>In Progress</option>
+                <option value='complete'>Complete</option>
+              </select>
+            </div>
+            {/* </label> */}
+            <br />
+            <br />
+            <br />
+            {/* <label> */}
+            <div>
+              <h5>Goal Privacy:</h5>
               <select name='private' onChange={addPostHandler} required>
-              <option value='' hidden >Set Privacy</option>
-              <option value='true'>Private</option>
-              <option value='false'>Public</option>
-            </select>
-          </label><br />
+                <option value='' hidden >Set Privacy</option>
+                <option value='true'>Private</option>
+                <option value='false'>Public</option>
+              </select>
+            </div>
+            <br />
+            <br />
+            <br />
+            {/* </label><br /> */}
+            <label><h5>Goal Due in :</h5>
+              <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler} />
+            </label><br />
 
-          <label>Goal Due in :
-              <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler} /> Days
-          </label><br />
-
-          <button>Add Goal</button>
-        </form>
-
-
-      </Show>
+            <button className="signBtn">Add Goal</button>
+          </form>
+        </Modal.Body>
+      </Modal>
+      {/* </Show> */}
 
 
       <Show condition={!user.loggedIn}>
         <p>Logged out user</p>
       </Show>
+
+
+
+
+      <Modal
+        show={showAddStep}
+        onHide={() => setShowAddStep(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
+            Add Step
+            </Modal.Title>
+        </Modal.Header>
+        <Modal.Body >
+          <form onSubmit={addPostSubmit}>
+            <label><h5>Goal Story:</h5>
+              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+            </label><br />
+            <div>
+              <h5>Goal Privacy:</h5>
+              <select name='private' onChange={addPostHandler} required>
+                <option value='' hidden >Set Privacy</option>
+                <option value='true'>Private</option>
+                <option value='false'>Public</option>
+              </select>
+            </div>
+            <br />
+            <br />
+            <br />
+            {/* </label><br /> */}
+            <label><h5>Goal Due in :</h5>
+              <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler} />
+            </label><br />
+
+            <button className="signBtn">Add Goal</button>
+          </form>
+        </Modal.Body>
+      </Modal>
+
+
     </>
   )
 }
+
+// const MydModalWithGrid = (e, type, title) => {
+
+//   <Modal
+//   show={showAddStep}
+//   onHide={() => setShowAddStep(false)}
+//   centered
+// >
+//   <Modal.Header closeButton>
+//     <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
+//       Edit Goal
+//    </Modal.Title>
+//   </Modal.Header>
+//   <Modal.Body >
+//     {/* <Show condition={edit[activeGoal._id]}> */}
+//     <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
+//       <input type='text' value={title} name='title' onChange={handleChange} />
+//       <br />
+//       <label><h5>Story</h5>
+//         <input type='text' placeholder={activeGoal.story} name='story' onChange={handleChange} />
+//       </label><br />
+//       <div>
+//         <h5> Status :</h5>
+//         <select name='status' value={type} onChange={handleChange}>
+//           <option value='' hidden >Choose Progress</option>
+//           <option value='todo'>Todo</option>
+//           <option value='inprogress'>In-Progress</option>
+//           <option value='complete'>Complete</option>
+//         </select>
+//       </div>
+//       <br />
+//       <br />
+//       <br />
+//       <div>
+//         <h5>
+//           Privacy
+//         </h5>
+//         <select name='private' onChange={handleChange}>
+//           <option value='' hidden >Choose Privacy</option>
+//           <option value='true'>Private</option>
+//           <option value='false'>Public</option>
+//         </select>
+//       </div>
+//       <br />
+//       <br />
+//       <br />
+//       <button className="signBtn">Update Goal</button>
+//     </form>
+//     {/* </Show> */}
+//   </Modal.Body>
+// </Modal>
+// }
 
 const mapStateToProps = state => ({
   myGoals: state.ownGoals,
@@ -340,55 +484,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 
 
 
-
-// {props.myGoals.myGoals.map(post => {
-
-//   return (
-//     <section className="goal" key={post._id}>
-//       <div>
-//         <Row className="justify-content-md-center">
-//           <Col><FaEdit name={post._id} onClick={showEditForm} /></Col>
-//           <Col><FaRegTrashAlt onClick={() => handleDelete(post._id)} /></Col>
-//         </Row>
-
-//         <p className="createdAt">Created On: {post.createdAt.split(',')[0]}</p>
-//         <p className="title">Title: {post.title}</p>
-//         <p className="story">Story: {post.story}</p>
-//         <p className="dueBy">Due By: {post.dueBy} </p>
-//         <p className="status">Status: {post.status} </p>
-//         {/* <h5 className="createdBy" >Created By: {post.createdBy}</h5> */}
-//         {/* <p className="privacy">Private: {post.private.toString()} </p> */}
-
-
-//       </div>
-//       <Show condition={edit[post._id]}>
-//         <form onSubmit={(e) => updateSubmit(post._id, e)}>
-//           <label>Title
-//     <input type='text' placeholder={post.title} name='title' onChange={handleChange} />
-//           </label><br />
-//           <label>Story
-//     <input type='text' placeholder={post.story} name='story' onChange={handleChange} />
-//           </label><br />
-//           <label>Status
-//   <select name='status' onChange={handleChange}>
-//               <option value='' hidden >Choose Progress</option>
-//               <option value='inprogress'>In-Progress</option>
-//               <option value='complete'>Complete</option>
-//               <option value='failed'>Failed</option>
-//             </select>
-//           </label><br />
-//           <label>Privacy
-//   <select name='private' onChange={handleChange}>
-//               <option value='' hidden >Choose Privacy</option>
-//               <option value='true'>Private</option>
-//               <option value='false'>Public</option>
-//             </select>
-//           </label><br />
-
-//           <button>Update Goal</button>
-//         </form>
-//       </Show>
-//     </section>
-
-//   )
-// })}
