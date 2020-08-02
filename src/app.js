@@ -3,28 +3,32 @@ import React , {useContext} from 'react';
 
 //Components importation
 import Header from './components/header/homeHeader';
+import LoggedHeader from './components/header/loggedHeader';
 import Body from './components/body/body';
 import Dashboard from './components/dashboard/dashboard'
 import {LoginContext} from './components/auth/context';
 import Show from './components/auth/show';
-import Signup from './components/auth/signup';
 import Footer from './components/footer/footer';
-import { Route } from 'react-router-dom';
-import NewUser from './components/dashboard/newUser' 
+import NewUser from './components/dashboard/newUser';
+import Chat from './components/chat/chat';
+
 
 const App = props =>{
   let user = useContext(LoginContext);
   return(
     <>
-    <Header/>
+    <Show condition={!user.loggedIn}>
+      <Header/>
+      <Body/>
+      
+    </Show>
      
-
-
-    {/* if it is not new user show this  */}
-
-    {/* <Show condition={user.loggedIn}>
+    <Show condition={user.loggedIn}>
+      {/* < add header two instead of header one here /> */}
+      <LoggedHeader/>
       <Dashboard/>
-    </Show> */}
+      {/* <Chat/> */}
+    </Show>
 
 
     {/* if this is a new user show this : */}
@@ -32,7 +36,7 @@ const App = props =>{
 
 
 
-      <Body/>
+      
 
       <Footer/>
     </>
