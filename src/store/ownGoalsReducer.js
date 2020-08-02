@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
       return {...state,myGoals:newGoals};
 
     case 'POSTGOALS':
-      console.log(payload);
       let postedGoals = [...state.myGoals]
       postedGoals.unshift(payload);
       return {...state,myGoals:postedGoals};
@@ -38,8 +37,8 @@ export default (state = initialState, action) => {
       return {...state,publicGoals:reversedPub};
 
     case 'PROGRESS':
-      console.log(state);
       payload.progress= payload.progress.split('%')[0];
+      if (payload.progress === 'NaN') payload.progress = '0';
       return {...state,progress:payload};
     default:
       return state;

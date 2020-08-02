@@ -1,6 +1,7 @@
 import React from 'react';
 import { LoginContext } from './context';
 import Show from './show';
+import {storage} from '../../firebase';
 
 class Signup extends React.Component {
   static contextType = LoginContext;
@@ -13,7 +14,15 @@ class Signup extends React.Component {
       gender: 'male',
       country: 'jordan',
       birthday: '',
+      image:'',
       profilePic: null,
+    }
+  }
+
+  handleImage = e =>{
+    if(e.target.files[0]){
+      // console.log(e.target.files[0])
+    this.setState({ [e.target.name]: e.target.files[0]});
     }
   }
 
@@ -24,7 +33,25 @@ class Signup extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.context.signup(this.state.username, this.state.fullName, this.state.password, this.state.gender, this.state.country, this.state.birthday, this.state.profilePic);
+    const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {},
+      error =>{
+        console.log(error)
+      },
+      () =>{
+        storage
+        .ref('images')
+        .child(this.state.image.name)
+        .getDownloadURL()
+        .then(url =>{
+          console.log(url);
+          this.setState({profilePic:url});
+          this.context.signup(this.state.username, this.state.fullName, this.state.password, this.state.gender, this.state.country, this.state.birthday, this.state.profilePic);
+        })
+      }
+    )
   }
 
   handleBirthday = e => {
@@ -325,7 +352,8 @@ class Signup extends React.Component {
 
         <div className="row">
           <h4>Profile Pic</h4>
-          <input placeholder='URL [Optional]' name='profilePic' onChange={this.handleChange} />
+          <input type="file"  name='image' onChange={this.handleImage}/>
+          {/* <input placeholder='URL [Optional]' name='profilePic' onChange={this.handleChange} /> */}
         </div>
 
 
