@@ -262,17 +262,17 @@ transition-timing-function: ease-out;
 .card {
     background: #430D33;
     border-radius:20px;
-    padding:110px 30px;
+    padding:90px 0px;
     color: #EE9E6D;
     font-size: 20px;
     font-family: 'Anton', sans-serif;
     text-align:center;
-    height: 50vh;
+    height: 40vh;
     margin: 50px 0px;
-    width: 120%;
+    width: 105%;
 }
 .card1 {
-  background: #430D33;
+  background: #613D61;
   border-radius:20px;
   padding:110px 30px;
   color: #EE9E6D;
@@ -281,8 +281,20 @@ transition-timing-function: ease-out;
   text-align:center;
   height: 50vh;
   margin: 50px 0px;
-  width: 100%;
+  width: 93%;
 }
+.card2 {
+    background: #EE9E6D;
+    border-radius:20px;
+    padding:40px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+    text-align:center;
+    height: 60vh;
+    width: 100%;
+    margin-bottom: 40px;
+  }
 
 .card img{
   height: 40px;
@@ -380,7 +392,7 @@ transition-timing-function: ease-out;
     }
 
     .progress{
-      background-color: #430D33;
+      background-color: #613D61;
       margin-top: 100px;
       height: 30px;
 
@@ -392,7 +404,7 @@ transition-timing-function: ease-out;
       margin-bottom: 20px;
     }
     .goal .card{
-      background-color: #430D33;
+      background-color: #613D61;
       margin-top: 20px;
       margin-left: 15px;
       margin-bottom: 20px;
@@ -425,5 +437,13 @@ transition-timing-function: ease-out;
       margin-top: 2px;
     width: 65px;
     height: 85px;
+    }
+    .motevationDiv{
+  background:#FFF7EB;
+  background-image:URL('../../img/motivationDiv.jpg');
+  background-position:top;
+  background-repeat:no-repeat;
+  background-size:100%;
+  height: 20vh;
     }
     

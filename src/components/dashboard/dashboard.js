@@ -9,11 +9,14 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import Modal from 'react-bootstrap/Modal';
 import logo from "../../img/logo-m.png";
+import bin from "../../img/bin.png";
 import plus from "../../img/plus.png";
 import bell from "../../img/bell.png";
 import img911 from "../../img/911-2.png";
 import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
+import editt from "../../img/edit.png";
+import MotivationPost from "../forms/addPost";
 
 
 
@@ -37,6 +40,7 @@ const Dashboard = props => {
   const [showDetails, setShowDetails] = useState(false);
   const [uniqueState, setUniqueState] = useState([]);
   const [title, setTitle] = useState('');
+  const [showAddStep, setShowAddStep] = useState(false);
   const [showEditGoal, setShowEditGoal] = useState(false);
   const [showAddGoal, setShowAddGoal] = useState(false);
   const [activeGoal, setActiveGoal] = useState({
@@ -110,6 +114,7 @@ const Dashboard = props => {
     props.updOwn(id, object)
     setShowActive(!showActive);
     setShowEditGoal(false);
+
   };
 
   const handleChange = e => {
@@ -118,6 +123,7 @@ const Dashboard = props => {
 
   const handleDelete = id => {
     props.delOwn(id);
+    setShowActive(false);
   }
 
   const showAddForm = e => {
@@ -136,7 +142,9 @@ const Dashboard = props => {
     e.preventDefault();
     props.postGoal(post);
     setAddPost(!addPost);
-    setShowAddGoal(false)
+    setShowAddGoal(false);
+    setShowAddStep(false)
+
   }
 
   const addPostHandler = e => {
@@ -160,6 +168,11 @@ const Dashboard = props => {
     setShowMyGoals(!showMyGoals);
     //  setShowDetails(!showDetails);
     console.log('title', title);
+  }
+  const addToList = (status, title) => {
+    setPost({ status, title });
+    setShowAddStep(true);
+    // console.log('post',type,title);
   }
   return (
     <>
@@ -273,10 +286,10 @@ const Dashboard = props => {
                         <h1>
                           PICKED FOR YOU | TIP FROM ADVISOR
                             </h1>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ujDtm0hZyII" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
                       </div>
 
-                      <div style={{ background: "#FFF7EB" }}>
+                      <div className="motevationDiv">
                         A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
                         A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
 
@@ -286,6 +299,11 @@ const Dashboard = props => {
                   </Row>
                 </Show>
                 <Show condition={!showMyGoals}>
+                  <Row>
+                  <Container container className=" justify-content-center">
+                    <MotivationPost />
+                  </Container>
+                  </Row>
                   <Row>
                     <Container container className=" justify-content-center">
                       <h2 className="h2title">{title}</h2>
@@ -302,7 +320,7 @@ const Dashboard = props => {
                             </section>
                           )
                         })}
-                        <p className="addNew">Add New</p>
+                        <p className="addNew" onClick={() => addToList('todo', title)}>Add New</p>
                       </Card>
                     </Col>
 
@@ -316,7 +334,7 @@ const Dashboard = props => {
                             </section>
                           )
                         })}
-                        <p className="addNew">Add New</p>
+                        <p className="addNew" onClick={() => addToList('inprogress', title)}>Add New</p>
                       </Card>
                     </Col>
                     <Col xs={4} md={4} xl={4} lg={4} className="goal">
@@ -329,14 +347,16 @@ const Dashboard = props => {
                             </section>
                           )
                         })}
-                        <p className="addNew">Add New</p>
+                        <p className="addNew" onClick={() => addToList('complete', title)}>Add New</p>
                       </Card>
                     </Col>
                   </Row>
 
                   <Show condition={showActive}>
+                  <Card className="card2">
                     <div>
-                      <button onClick={() => handleDelete(activeGoal._id)}>DELETE GOAL</button>
+                      <button style={{backgroundColor:"#EE9E6D", border:"0px"}} onClick={() => handleDelete(activeGoal._id)}><img src={bin} alt="bin" /></button>
+                      <button  style={{backgroundColor:"#EE9E6D", border:"0px"}} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={editt} alt="editimg" /></button>
                       <p className="title">Title: {activeGoal.title}</p>
                       <p className="story">Story: {activeGoal.story}</p>
                       <p className="dueBy">Due By: {activeGoal.dueBy} </p>
@@ -344,7 +364,7 @@ const Dashboard = props => {
                       <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
                       <p className="privacy">Private: {activeGoal.private.toString()} </p>
                     </div>
-                    <button name={activeGoal._id} onClick={() => setShowEditGoal(true)}>Edit Goal</button>
+                    </Card>
                     <Modal
                       show={showEditGoal}
                       onHide={() => setShowEditGoal(false)}
@@ -398,12 +418,41 @@ const Dashboard = props => {
           </Row>
         </Container>
       </Container>
+      <Modal
+        show={showAddStep}
+        onHide={() => setShowAddStep(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
+            Add Step
+            </Modal.Title>
+        </Modal.Header>
+        <Modal.Body >
+          <form onSubmit={addPostSubmit}>
+            <label><h5>Goal Story:</h5>
+              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+            </label><br />
+            <div>
+              <h5>Goal Privacy:</h5>
+              <select name='private' onChange={addPostHandler} required>
+                <option value='' hidden >Set Privacy</option>
+                <option value='true'>Private</option>
+                <option value='false'>Public</option>
+              </select>
+            </div>
+            <br />
+            <br />
+            <br />
+            {/* </label><br /> */}
+            <label><h5>Goal Due in :</h5>
+              <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler} />
+            </label><br />
+            <button className="signBtn">Add Goal</button>
+          </form>
+        </Modal.Body>
+      </Modal>
 
-
-
-      {/* <button onClick={showAddForm}>Add new goal</button> */}
-
-      {/* <img className="profilePic" src={user.user.userPic} alt='ProfilePic' /> */}
       <Modal
         show={showAddGoal}
         onHide={() => setShowAddGoal(false)}
@@ -474,58 +523,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
-
-
-
-
-// {props.myGoals.myGoals.map(post => {
-
-//   return (
-//     <section className="goal" key={post._id}>
-//       <div>
-//         <Row className="justify-content-md-center">
-//           <Col><FaEdit name={post._id} onClick={showEditForm} /></Col>
-//           <Col><FaRegTrashAlt onClick={() => handleDelete(post._id)} /></Col>
-//         </Row>
-
-//         <p className="createdAt">Created On: {post.createdAt.split(',')[0]}</p>
-//         <p className="title">Title: {post.title}</p>
-//         <p className="story">Story: {post.story}</p>
-//         <p className="dueBy">Due By: {post.dueBy} </p>
-//         <p className="status">Status: {post.status} </p>
-//         {/* <h5 className="createdBy" >Created By: {post.createdBy}</h5> */}
-//         {/* <p className="privacy">Private: {post.private.toString()} </p> */}
-
-
-//       </div>
-//       <Show condition={edit[post._id]}>
-//         <form onSubmit={(e) => updateSubmit(post._id, e)}>
-//           <label>Title
-//     <input type='text' placeholder={post.title} name='title' onChange={handleChange} />
-//           </label><br />
-//           <label>Story
-//     <input type='text' placeholder={post.story} name='story' onChange={handleChange} />
-//           </label><br />
-//           <label>Status
-//   <select name='status' onChange={handleChange}>
-//               <option value='' hidden >Choose Progress</option>
-//               <option value='inprogress'>In-Progress</option>
-//               <option value='complete'>Complete</option>
-//               <option value='failed'>Failed</option>
-//             </select>
-//           </label><br />
-//           <label>Privacy
-//   <select name='private' onChange={handleChange}>
-//               <option value='' hidden >Choose Privacy</option>
-//               <option value='true'>Private</option>
-//               <option value='false'>Public</option>
-//             </select>
-//           </label><br />
-
-//           <button>Update Goal</button>
-//         </form>
-//       </Show>
-//     </section>
-
-//   )
-// })}
