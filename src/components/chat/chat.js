@@ -5,19 +5,37 @@ import './chat.scss';
 const ENDPOINT = 'https://gadha-dev.herokuapp.com/';
 const socket = socketIOClient(ENDPOINT);
 
+let msg = [];
+let counter = 0;
+
+
 const Chat = props =>{
 
+  const [open,setOpen] = useState(false);
   const [username,setUsername] = useState('');
   const [message,setMessage] = useState('');
   const [userFormArea,setUserFormArea] = useState(true);
   const [messageArea,setMessageArea] = useState(false);
-  const [msgList,setMsgList] = useState([]);
+  const [msgList,setMsgList] = useState([{user:'Welcome',msg:'Type any message!'}]);
+
 
   useEffect(() => {
-    socket.on('new message',data=>{
-      setMsgList([...msgList,{user:data.user,msg:data.msg}]);
+    socket.on('new message',data =>{
+      counter++;
+      if(counter === 1){
+        msg.unshift(data);
+        counter=0;
+        updateMsgs();
+      } else if (counter === 2){
+        counter=0;
+      }
     });
-  },[msgList]);
+    
+  },[]);// eslint-disable-line react-hooks/exhaustive-deps
+
+  const updateMsgs = () =>{
+    setMsgList([...msgList,msg]);
+  }
   
 
   const userName = e =>{
@@ -33,12 +51,10 @@ const Chat = props =>{
 
   const userNameHandler = e =>{
     setUsername(e.target.value);
-    console.log(username);
   }
 
   const messageHandler = e =>{
     setMessage(e.target.value)
-    console.log(message);
   }
 
   const submitMessage = e =>{
@@ -46,34 +62,50 @@ const Chat = props =>{
     socket.emit('send message',message);
     setMessage('');
   }
+
+  const showChat = () =>{
+    setOpen(!open);
+  }
   
 
   return(
       <>
+      
+      <section className='chat-container'> 
+      <img src='https://img.pngio.com/chat-icon-png-free-download-chat-icon-png-2000_2000.png' alt='chatIcon' onClick={showChat} />
+      <div className='chatContainer'>
+        <div className={`chat-form-` + open}>
         <Show condition={userFormArea}>
-        <form onSubmit={userName}>
+        <div className='chatSubmit'>
+        <form onSubmit={userName} className='chatEntry'>
 
-          <input onChange={userNameHandler} placeholder='Enter User Name' /><br/>
-          <button>Join Gadha's Chat</button>
+          <input onChange={userNameHandler} placeholder='Enter User Name' /><button>Join</button>
 
-        </form>
+        </form></div>
         </Show>
 
         <Show condition={messageArea}>
 
-          {msgList.map((post,idx)=>{
+          <div className='chatArea'>
+
+          
+          {msg.map((post,idx)=>{
             return(
-              <div key={idx}>{post.user}: {post.msg}</div>
+              <div className='chatBox' key={idx}> <span className='chatUser'>{post.user}</span><span className='chatMsg'>{post.msg}</span> </div>
             )
           })}
 
-          <form onSubmit={submitMessage}>
-            <input value={message} onChange={messageHandler} placeholder='Enter Message' />
-            <button>Send Message</button>
-          </form>
+          </div>
+
+          <div className='chatSubmit'>
+          <form onSubmit={submitMessage} className='chatEntry chatStart'>
+            <input value={message} onChange={messageHandler} placeholder='Enter Message' /> 
+          </form></div>
 
         </Show>
-        
+        </div>
+        </div>
+      </section>
       </>
   )
 }

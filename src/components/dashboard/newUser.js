@@ -1,5 +1,4 @@
 import React, { Component , useContext} from 'react'
-// import 'bulma/css/bulma.min.css'
 import './dashboard.scss'
 import Form from '../forms/addGoal'
 import { LoginContext } from '../auth/context';
@@ -147,7 +146,6 @@ export default class extends Component {
             })}
           </div>
           <div className="form">{this.renderComponent()}</div>
-          {/* <pre>{JSON.stringify(this.state.user)}</pre> */}
         </div>
       </div>
     )
