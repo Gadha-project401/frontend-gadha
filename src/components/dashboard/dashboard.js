@@ -294,6 +294,7 @@ const Dashboard = props => {
                       </div>
 
                       <div className="motevationDiv">
+                      
                       <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={clab} alt="clab" /></button>
                       <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={hug} alt="hug" /></button>
                       <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={giveStar} alt="giveStar" /></button>
