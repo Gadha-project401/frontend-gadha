@@ -11,12 +11,18 @@ import Show from './components/auth/show';
 import Footer from './components/footer/footer';
 import NewUser from './components/dashboard/newUser';
 import Chat from './components/chat/chat';
+import Loader from './components/loader/loader';
 
 
 const App = props =>{
   let user = useContext(LoginContext);
   return(
     <>
+
+    <Show condition={user.loader}>
+      <Loader/>
+    </Show>
+
     <Show condition={!user.loggedIn}>
       <Header/>
       <Body/>
@@ -24,29 +30,23 @@ const App = props =>{
     </Show>
      
     <Show condition={user.loggedIn}>
-      {/* < add header two instead of header one here /> */}
+
       <LoggedHeader/>
-      <Dashboard/>
+
+      <Show condition={user.active.homepage}>
+        <Dashboard/>
+      </Show>
+
+      <Show condition={user.active.newUser}>
+        <NewUser/>
+      </Show>
+
       <Chat/>
     </Show>
 
-
-    {/* if this is a new user show this : */}
-        {/* <NewUser/> */}
-
-
-
-      
-
-      <Footer/>
+    <Footer/>
     </>
   )
 }
 
 export default App;
-
-/*
-    <Show condition={!user.loggedIn}>
-      <Header/>
-    </Show>
-*/
