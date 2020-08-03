@@ -31,7 +31,7 @@ const App = props =>{
      
     <Show condition={user.loggedIn}>
 
-      <LoggedHeader/>
+      {/* <LoggedHeader/> */}
 
       <Show condition={user.active.homepage}>
         <Dashboard/>

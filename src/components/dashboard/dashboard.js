@@ -16,6 +16,10 @@ import img911 from "../../img/911-2.png";
 import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
 import editt from "../../img/edit.png";
+import clab from "../../img/clab.png";
+import hug from "../../img/hug.png";
+import giveStar from "../../img/giveStar.png";
+import raiseHat from "../../img/raiseHat.png";
 import MotivationPost from "../forms/addPost";
 
 
@@ -286,22 +290,28 @@ const Dashboard = props => {
                         <h1>
                           PICKED FOR YOU | TIP FROM ADVISOR
                             </h1>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
                       </div>
 
                       <div className="motevationDiv">
-                        A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-                        A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-                        </div>
+                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={clab} alt="clab" /></button>
+                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={hug} alt="hug" /></button>
+                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={giveStar} alt="giveStar" /></button>
+                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={raiseHat} alt="raiseHat" /></button>
+                        <p>
+                          A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
+                          A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
+                        </p>
+                      </div>
                     </Col>
 
                   </Row>
                 </Show>
                 <Show condition={!showMyGoals}>
                   <Row>
-                  <Container container className=" justify-content-center">
-                    <MotivationPost />
-                  </Container>
+                    <Container container className=" justify-content-center">
+                      <MotivationPost />
+                    </Container>
                   </Row>
                   <Row>
                     <Container container className=" justify-content-center">
@@ -352,17 +362,17 @@ const Dashboard = props => {
                   </Row>
 
                   <Show condition={showActive}>
-                  <Card className="card2">
-                    <div>
-                      <button style={{backgroundColor:"#EE9E6D", border:"0px"}} onClick={() => handleDelete(activeGoal._id)}><img src={bin} alt="bin" /></button>
-                      <button  style={{backgroundColor:"#EE9E6D", border:"0px"}} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={editt} alt="editimg" /></button>
-                      <p className="title">Title: {activeGoal.title}</p>
-                      <p className="story">Story: {activeGoal.story}</p>
-                      <p className="dueBy">Due By: {activeGoal.dueBy} </p>
-                      <p className="status">Status: {activeGoal.status} </p>
-                      <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
-                      <p className="privacy">Private: {activeGoal.private.toString()} </p>
-                    </div>
+                    <Card className="card2">
+                      <div>
+                        <button style={{ backgroundColor: "#EE9E6D", border: "0px" }} onClick={() => handleDelete(activeGoal._id)}><img src={bin} alt="bin" /></button>
+                        <button style={{ backgroundColor: "#EE9E6D", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={editt} alt="editimg" /></button>
+                        <p className="title">Title: {activeGoal.title}</p>
+                        <p className="story">Story: {activeGoal.story}</p>
+                        <p className="dueBy">Due By: {activeGoal.dueBy} </p>
+                        <p className="status">Status: {activeGoal.status} </p>
+                        <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
+                        <p className="privacy">Private: {activeGoal.private.toString()} </p>
+                      </div>
                     </Card>
                     <Modal
                       show={showEditGoal}
