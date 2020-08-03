@@ -1,7 +1,5 @@
 import React from 'react';
 import './loader.scss';
-import loadGif from '../../images/loader.gif';
-import loading from '../../images/loading.gif';
 const Loader = props =>{
 
 

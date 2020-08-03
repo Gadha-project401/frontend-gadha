@@ -22,11 +22,16 @@ class LoginProvider extends React.Component{
       active:{homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false},
       activePage:this.activePage,
       loader:false,
+      activateLoader:this.activateLoader,
     }
   }
 
   activePage =value => {
     this.setState({active:value});
+  }
+
+  activateLoader = value =>{
+    this.setState({loader:value});
   }
   
   login = (username,password) => {
@@ -44,8 +49,10 @@ class LoginProvider extends React.Component{
   }
 
   signup = (username,fullName,password,gender,country,birthday,profilePic) => {
-    let userObject = {};
+    this.setState({loader:true});
 
+    let userObject = {};
+    
     //Add profile picture only if it exists
     profilePic ? userObject = {username,fullName,password,gender,country,birthday,profilePic} : userObject = {username,fullName,password,gender,country,birthday};
 

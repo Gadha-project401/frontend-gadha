@@ -33,6 +33,7 @@ class Signup extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.context.activateLoader(true);
     const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image);
     uploadTask.on(
       "state_changed",
