@@ -18,6 +18,7 @@ const App = props =>{
   let user = useContext(LoginContext);
   return(
     <>
+
     <Show condition={user.loader}>
       <Loader/>
     </Show>
@@ -29,7 +30,7 @@ const App = props =>{
     </Show>
      
     <Show condition={user.loggedIn}>
-      {/* < add header two instead of header one here /> */}
+
       <LoggedHeader/>
 
       <Show condition={user.active.homepage}>
@@ -43,23 +44,9 @@ const App = props =>{
       <Chat/>
     </Show>
 
-
-    {/* if this is a new user show this : */}
-        {/* <NewUser/> */}
-
-
-
-      
-
-      <Footer/>
+    <Footer/>
     </>
   )
 }
 
 export default App;
-
-/*
-    <Show condition={!user.loggedIn}>
-      <Header/>
-    </Show>
-*/

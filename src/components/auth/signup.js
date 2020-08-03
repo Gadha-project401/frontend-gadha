@@ -21,14 +21,12 @@ class Signup extends React.Component {
 
   handleImage = e =>{
     if(e.target.files[0]){
-      // console.log(e.target.files[0])
     this.setState({ [e.target.name]: e.target.files[0]});
     }
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
   }
 
   handleSubmit = e => {
@@ -47,7 +45,6 @@ class Signup extends React.Component {
         .child(this.state.image.name)
         .getDownloadURL()
         .then(url =>{
-          console.log(url);
           this.setState({profilePic:url});
           this.context.signup(this.state.username, this.state.fullName, this.state.password, this.state.gender, this.state.country, this.state.birthday, this.state.profilePic);
         })

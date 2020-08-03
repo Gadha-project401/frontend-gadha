@@ -25,7 +25,6 @@ const Chat = props =>{
       if(counter === 1){
         msg.unshift(data);
         counter=0;
-        console.log('hi');
         setMsgList([...msgList,msg]);
       } else if (counter === 2){
         counter=0;
