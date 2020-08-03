@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Gloria+Hallelujah&family=Grenze+Gotisch:wght@500&family=Open+Sans&family=Permanent+Marker&family=Satisfy&display=swap');
 
 .footer{
-    padding-top:25px;
     padding-bottom:125px;
     background-color: #613D61;
     background-image:URL('../../img/footer.jpg');
@@ -24,12 +23,13 @@
   text-align: center;
   position: relative;
   font-size: 17px;
-  top: 200px;
+  top: 110px;
   color: #F8D271;
 }
-.logo{
-    position: relative;
-  top: 150px;
+.logoFooter {
+    position: absolute;
+    cursor: pointer;
+    margin: 2% 0% 0% 5%;
 }
 
 a.social{
@@ -39,7 +39,7 @@ a.social{
     position: relative;
     font-size: 17px;
     color: #F8D271;
-  top: 200px;
+  top: 110px;
     
 }
 
@@ -82,7 +82,7 @@ a.about {
     border: 1px solid #F8D271;
     font-size: 25px;
     border-radius: 27px;
-    padding: 0.4%;
+    padding: 0.4% 0.9% 0% 1.6%;
     position: relative;
   top: 120px;
 
@@ -95,7 +95,7 @@ a.about {
     font-size: 17px;
     color: #F8D271;
     position: relative;
-  top: 120px;
+  top: 125px;
 }
 .div-2 p.contact{
     padding-top: 0.8%;
@@ -103,9 +103,6 @@ a.about {
 }
 .div-2 span{
     padding-left: 5%;
-}
-.div-2 .info {
-    margin-top: -1%;
 }
 
 p.rights{
@@ -121,7 +118,7 @@ p.rights{
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 998px) {
 
 
     a.about {
@@ -131,7 +128,7 @@ p.rights{
         border: 1px solid #F8D271;
         font-size: 25px;
         border-radius: 27px;
-        padding: 0.4%;
+        padding: 0.4% 0.9% 0% 1.6%;
         display: none;
     }
 
@@ -139,10 +136,9 @@ p.rights{
         margin-top: 3%;
     }
 
+    .logoFooter {
+        display: none; 
+    }
 
 
 }
-@media (max-width: 767px) {
-.logo {
-    top: 0px; 
-}}
