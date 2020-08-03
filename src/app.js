@@ -1,8 +1,5 @@
 import React , {useContext} from 'react';
 
-import loader from './images/loader.gif';
-import loading from './images/loading.gif';
-
 
 //Components importation
 import Header from './components/header/homeHeader';
@@ -48,11 +45,6 @@ const App = props =>{
     </Show>
 
     <Footer/>
-
-    <Show condition={false}>
-      <img src={loading} alt='loading' />
-      <img src={loader} alt='loader' />
-    </Show>
     </>
   )
 }
