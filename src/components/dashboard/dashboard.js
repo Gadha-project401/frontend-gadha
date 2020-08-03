@@ -1,5 +1,5 @@
 // React Stuff
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState ,Component} from 'react';
 import { LoginContext } from '../auth/context';
 import Show from '../auth/show';
 import './dashboard.scss';
@@ -113,18 +113,6 @@ const Dashboard = props => {
     props.delOwn(id);
   }
 
-  // const showAddForm = e => {
-  //   setAddPost(!addPost);
-  // }
-
-  // const showEditForm = e => {
-  //   if (edit[e.target.name] === undefined) {
-  //     setEdit({ ...edit, [e.target.name]: true })
-  //   } else {
-  //     setEdit({ ...edit, [e.target.name]: !edit[e.target.name] });
-  //   }
-  // }
-
   const addPostSubmit = e => {
     e.preventDefault();
     props.postGoal(post);
@@ -152,19 +140,29 @@ const Dashboard = props => {
   const sendTitle = (title) => {
     setTitle(title);
     setShowMyGoals(!showMyGoals);
-    //  setShowDetails(!showDetails);
+    
     console.log('title', title);
   }
 
   const addToList = (status, title) => {
     setPost({ status, title });
     setShowAddStep(true);
-    // console.log('post',type,title);
+   
   }
 
+
+
+
+
+
+// if(props.myGoals.myGoals.length===0){
+//   return(
+//     <NewUser/>
+//   )
+  
+// }else {
   return (
     <>
-
       <Container>
         <Row>
           <Col sm={4}>
@@ -308,9 +306,7 @@ const Dashboard = props => {
           </Col>
         </Row>
       </Container>
-      {/* <button onClick={showAddForm}>Add new goal</button> */}
-      {/* <img className="profilePic" src={user.user.userPic} alt='ProfilePic' /> */}
-      {/* <Show condition={addPost}> */}
+
       <Modal
 
         show={showAddGoal}
@@ -365,7 +361,7 @@ const Dashboard = props => {
           </form>
         </Modal.Body>
       </Modal>
-      {/* </Show> */}
+
 
 
       <Show condition={!user.loggedIn}>
@@ -413,60 +409,9 @@ const Dashboard = props => {
 
 
     </>
-  )
-}
-
-// const MydModalWithGrid = (e, type, title) => {
-
-//   <Modal
-//   show={showAddStep}
-//   onHide={() => setShowAddStep(false)}
-//   centered
-// >
-//   <Modal.Header closeButton>
-//     <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
-//       Edit Goal
-//    </Modal.Title>
-//   </Modal.Header>
-//   <Modal.Body >
-//     {/* <Show condition={edit[activeGoal._id]}> */}
-//     <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
-//       <input type='text' value={title} name='title' onChange={handleChange} />
-//       <br />
-//       <label><h5>Story</h5>
-//         <input type='text' placeholder={activeGoal.story} name='story' onChange={handleChange} />
-//       </label><br />
-//       <div>
-//         <h5> Status :</h5>
-//         <select name='status' value={type} onChange={handleChange}>
-//           <option value='' hidden >Choose Progress</option>
-//           <option value='todo'>Todo</option>
-//           <option value='inprogress'>In-Progress</option>
-//           <option value='complete'>Complete</option>
-//         </select>
-//       </div>
-//       <br />
-//       <br />
-//       <br />
-//       <div>
-//         <h5>
-//           Privacy
-//         </h5>
-//         <select name='private' onChange={handleChange}>
-//           <option value='' hidden >Choose Privacy</option>
-//           <option value='true'>Private</option>
-//           <option value='false'>Public</option>
-//         </select>
-//       </div>
-//       <br />
-//       <br />
-//       <br />
-//       <button className="signBtn">Update Goal</button>
-//     </form>
-//     {/* </Show> */}
-//   </Modal.Body>
-// </Modal>
+  )}
 // }
+
 
 const mapStateToProps = state => ({
   myGoals: state.ownGoals,

@@ -1,4 +1,4 @@
-import React , {useContext} from 'react';
+import React , {useContext, useEffect} from 'react';
 
 
 //Components importation
@@ -15,8 +15,10 @@ import Chat from './components/chat/chat';
 
 const App = props =>{
   let user = useContext(LoginContext);
+
   return(
     <>
+    <button onClick={e=>{user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:true})}}>Change state</button>
     <Show condition={!user.loggedIn}>
       <Header/>
       <Body/>
@@ -26,19 +28,24 @@ const App = props =>{
     <Show condition={user.loggedIn}>
       {/* < add header two instead of header one here /> */}
       <LoggedHeader/>
+       <Show condition={user.active.homepage}>
       <Dashboard/>
+      </Show>
+      <Show condition={user.active.newUser}>
+       <NewUser/>
+    </Show>
       {/* <Chat/> */}
     </Show>
 
 
     {/* if this is a new user show this : */}
-        {/* <NewUser/> */}
+ 
 
 
 
       
 
-      <Footer/>
+      {/* <Footer/> */}
     </>
   )
 }

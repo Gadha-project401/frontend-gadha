@@ -19,7 +19,7 @@ class LoginProvider extends React.Component{
       user: {},
       error: false,
       signupError:false,
-      active:{homepage:true,dashboard:false,publicGoals:false,about:false},
+      active:{homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false},
       activePage:this.activePage,
     }
   }
@@ -50,7 +50,7 @@ class LoginProvider extends React.Component{
     superagent.post(`${API}/signup`)
     .send(userObject)
     .then(res=>{
-      this.validateToken(res.body.token);
+      this.validateToken(res.body.token,true);
     })
     .catch(e=>{
       console.log(e);
@@ -62,9 +62,13 @@ class LoginProvider extends React.Component{
     this.setLoginState(false, null, {});
   }
 
-  validateToken = token => {
+  validateToken = (token,newUser) => {
     try{
+      
       let user = jwt.verify(token, process.env.REACT_APP_PASSKEY);
+      if(newUser){
+          this.setState({active:{homepage:false,dashboard:false,publicGoals:false,about:false,newUser:true}})
+      }
       this.setLoginState(true, token, user);
     } catch (e){
       this.logout();

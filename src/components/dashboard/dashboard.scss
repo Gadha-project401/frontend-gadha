@@ -52,7 +52,8 @@
 
   .button{
     color: white;
-    background-color: #EE9B6F;;
+    background-color: #EE9B6F;
+    margin-top: 2%;
   }
 
   .goal{
@@ -101,3 +102,25 @@ ul{
   border: 2px solid #E7AD34;
   color: white;
 }
+
+.secGoalForm{
+  padding: 30px;
+  width: 70%;
+  border: 1px solid rgb(238, 158, 109);
+  margin-left: 15%;
+
+  button{
+    margin-left: 0%;
+  }
+  // input{
+  //   width: 132%;
+  // }
+
+  select:last-of-type {
+    margin-left: 25%;
+}
+}
+
+// .formContainer{
+//   background-color: red;
+// }
