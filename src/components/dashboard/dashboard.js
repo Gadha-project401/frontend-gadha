@@ -326,7 +326,7 @@ const Dashboard = props => {
                         {todo.filter(filtered => filtered.title === title).map(post => {
                           return (
                             <section key={post._id}>
-                              <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
+                              <button className="goalBtn1" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
                             </section>
                           )
                         })}
@@ -340,7 +340,7 @@ const Dashboard = props => {
                         {inprogress.filter(filtered => filtered.title === title).map(post => {
                           return (
                             <section key={post._id}>
-                              <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
+                              <button className="goalBtn1" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
                             </section>
                           )
                         })}
@@ -353,7 +353,7 @@ const Dashboard = props => {
                         {complete.filter(filtered => filtered.title === title).map(post => {
                           return (
                             <section key={post._id}>
-                              <button className="goalBtn" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
+                              <button className="goalBtn1" name={post._id} onClick={e => changeActive(e, post)}>{post.story} </button>
                             </section>
                           )
                         })}
