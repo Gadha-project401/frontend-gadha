@@ -8,7 +8,6 @@ import { Container, Row, Col, Card, Dropdown } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import Modal from 'react-bootstrap/Modal'
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
-import Modal from 'react-bootstrap/Modal';
 import logo from "../../img/logo-m.png";
 import bin from "../../img/bin.png";
 import plus from "../../img/plus.png";
@@ -47,9 +46,8 @@ const Dashboard = props => {
   const [showAddStep, setShowAddStep] = useState(false);
   const [uniqueState, setUniqueState] = useState([]);
   const [title, setTitle] = useState('');
-  const [showAddStep, setShowAddStep] = useState(false);
-  const [showEditGoal, setShowEditGoal] = useState(false);
-  const [showAddGoal, setShowAddGoal] = useState(false);
+ 
+
   const [activeGoal, setActiveGoal] = useState({
     createdBy: "alaaa",
     image: "https://lunawood.com/wp-content/uploads/2018/02/placeholder-image.png",
