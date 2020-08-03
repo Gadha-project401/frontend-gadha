@@ -19,8 +19,9 @@ class LoginProvider extends React.Component{
       user: {},
       error: false,
       signupError:false,
-      active:{homepage:true,dashboard:false,publicGoals:false,about:false},
+      active:{homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false},
       activePage:this.activePage,
+      loader:false,
     }
   }
 
@@ -29,7 +30,8 @@ class LoginProvider extends React.Component{
   }
   
   login = (username,password) => {
-
+    this.setState({loader:true});
+    
     superagent.get(`${API}/signin`)
     .auth(username,password)
     .then(res=>{
@@ -37,7 +39,7 @@ class LoginProvider extends React.Component{
     })
     .catch(e=>{
       console.error(e);
-      this.setState({error:true});
+      this.setState({error:true,loader:false});
     });
   }
 
@@ -50,11 +52,11 @@ class LoginProvider extends React.Component{
     superagent.post(`${API}/signup`)
     .send(userObject)
     .then(res=>{
-      this.validateToken(res.body.token);
+      this.validateToken(res.body.token,true);
     })
     .catch(e=>{
       console.log(e);
-      this.setState({signupError:true});
+      this.setState({signupError:true,loader:false});
     });
   }
 
@@ -62,11 +64,15 @@ class LoginProvider extends React.Component{
     this.setLoginState(false, null, {});
   }
 
-  validateToken = token => {
+  validateToken = (token,newUser) => {
     try{
       let user = jwt.verify(token, process.env.REACT_APP_PASSKEY);
+      if(newUser){
+        this.setState({active:{homepage:false,dashboard:false,publicGoals:false,about:false,newUser:true}})
+      }
       this.setLoginState(true, token, user);
     } catch (e){
+      this.setState({loader:false});
       this.logout();
       console.log(e)
     }
@@ -74,7 +80,7 @@ class LoginProvider extends React.Component{
 
   setLoginState = (loggedIn, token, user) => {
     cookie.save('gadha-auth', token);
-    this.setState({token, loggedIn, user,error:false});
+    this.setState({token, loggedIn, user,error:false,loader:false});
   }
 
   componentDidMount() {
