@@ -9,7 +9,6 @@ const Footer = props => {
 
   return (
     <>
-    <div className="clear"></div>
       <Container fluid className="footer">
         <Container fluid>
           <Row>
@@ -23,7 +22,7 @@ const Footer = props => {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} md={12} xl={4} lg={4} className="logo justify-content-center text-center">
+            <Col xs={12} md={12} xl={4} lg={4} className="logoFooter">
               <img src={footerLogo} alt="" />
             </Col>
           </Row>
@@ -38,7 +37,7 @@ const Footer = props => {
               </div>
             </Col>
             <Col xs={12} md={12} xl={4} lg={4} className="justify-content-center text-center">
-              <a href="https://deploy-preview-11--gadha.netlify.app" className="about"> About Gadha </a>
+              <a href="https://gadha.netlify.app/" className="about"> About Gadha </a>
             </Col>
           </Row>
           <Row>

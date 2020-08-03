@@ -25,14 +25,17 @@ const Chat = props =>{
       if(counter === 1){
         msg.unshift(data);
         counter=0;
-        console.log('hi');
-        setMsgList([...msgList,msg]);
+        updateMsgs();
       } else if (counter === 2){
         counter=0;
       }
     });
     
-  },[msg]);// eslint-disable-line react-hooks/exhaustive-deps
+  },[]);// eslint-disable-line react-hooks/exhaustive-deps
+
+  const updateMsgs = () =>{
+    setMsgList([...msgList,msg]);
+  }
   
 
   const userName = e =>{

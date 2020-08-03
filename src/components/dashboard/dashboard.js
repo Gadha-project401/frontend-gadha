@@ -292,7 +292,6 @@ const Dashboard = props => {
                       <div className="motevationDiv">
                         A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
                         A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-
                         </div>
                     </Col>
 
