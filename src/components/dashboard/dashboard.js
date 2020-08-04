@@ -266,14 +266,14 @@ const Dashboard = props => {
                       return (
                         <Col xs={6} md={6} xl={3} lg={6}>
                           <Container fluid className=" justify-content-center">
-                            <Card onClick={e => (sendTitle(post.title))} className="card3">{post.title}</Card>
+                            <Card onClick={e => (sendTitle(post.title))} className="card3 card5 animated fadeInLeft">{post.title}</Card>
                           </Container>
                         </Col>
                       )
                     })}
                     <Col xs={6} md={6} xl={3} lg={6}>
                       <Container fluid className=" justify-content-center">
-                        <Card onClick={() => setShowAddGoal(true)} className="card3"><img src={pluss} alt='img' /></Card>
+                        <Card onClick={() => setShowAddGoal(true)} className="card3 card5 animated fadeInLeft"><img src={pluss} alt='img' /></Card>
                       </Container>
                     </Col>
                     <Col xs={12} md={12} xl={12} lg={12}>
@@ -300,7 +300,7 @@ const Dashboard = props => {
                   <Row>
                     <Col xs={4} md={4} xl={4} lg={4} className="goal">
                       <p>To Do</p>
-                      <Card className="card1">
+                      <Card className="card1 card5 animated fadeInUp">
                         {todo.filter(filtered => filtered.title === title).map(post => {
                           return (
                             <section key={post._id}>
@@ -314,7 +314,7 @@ const Dashboard = props => {
 
                     <Col xs={4} md={4} xl={4} lg={4} className="goal">
                       <p>In Progress</p>
-                      <Card className="card1">
+                      <Card className="card1 card5 animated fadeInUp">
                         {inprogress.filter(filtered => filtered.title === title).map(post => {
                           return (
                             <section key={post._id}>
@@ -327,7 +327,7 @@ const Dashboard = props => {
                     </Col>
                     <Col xs={4} md={4} xl={4} lg={4} className="goal">
                       <p>Accomplished</p>
-                      <Card className="card1">
+                      <Card className="card1 card5 animated fadeInUp">
                         {complete.filter(filtered => filtered.title === title).map(post => {
                           return (
                             <section key={post._id}>
