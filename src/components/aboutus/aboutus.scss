@@ -1,0 +1,260 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  .aboutus-developers{
+    text-align: center;
+    margin: 10% 0% 20% 0%;
+    h1{
+      cursor: pointer;
+    }
+  }
+  
+  .aboutus-bigDiv {
+    display: flex;
+    flex-wrap: wrap;
+  
+  }
+  
+  .anasImg{ 
+    width:100%; 
+  
+  }
+  
+  .aboutus-cardTitle{
+    background-color: #e9d3ec;
+    text-align: center;
+  }
+  
+  .aboutus-cardText{
+    background-color: #fcecff;
+  }
+  
+  .aboutus-goBackBtnDiv{
+    text-align: center;
+  }
+  
+  .flip-card {
+      background-color: transparent;
+      width: 225px;
+      height: 250px;
+      perspective: 1000px;
+  
+    }
+    
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+      font-weight: bold;
+    }
+    
+    .flip-card-back {
+      background-color: #e9d3ec;
+      color: white;
+      transform: rotateY(180deg);
+      height: 112%;
+  
+      p{
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-top: 19%;
+      }
+  
+    }
+  
+  
+    .anasH2 {
+      background-color: #e9d3ec;
+      font-size: 1.35rem;
+      padding: 5% 0% 11% 0%;
+  }
+  
+  
+  
+  
+  .aboutus-IMG-section1 {
+    margin-top: 6%;
+  }
+  
+  
+  
+  .IMG-section1{
+    margin-left: 8%;
+  }
+  
+  .IMG-section2{
+    margin-left: 37%;
+  }
+  
+  .IMG-section3{
+    margin-left: 7.7%;
+  }
+  
+  .IMG-section4{
+    margin-left: 37%;
+  }
+  
+  .aboutus-IMGsection2{
+    margin: -14% 0% 14% 0%;
+  }
+  
+  .aboutus-birdGif{
+    margin: -6% 0% 0% 30%;
+  }
+  
+  
+  .aboutus-pHead{
+    margin-top: 5%;
+    background:#FFF7EB;
+    background-image: url(./img/cut.jpg);
+    background-position:top;
+    background-repeat:no-repeat;
+    background-size:100%;
+    text-align: center;
+    
+    .aboutus-intro{
+      padding: 5%;
+      font-weight: bolder;
+    font-size: 25px;
+    // font-family: sans-serif;
+    }
+  }
+  
+  .a-social{
+    color: rgb(78, 76, 76);
+  }
+  
+
+  .aboutus-Home{
+      font-size: 25px;
+  }
+
+  .aboutus-buttons{
+      margin-top: 20px;
+      width: 125px;
+      color: #613d61;
+  }
+
+  
+  
+  @media (max-width: 1200px) {
+    .IMG-section1{
+      margin-left: 8%;
+    }
+    
+    .IMG-section2{
+      margin-left: 37%;
+    }
+    
+    .IMG-section3{
+      margin-left: 7%;
+    }
+    
+    .IMG-section4{
+      margin-left: 38%;
+    }
+  
+  }
+  
+  
+  @media (max-width: 1997px) {
+  
+    .aboutus-birdGif{
+      margin: -6% 0% 0% 31%;
+    }
+  
+    .IMG-section1{
+      margin-left: 11%;
+    }
+    
+    .IMG-section2{
+      margin-left: 37%;
+    }
+    
+    .IMG-section3{
+      margin-left: 10%;
+    }
+    
+    .IMG-section4{
+      margin-left: 37.93%;
+    }
+  
+  }
+  
+  
+  
+  
+  @media (max-width: 992px) {
+    .aboutus-birdGif{
+    display: none;
+  }
+  
+    .IMG-section1{
+      margin-left: 30%;
+      margin-bottom: 13%;
+    }
+    
+    .IMG-section2{
+      margin-left: 30%;
+      margin-bottom: 27%;
+    }
+    
+    .IMG-section3{
+      margin-left: 29%;
+      margin-bottom: 13%;
+    }
+    
+    .IMG-section4{
+      margin-left: 29%;
+    }
+  
+  }
+  
+  
+  @media (max-width: 450px) {
+  
+  
+    .IMG-section1{
+      margin-left: 54px;
+      margin-bottom: 85px;
+    }
+    .IMG-section2{
+      margin-left: 54px;
+      margin-bottom: 135px;
+  }
+  .IMG-section3{
+    margin-left: 39px;
+      margin-bottom: 85px;
+  }
+  .IMG-section4{
+    margin-left: 39px;
+      margin-bottom: 85px;
+  }
+  
+  }
+  
+  
+  
+  
