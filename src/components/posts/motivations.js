@@ -43,7 +43,7 @@ const Posts = props => {
                                     </Col>
                                     <Col xs={9} md={9} xl={9} lg={9}>
                                         <button  onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }}>
-                                            <img title="clab" src={clab} alt="clab" />
+                                            <img title="clap" src={clab} alt="clab" />
                                         </button>
                                         <button onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }} >
                                             <img title="hug" src={hug} alt="hug" />
