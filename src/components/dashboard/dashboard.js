@@ -359,7 +359,7 @@ const Dashboard = props => {
                         <p className="story">Story: {activeGoal.story}</p>
                         <p className="dueBy">Due By: {activeGoal.dueBy} </p>
                         <p className="status">Status: {activeGoal.status} </p>
-                        <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
+                        <p className="createdAt1">Created On: {activeGoal.createdAt.split(',')[0]}</p>
                         <p className="privacy">Private: {activeGoal.private.toString()} </p>
                       </div>
                     </Card>
