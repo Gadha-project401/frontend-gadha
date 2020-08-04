@@ -21,6 +21,7 @@ import hug from "../../img/hug.png";
 import giveStar from "../../img/giveStar.png";
 import raiseHat from "../../img/raiseHat.png";
 import MotivationPost from "../forms/addPost";
+import Progress from './progress'
 
 
 
@@ -253,7 +254,8 @@ const Dashboard = props => {
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
                     <Container container className=" justify-content-center">
-                      <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
+                      {/* <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} /> */}
+                      <Progress done={props.myGoals.progress.progress}/>
                     </Container>
                   </Col>
                 </Row>
