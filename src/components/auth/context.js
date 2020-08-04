@@ -22,8 +22,14 @@ class LoginProvider extends React.Component{
       active:{homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false},
       activePage:this.activePage,
       loader:false,
+      chat:true,
+      activateChat:this.activateChat,
       activateLoader:this.activateLoader,
     }
+  }
+
+  activateChat = () =>{
+    this.setState({chat:!this.state.chat})
   }
 
   activePage =value => {

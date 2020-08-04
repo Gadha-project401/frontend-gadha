@@ -38,9 +38,11 @@ const PostForm = props => {
                 <Form.Label style={{width:"100%"}}>Story
                   <Form.Control as="textarea" rows="5"type="text" name="story"  onChange={handleChange} required /></Form.Label>
               </Col>
-              <button className="buttons1" type="submit" style={{margin:"20px 30%", color:"#EE9E6D"}}>
+              <div className='motivation-post'>
+              <button type="submit">
                 Share now!
                 </button>
+              </div>
             </Form>
           </Col>
         </Row>

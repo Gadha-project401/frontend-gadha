@@ -28,13 +28,13 @@ const AddGoal = props => {
 
     <form className="secGoalForm" onSubmit={addPostSubmit}>
     <label><h5>Goal Title:</h5>
-      <input type='text' placeholder='Enter Goal Title' name='title' required onChange={addPostHandler} />
+      <input className='input-goals' type='text' placeholder='Enter Goal Title' name='title' required onChange={addPostHandler} />
     </label><br />
-    <label><h5>Goal Story:</h5>
-      <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+    <label><h5>First Step:</h5>
+      <input className='input-goals' type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
     </label><br />
     <div>
-      <h5> Goal Status:</h5>
+      <h5> Step Status:</h5>
       <select name='status' onChange={addPostHandler} required>
         <option value='' hidden >Set Status</option>
         <option value='todo'>To Do</option>
@@ -46,7 +46,7 @@ const AddGoal = props => {
     <br />
     <br />
     <div>
-      <h5>Goal Privacy:</h5>
+      <h5>Step Privacy:</h5>
       <select name='private' onChange={addPostHandler} required>
         <option value='' hidden >Set Privacy</option>
         <option value='true'>Private</option>
@@ -56,7 +56,7 @@ const AddGoal = props => {
     <br />
     <br />
     <br />
-    <label><h5>Goal Due in :</h5>
+    <label><h5>Step Due in :</h5>
       <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler} />
     </label><br />
 

@@ -40,7 +40,10 @@ const App = props =>{
         <NewUser/>
       </Show>
 
-      <Chat/>
+      <Show condition={user.chat}>
+        <Chat/>
+      </Show>
+
     </Show>
 
     <Footer/>

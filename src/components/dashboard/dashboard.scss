@@ -1,5 +1,11 @@
 
 //
+.img2{
+  cursor: pointer;
+}
+.createdBy{
+  word-wrap: break-word;
+}
  #fixed-nav {
   background: #F8D271;
   height:10%;
@@ -20,15 +26,7 @@
     }
   }
 
-.body {
-    // background-color: lightblue;
-    width: 600px;
-    // height: 300px;
-    text-align: center;
-    padding: 15px;
-    margin-top: 10%;
-    margin-left: 28%;
-  }
+
   
   
 }
@@ -144,7 +142,10 @@ padding-left: 40px;
     font-family: 'Anton', sans-serif;
     text-align:center;
     height: 30vh;
-}
+  }
+  .goal p{
+    font-size: 10px;
+  }
   
   #sidebar.show {
       -webkit-transform: translateX(0);
@@ -240,7 +241,7 @@ transition-timing-function: ease-out;
     #sidebar .list-group {
         min-height: calc(100% - 99px);
         border: none;
-        padding-top:40px;
+        padding-top:20px;
     }
 
 #recent-div {
@@ -328,6 +329,11 @@ transition-timing-function: ease-out;
   width: 40px;
   margin: 10px auto;
 
+}
+
+#sidebar{
+  position:sticky;
+  top:0;
 }
 .video-div {
     margin: 30px 0px;
@@ -418,6 +424,28 @@ transition-timing-function: ease-out;
     visibility: visible;
 }
 
+.motivation-post{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  button{
+    color: #EE9E6D;
+    font-family: fantasy;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 30px;
+    font-size:22px;
+    padding: 5px 35px;
+    background-color: transparent;
+    border: 5px solid #613d60;
+  }
+  button:hover{
+    background-color:  #613d60;
+    color: white;
+  }
+}
+
 .collapsing {
     visibility: visible;
     height: 0;
@@ -438,6 +466,7 @@ transition-timing-function: ease-out;
 
     .h2title{
       color: #430D33;
+      text-transform: uppercase;
       margin-top: 20px;
       margin-left: 15px;
       margin-bottom: 20px;
@@ -455,21 +484,22 @@ transition-timing-function: ease-out;
       margin-bottom: 20px;
       text-align: center;
       color: #EE9E6D;
-    font-size: 20px;
-    font-family: 'Anton', sans-serif;
+      font-size: 20px;
+      font-family: 'Anton', sans-serif;
     }
     .goalBtn1{
       background-color: #FFF7EB;
-      width: 90%;
+      width: 16vw;
       border: 2px solid ;
       margin: 10px 0px;
-      height: 40px;
-      padding: 0px;
+
+      padding: 5px 0;
       border-radius:12px ;
       
     }
     .addNew{
       color: #FFF7EB;
+      cursor: pointer;
 
     }
     .profilePicc{
@@ -483,9 +513,9 @@ transition-timing-function: ease-out;
   background-position:top;
   background-repeat:no-repeat;
   background-size:100%;
-  height: 45vh;
   padding: 30px;
-  margin-bottom: 5%;
+  padding-left: 50px;
+  margin-bottom: 4%;
     }
     .motevationDiv button{
         // padding: 6px;
@@ -527,6 +557,12 @@ transition-timing-function: ease-out;
   color: white;
 }
 
+.input-goals{
+  width:300px;
+}
+
+
+
 .secGoalForm{
   padding: 30px;
   width: 70%;
@@ -547,8 +583,11 @@ transition-timing-function: ease-out;
   // height: 300px;
   text-align: center;
   padding: 15px;
-  margin-top: 10%;
-  margin-left: 28%;
+  margin:0 auto;
+  margin-top: 25px;
+}
+.step-container{
+  min-height: 51.5vh;
 }
 .step {
   height: 60px;
