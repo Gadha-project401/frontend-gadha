@@ -5,7 +5,7 @@ import { LoginContext } from '../auth/context';
 import logo from "../../img/logo-m.png";
 class Step1 extends Component {
   render() {
-    const { handleChange, nextStep } = this.props
+    const { nextStep } = this.props
 
     return (
       <>
@@ -30,7 +30,6 @@ class Step1 extends Component {
 
 class Step2 extends Component {
   render() {
-    const { handleChange, nextStep } = this.props
 
     return (
       <div>
@@ -55,7 +54,6 @@ class Step2 extends Component {
 
 const Step3 = props => {
     let user = useContext(LoginContext);
-    const { handleChange, nextStep } = props
     const openDashboard = () =>{
       user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false},)
     }
@@ -140,7 +138,7 @@ export default class extends Component {
       <div class="row" id="inside-header">
         <div class="col-11 mx-auto d-flex">
           <div class="col-6">
-            <img src={logo} class="inside-logo" />
+            <img alt='img' src={logo} class="inside-logo" />
           </div>
           </div>
       </div>

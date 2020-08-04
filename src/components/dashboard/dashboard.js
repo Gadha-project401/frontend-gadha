@@ -1,5 +1,5 @@
 // React Stuff
-import React, { useContext, useEffect, useState ,Component} from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import { LoginContext } from '../auth/context';
 import Show from '../auth/show';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,11 +7,11 @@ import './dashboard.scss';
 import { Container, Row, Col, Card, Dropdown } from 'react-bootstrap';
 
 import Modal from 'react-bootstrap/Modal'
-import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import logo from "../../img/logo-m.png";
 import bin from "../../img/bin.png";
 import plus from "../../img/plus.png";
-import bell from "../../img/bell.png";
+
+
 import img911 from "../../img/911-2.png";
 import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
@@ -33,7 +33,7 @@ const Dashboard = props => {
   const [object, setObject] = useState({});
   const [addPost, setAddPost] = useState(false);
   const [post, setPost] = useState({});
-  const [edit, setEdit] = useState({});
+
   const [todo, setTodo] = useState([]);
   const [inprogress, setInprogress] = useState([]);
   const [complete, setComplete] = useState([]);
@@ -145,7 +145,7 @@ const Dashboard = props => {
 
     let resArr = [];
     props.myGoals.myGoals.forEach(function (item) {
-      let i = resArr.findIndex(x => x.title == item.title);
+      let i = resArr.findIndex(x => x.title === item.title);
       if (i <= -1) {
         resArr.push({ ...item });
       }
@@ -156,13 +156,10 @@ const Dashboard = props => {
   const sendTitle = (title) => {
     setTitle(title);
     setShowMyGoals(!showMyGoals);
-    //  setShowDetails(!showDetails);
-    console.log('title', title);
   }
   const addToList = (status, title) => {
     setPost({ status, title });
     setShowAddStep(true);
-    // console.log('post',type,title);
   }
   return (
     <>
@@ -170,7 +167,7 @@ const Dashboard = props => {
         <div class="row" id="inside-header">
           <div class="col-11 mx-auto d-flex">
             <div class="col-6">
-              <img src={logo} class="inside-logo" />
+              <img src={logo} alt='img' class="inside-logo" />
             </div>
             <div class="col-6 ">
               <div class="col-12 d-flex flex-row-reverse p-0">
@@ -183,11 +180,9 @@ const Dashboard = props => {
                       <Dropdown.Item >
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
-                      <Dropdown.Item className="dropItem" href="#"> <a href="#">Dashboard</a> </Dropdown.Item>
-                      {/* <Dropdown.Item className="dropItem" href="#">  <a href="#">Motivational Posts</a> </Dropdown.Item> */}
-                      {/* <Dropdown.Item className="dropItem" href="#"> <a href="#">Users Achievements</a> </Dropdown.Item> */}
-                      <Dropdown.Item className="dropItem" href="#"> <a href="#">Chat</a> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem" href="#"> <a href="#">About Gadha</a> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem"> <p>Dashboard</p> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem"> <p>Chat</p> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem"> <p>About Gadha</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
                         <Show condition={user.loggedIn}>   <button className="dropdown-btn" onClick={user.logout}>Logout</button>   </Show>
                       </Dropdown.Item>
@@ -195,19 +190,10 @@ const Dashboard = props => {
                   </Dropdown>
                 </div>
                 <div>
-                  <a href="#">
-                    <img src={img911} />
-                  </a>
+                    <img src={img911} alt='chatIcon' />
                 </div>
                 <div>
-                  <a href="#">
-                    <img src={bell} class="img2" />
-                  </a>
-                </div>
-                <div>
-                  <a href="#">
-                    <img src={plus} onClick={() => setShowAddGoal(true)} class="img2" />
-                  </a>
+                    <img alt='addIcon' src={plus} onClick={() => setShowAddGoal(true)} class="img2" />
                 </div>
               </div>
             </div>
@@ -219,7 +205,7 @@ const Dashboard = props => {
       <Container fluid>
         <Container fluid>
           <Row className=" justify-content-center">
-            <Col xs={3} md={3} xl={3} lg={3} className=" justify-content-center">
+            <Col xs={3} md={3} xl={3} lg={3} className=" justify-content-center tahseen">
               <Container container id="sidebar">
                 <Container className="list-group border-0 text-center text-md-left justify-content-center">
                   <Col xs={12} md={12} xl={12} lg={12} className="list-group border-0 text-center text-md-left justify-content-center">
@@ -227,8 +213,6 @@ const Dashboard = props => {
                       <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
                     <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Individual Goals</span></a>
-                    {/* <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Achviements</span></a> */}
-                    {/* <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">911 Motivate</span></a> */}
                     <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Home</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
@@ -237,19 +221,18 @@ const Dashboard = props => {
                     <p>{title}</p>
                     </Container>
                     <Container container id="recent-div">
-                      <a href="#" onClick={() => setShowAddGoal(true)}> <img src={pluss} />
+                      <a href="#" onClick={() => setShowAddGoal(true)}> <img src={pluss} alt='img'/>
                     ADD NEW GOAL</a>
                     </Container>
                   </Col>
                 </Container>
               </Container>
             </Col>
-            <Col xs={9} md={9} xl={9} lg={9}>
-              <Container fluid>
+            <Col xs={9} md={9} xl={9} lg={9} className='khalil'>
+              <Container fluid className='khalil-son'>
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
-                    <Container container className=" justify-content-center">
-                      {/* <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} /> */}
+                    <Container container className=" justify-content-center khalil-son">
                       <Progress done={props.myGoals.progress.progress}/>
                     </Container>
                   </Col>
@@ -258,16 +241,16 @@ const Dashboard = props => {
                   <Row>
                     {uniqueState.map(post => {
                       return (
-                        <Col xs={12} md={12} xl={3} lg={6}>
+                        <Col xs={6} md={6} xl={3} lg={6}>
                           <Container fluid className=" justify-content-center">
                             <Card onClick={e => (sendTitle(post.title))} className="card">{post.title}</Card>
                           </Container>
                         </Col>
                       )
                     })}
-                    <Col xs={12} md={12} xl={3} lg={6}>
-                      <Container container className=" justify-content-center">
-                        <Card onClick={() => setShowAddGoal(true)} className="card"><img src={pluss} /></Card>
+                    <Col xs={6} md={6} xl={3} lg={6}>
+                      <Container fluid className=" justify-content-center">
+                        <Card onClick={() => setShowAddGoal(true)} className="card"><img src={pluss} alt='img' /></Card>
                       </Container>
                     </Col>
                     <Col xs={12} md={12} xl={12} lg={12}>
@@ -275,7 +258,7 @@ const Dashboard = props => {
                         <h1>
                           PICKED FOR YOU | TIP FROM ADVISOR
                             </h1>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
+                        <iframe title='motivation' src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
                       </div>
 
                       <div>

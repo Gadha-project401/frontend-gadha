@@ -34,7 +34,7 @@ const Posts = props => {
                         <div key={post._id}>
                             <Row>
                             <Col xs={2} md={2} xl={2} lg={2}>
-                            <img className="rounded-circle inside-logo" src={post.virtualOwner.profilePic} />
+                            <img className="rounded-circle inside-logo" alt='img' src={post.virtualOwner.profilePic} />
                             <h5 className="createdBy" >{post.createdBy}</h5>
                             <p className="createdAt">{post.createdAt}</p>
                             </Col>

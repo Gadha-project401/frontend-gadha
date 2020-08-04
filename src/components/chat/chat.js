@@ -79,7 +79,7 @@ const Chat = props =>{
         <div className='chatSubmit'>
         <form onSubmit={userName} className='chatEntry'>
 
-          <input onChange={userNameHandler} placeholder='Enter User Name' /><button>Join</button>
+          <input onChange={userNameHandler} placeholder='Enter Nickname' /><button>Join</button>
 
         </form></div>
         </Show>
