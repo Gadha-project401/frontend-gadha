@@ -1,4 +1,6 @@
 .chat-container{
+    animation-name:chatAppear;
+    animation-duration: 1.5s;
     z-index: 10000;
     display: block;
     height: 62px;
@@ -6,9 +8,14 @@
     bottom: 5%;
     right: 5%;
     padding: 10px;
-    
+    background-color: #F8D271;
+    border-radius: 50%;
+    box-shadow: 1px 1px 8px black;
+    border:1px solid black;
     
     img{
+        position: relative;
+        top:-3px;
         width: 50px;
         height: 50px;
         -webkit-transform: scaleX(-1);
@@ -17,9 +24,10 @@
     }
 }
 
+
 .chatContainer{
     position: relative;
-    top:-400px;
+    top:-413px;
     right:250px;
 }
 
@@ -53,6 +61,15 @@
     animation-duration: 1s;
 }
 
+@keyframes chatAppear{
+    0%{
+        opacity:0;
+        background-color:#430D33;
+    }
+    100%{
+        opacity:1;
+    }
+}
 
 @keyframes appear{
     0% {
