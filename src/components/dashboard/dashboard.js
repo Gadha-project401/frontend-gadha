@@ -235,7 +235,7 @@ const Dashboard = props => {
                 <Container className="list-group border-0 text-center text-md-left justify-content-center">
                   <Col xs={12} md={12} xl={12} lg={12} className="list-group border-0 text-center text-md-left justify-content-center">
                     <div class="circle-img">
-                      <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo " />
+                      <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
                     <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Individual Goals</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Achviements</span></a>
@@ -245,9 +245,7 @@ const Dashboard = props => {
                     <Container id="recent-div">
                       <img src={recent} alt="recentimg" />
                     RECENTLY VIEWED
-                    <p>
-                        learn
-                    </p>
+                    <p>{title}</p>
                     </Container>
                     <Container container id="recent-div">
                       <a href="#" onClick={() => setShowAddGoal(true)}> <img src={pluss} />
@@ -261,7 +259,7 @@ const Dashboard = props => {
               <Container fluid>
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
-                    <Container container className=" justify-content-center">
+                    <Container fluid className=" justify-content-center">
                       <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
                     </Container>
                   </Col>
@@ -291,8 +289,8 @@ const Dashboard = props => {
                       </div>
 
                       <div>
-                      <MotivationDiv />
-                      
+                        <MotivationDiv />
+
                       </div>
                     </Col>
 

@@ -319,7 +319,7 @@ transition-timing-function: ease-out;
     background-image: URL('../../img/s-bg.jpg');
     background-repeat: no-repeat;
     background-position: top;
-    padding: 50px
+    padding: 50px;
 }
     .video-div h1 {
         color: #430D33;
@@ -403,9 +403,10 @@ transition-timing-function: ease-out;
     }
 
     .progress{
-      background-color: #613D61;
+      background-color:#430D33;
       margin-top: 100px;
       height: 30px;
+      
 
     }
     .h2title{
@@ -455,7 +456,7 @@ transition-timing-function: ease-out;
   background-position:top;
   background-repeat:no-repeat;
   background-size:100%;
-  height: 50vh;
+  height: 45vh;
   padding: 30px;
   margin-bottom: 5%;
     }
@@ -469,6 +470,11 @@ transition-timing-function: ease-out;
     }
     .title, .story{
       margin-left: 2%;
+    }
+    .userPicc{
+      margin-left: 2%;
+      width: 25%;
+      height: 120px;
     }
     
 
