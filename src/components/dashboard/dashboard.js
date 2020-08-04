@@ -1,6 +1,7 @@
 // React Stuff
 import React, { useContext, useEffect, useState} from 'react';
 import { LoginContext } from '../auth/context';
+import Swal from 'sweetalert2';
 import Show from '../auth/show';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './dashboard.scss';
@@ -115,6 +116,26 @@ const Dashboard = props => {
   const updateSubmit = (id, e) => {
     e.preventDefault()
     props.updOwn(id, object)
+    if(object.status === "inprogress"){
+      Swal.fire(
+        'Good luck!',
+        'Good luck with your progress!',
+        'success'
+      )
+    }if(object.status === "complete"){
+      Swal.fire(
+        'Good job!',
+        'You finished this step! Keep going strong!',
+        'success'
+      )
+    }
+    if(object.status === "todo"){
+      Swal.fire(
+        'Great!',
+        'Good luck with your plans!',
+        'success'
+      )
+    }
     setShowActive(!showActive);
     setShowEditGoal(false);
   };
@@ -180,8 +201,7 @@ const Dashboard = props => {
                       <Dropdown.Item >
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
-                      <Dropdown.Item className="dropItem"> <p>Dashboard</p> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem"> <p>Chat</p> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem" onClick={e => setShowMyGoals(true)}> <p>Dashboard</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem"> <p>About Gadha</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
                         <Show condition={user.loggedIn}>   <button className="dropdown-btn" onClick={user.logout}>Logout</button>   </Show>
@@ -190,7 +210,7 @@ const Dashboard = props => {
                   </Dropdown>
                 </div>
                 <div>
-                    <img src={img911} alt='chatIcon' />
+                    <img style={{cursor:'pointer'}} src={img911} alt='chatIcon' onClick={user.activateChat}/>
                 </div>
                 <div>
                     <img alt='addIcon' src={plus} onClick={() => setShowAddGoal(true)} class="img2" />
@@ -202,6 +222,9 @@ const Dashboard = props => {
         </div>
       </div>
 
+
+
+
       <Container fluid>
         <Container fluid>
           <Row className=" justify-content-center">
@@ -212,8 +235,8 @@ const Dashboard = props => {
                     <div class="circle-img">
                       <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
-                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Individual Goals</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Home</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
                       <img src={recent} alt="recentimg" />
@@ -232,7 +255,7 @@ const Dashboard = props => {
               <Container fluid className='khalil-son'>
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
-                    <Container container className=" justify-content-center khalil-son">
+                    <Container fluid className=" justify-content-center khalil-son">
                       <Progress done={props.myGoals.progress.progress}/>
                     </Container>
                   </Col>
@@ -243,14 +266,14 @@ const Dashboard = props => {
                       return (
                         <Col xs={6} md={6} xl={3} lg={6}>
                           <Container fluid className=" justify-content-center">
-                            <Card onClick={e => (sendTitle(post.title))} className="card">{post.title}</Card>
+                            <Card onClick={e => (sendTitle(post.title))} className="card3">{post.title}</Card>
                           </Container>
                         </Col>
                       )
                     })}
                     <Col xs={6} md={6} xl={3} lg={6}>
                       <Container fluid className=" justify-content-center">
-                        <Card onClick={() => setShowAddGoal(true)} className="card"><img src={pluss} alt='img' /></Card>
+                        <Card onClick={() => setShowAddGoal(true)} className="card3"><img src={pluss} alt='img' /></Card>
                       </Container>
                     </Col>
                     <Col xs={12} md={12} xl={12} lg={12}>
@@ -263,7 +286,6 @@ const Dashboard = props => {
 
                       <div>
                         <MotivationDiv />
-
                       </div>
                     </Col>
 
@@ -271,13 +293,8 @@ const Dashboard = props => {
                 </Show>
                 <Show condition={!showMyGoals}>
                   <Row>
-                    <Container container className=" justify-content-center">
-                      <MotivationPost />
-                    </Container>
-                  </Row>
-                  <Row>
-                    <Container container className=" justify-content-center">
-                      <h2 className="h2title">{title}</h2>
+                    <Container fluid className=" justify-content-center">
+                      <h2 className="h2title">Goal Title: {title}</h2>
                     </Container>
                   </Row>
                   <Row>
@@ -383,6 +400,11 @@ const Dashboard = props => {
                       </Modal.Body>
                     </Modal>
                   </Show>
+                  <Row>
+                    <Container fluid className=" justify-content-center">
+                      <MotivationPost />
+                    </Container>
+                  </Row>
                 </Show>
               </Container>
             </Col>

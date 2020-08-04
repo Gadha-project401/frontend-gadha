@@ -15,11 +15,14 @@ const Progress = ({done}) => {
 	}, 200);
 	
 	return (
+		<>
+		<p class='progress-title'>You are doing great! Keep going, here is your progress:</p>
 		<div className="progress">
 			<div className="progress-done" style={style}>
 				{done}%
 			</div>
 		</div>
+		</>
 	)
 }
 

@@ -143,7 +143,7 @@ export default class extends Component {
           </div>
       </div>
     </div>
-      <div>
+      <div className='step-container'>
         <div className="body">
           <div className="step">
             {new Array(maxStep).fill().map((each, idx) => {
