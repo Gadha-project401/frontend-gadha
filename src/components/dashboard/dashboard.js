@@ -1,13 +1,13 @@
 // React Stuff
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState ,Component} from 'react';
 import { LoginContext } from '../auth/context';
 import Show from '../auth/show';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './dashboard.scss';
 import { Container, Row, Col, Card, Dropdown } from 'react-bootstrap';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+
+import Modal from 'react-bootstrap/Modal'
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
-import Modal from 'react-bootstrap/Modal';
 import logo from "../../img/logo-m.png";
 import bin from "../../img/bin.png";
 import plus from "../../img/plus.png";
@@ -18,6 +18,7 @@ import pluss from "../../img/s-plus.png";
 import editt from "../../img/edit.png";
 import MotivationPost from "../forms/addPost";
 import MotivationDiv from "../posts/motivations";
+import Progress from './progress'
 
 
 
@@ -38,12 +39,13 @@ const Dashboard = props => {
   const [complete, setComplete] = useState([]);
   const [showActive, setShowActive] = useState(false);
   const [showMyGoals, setShowMyGoals] = useState(true);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showAddGoal, setShowAddGoal] = useState(false);
+  const [showEditGoal, setShowEditGoal] = useState(false);
+  const [showAddStep, setShowAddStep] = useState(false);
   const [uniqueState, setUniqueState] = useState([]);
   const [title, setTitle] = useState('');
-  const [showAddStep, setShowAddStep] = useState(false);
-  const [showEditGoal, setShowEditGoal] = useState(false);
-  const [showAddGoal, setShowAddGoal] = useState(false);
+ 
+
   const [activeGoal, setActiveGoal] = useState({
     createdBy: "alaaa",
     image: "https://lunawood.com/wp-content/uploads/2018/02/placeholder-image.png",
@@ -115,7 +117,6 @@ const Dashboard = props => {
     props.updOwn(id, object)
     setShowActive(!showActive);
     setShowEditGoal(false);
-
   };
 
   const handleChange = e => {
@@ -125,18 +126,6 @@ const Dashboard = props => {
   const handleDelete = id => {
     props.delOwn(id);
     setShowActive(false);
-  }
-
-  const showAddForm = e => {
-    setAddPost(!addPost);
-  }
-
-  const showEditForm = e => {
-    if (edit[e.target.name] === undefined) {
-      setEdit({ ...edit, [e.target.name]: true })
-    } else {
-      setEdit({ ...edit, [e.target.name]: !edit[e.target.name] });
-    }
   }
 
   const addPostSubmit = e => {
@@ -259,8 +248,9 @@ const Dashboard = props => {
               <Container fluid>
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
-                    <Container fluid className=" justify-content-center">
-                      <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
+                    <Container container className=" justify-content-center">
+                      {/* <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} /> */}
+                      <Progress done={props.myGoals.progress.progress}/>
                     </Container>
                   </Col>
                 </Row>
@@ -504,9 +494,51 @@ const Dashboard = props => {
       <Show condition={!user.loggedIn}>
         <p>Logged out user</p>
       </Show>
+
+
+
+
+      <Modal
+        show={showAddStep}
+        onHide={() => setShowAddStep(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-modal-sizes-title-sm" className='modalTitle'>
+            Add Step
+            </Modal.Title>
+        </Modal.Header>
+        <Modal.Body >
+          <form onSubmit={addPostSubmit}>
+            <label><h5>Goal Story:</h5>
+              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+            </label><br />
+            <div>
+              <h5>Goal Privacy:</h5>
+              <select name='private' onChange={addPostHandler} required>
+                <option value='' hidden >Set Privacy</option>
+                <option value='true'>Private</option>
+                <option value='false'>Public</option>
+              </select>
+            </div>
+            <br />
+            <br />
+            <br />
+            {/* </label><br /> */}
+            <label><h5>Goal Due in :</h5>
+              <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required onChange={addPostHandler} />
+            </label><br />
+
+            <button className="signBtn">Add Goal</button>
+          </form>
+        </Modal.Body>
+      </Modal>
+
+
     </>
-  )
-}
+  )}
+// }
+
 
 const mapStateToProps = state => ({
   myGoals: state.ownGoals,

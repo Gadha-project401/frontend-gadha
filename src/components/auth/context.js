@@ -73,6 +73,7 @@ class LoginProvider extends React.Component{
 
   validateToken = (token,newUser) => {
     try{
+      
       let user = jwt.verify(token, process.env.REACT_APP_PASSKEY);
       if(newUser){
         this.setState({active:{homepage:false,dashboard:false,publicGoals:false,about:false,newUser:true}})

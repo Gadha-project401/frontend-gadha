@@ -1,4 +1,4 @@
-import React , {useContext} from 'react';
+import React , {useContext, useEffect} from 'react';
 
 
 //Components importation
@@ -16,6 +16,7 @@ import Loader from './components/loader/loader';
 
 const App = props =>{
   let user = useContext(LoginContext);
+
   return(
     <>
 
