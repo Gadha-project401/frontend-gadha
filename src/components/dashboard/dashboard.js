@@ -16,11 +16,8 @@ import img911 from "../../img/911-2.png";
 import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
 import editt from "../../img/edit.png";
-import clab from "../../img/clab.png";
-import hug from "../../img/hug.png";
-import giveStar from "../../img/giveStar.png";
-import raiseHat from "../../img/raiseHat.png";
 import MotivationPost from "../forms/addPost";
+import MotivationDiv from "../posts/motivations";
 
 
 
@@ -293,16 +290,9 @@ const Dashboard = props => {
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
                       </div>
 
-                      <div className="motevationDiv">
+                      <div>
+                      <MotivationDiv />
                       
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={clab} alt="clab" /></button>
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={hug} alt="hug" /></button>
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={giveStar} alt="giveStar" /></button>
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={raiseHat} alt="raiseHat" /></button>
-                        <p>
-                          A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-                          A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-                        </p>
                       </div>
                     </Col>
 
