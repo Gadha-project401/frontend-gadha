@@ -134,7 +134,7 @@ const About = props => {
         <div class="flip-card-inner"> 
         <div class="flip-card-front"> 
            <img className="anasImg" src={israaPng} alt="" />
-           <h2 className="anasH2">israa othman</h2> 
+           <h2 className="anasH2">Isra'a othman</h2> 
            </div>
            <div class="flip-card-back">
            <p>Full Stack Developer
