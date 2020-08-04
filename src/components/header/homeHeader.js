@@ -17,7 +17,7 @@ const Home = props => {
             <img src={logoheader} alt="" className="headerLogo" />
           </Col>
           <Col xs={4} md={6} xl={6} lg={6} className="justify-content-center text-center" ></Col>
-          <Col className="sign" xs={4} md={4} xl={4} lg={4} className="justify-content-center text-center" >
+          <Col xs={4} md={4} xl={4} lg={4} className="justify-content-center text-center sign" >
             <Form />
           </Col>
         </Row>
