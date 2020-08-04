@@ -5,7 +5,7 @@ import Show from '../auth/show';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './dashboard.scss';
 import { Container, Row, Col, Card, Dropdown } from 'react-bootstrap';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+
 import Modal from 'react-bootstrap/Modal'
 import { FaRegTrashAlt, FaEdit } from "react-icons/fa";
 import logo from "../../img/logo-m.png";
@@ -17,11 +17,8 @@ import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
 import editt from "../../img/edit.png";
 import MotivationPost from "../forms/addPost";
-<<<<<<< HEAD
-import Progress from './progress'
-=======
 import MotivationDiv from "../posts/motivations";
->>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
+import Progress from './progress'
 
 
 
@@ -251,14 +248,9 @@ const Dashboard = props => {
               <Container fluid>
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
-<<<<<<< HEAD
                     <Container container className=" justify-content-center">
                       {/* <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} /> */}
                       <Progress done={props.myGoals.progress.progress}/>
-=======
-                    <Container fluid className=" justify-content-center">
-                      <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
->>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
                     </Container>
                   </Col>
                 </Row>

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React , { useEffect,useState} from 'react';
-=======
 import React, { useEffect,useState } from 'react';
->>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
 import clab from "../../img/clab.png";
@@ -11,12 +7,7 @@ import hug from "../../img/hug.png";
 import giveStar from "../../img/giveStar.png";
 import raiseHat from "../../img/raiseHat.png";
 
-<<<<<<< HEAD
-const Posts = props =>{
-    const [counter, setCounter] = useState(0);
-=======
 const Posts = props => {
->>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
 
     const [counter, setCounter] = useState(0);
 
@@ -25,14 +16,6 @@ const Posts = props => {
         props.get();
     }
 
-<<<<<<< HEAD
-    const addition =()=>{
-        setCounter(counter+1);
-    }
-
-    useEffect(()=>{
-        fetchData()},
-=======
     const addLike = () =>{
         setCounter(counter+1);
     }
@@ -40,30 +23,10 @@ const Posts = props => {
     useEffect(() => {
         fetchData()
     },
->>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
         []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
-<<<<<<< HEAD
-         <div className="container">
-             {props.posts.posts.map((post,idx)=>{
-                 return(
-                     <div key={post._id}>
-                         {}
-                         {/* <img className="profilePic" src={post.virtualOwner.profilePic}/> */}
-                         <h5 className="createdBy" >{post.createdBy}</h5>
-                         <p className="createdAt">{post.createdAt}</p>
-                         <p className="title">{post.title}</p>
-                         <p className="story">{post.story}</p>
-                         <p>{counter}</p>
-                         <button onClick={addition}>like</button>
-                     </div>
-                 )
-             })}
-
-         </div>
-=======
             <div>
                 {props.posts.posts.map((post, idx) => {
                     return (
@@ -91,7 +54,6 @@ const Posts = props => {
                 })}
 
             </div>
->>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
         </>
     )
 }
