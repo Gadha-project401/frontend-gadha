@@ -202,7 +202,7 @@ const Dashboard = props => {
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item className="dropItem" onClick={e => setShowMyGoals(true)}> <p>Dashboard</p> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem"> <p>About Gadha</p> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})} > <p>About Gadha</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
                         <Show condition={user.loggedIn}>   <button className="dropdown-btn" onClick={user.logout}>Logout</button>   </Show>
                       </Dropdown.Item>
@@ -346,7 +346,7 @@ const Dashboard = props => {
                         <button style={{ backgroundColor: "#EE9E6D", border: "0px" }} onClick={() => handleDelete(activeGoal._id)}><img src={bin} alt="bin" /></button>
                         <button style={{ backgroundColor: "#EE9E6D", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={editt} alt="editimg" /></button>
                         <p className="title">Title: {activeGoal.title}</p>
-                        <p className="story">Story: {activeGoal.story}</p>
+                        <p className="story">Step: {activeGoal.story}</p>
                         <p className="dueBy">Due By: {activeGoal.dueBy} </p>
                         <p className="status">Status: {activeGoal.status} </p>
                         <p className="createdAt1">Created On: {activeGoal.createdAt.split(',')[0]}</p>
@@ -367,8 +367,8 @@ const Dashboard = props => {
                         <form onSubmit={(e) => updateSubmit(activeGoal._id, e)}>
                           <input type='hidden' value={activeGoal.title} name='title' onChange={handleChange} />
                           <br />
-                          <label><h5>Story</h5>
-                            <input type='text' placeholder={activeGoal.story} name='story' onChange={handleChange} />
+                          <label><h5>Step Name</h5>
+                            <input type='text' placeholder='Step Name' name='story' onChange={handleChange} />
                           </label><br />
                           <div>
                             <h5> Status :</h5>

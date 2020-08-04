@@ -11,6 +11,7 @@ import Footer from './components/footer/footer';
 import NewUser from './components/dashboard/newUser';
 import Chat from './components/chat/chat';
 import Loader from './components/loader/loader';
+import About from './components/aboutus/aboutus'
 
 
 const App = props =>{
@@ -19,21 +20,31 @@ const App = props =>{
   return(
     <>
 
+    <Show condition={user.active.about}> 
+      <About />
+     </Show>
+
     <Show condition={user.loader}>
       <Loader/>
     </Show>
 
     <Show condition={!user.loggedIn}>
+      <Show condition={user.active.homepage}>
+
       <Header/>
       <Body/>
+      
+      </Show>
       
     </Show>
      
     <Show condition={user.loggedIn}>
 
+     
 
       <Show condition={user.active.homepage}>
         <Dashboard/>
+        
       </Show>
 
       <Show condition={user.active.newUser}>
