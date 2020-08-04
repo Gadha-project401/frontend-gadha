@@ -16,12 +16,12 @@ import img911 from "../../img/911-2.png";
 import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
 import editt from "../../img/edit.png";
-import clab from "../../img/clab.png";
-import hug from "../../img/hug.png";
-import giveStar from "../../img/giveStar.png";
-import raiseHat from "../../img/raiseHat.png";
 import MotivationPost from "../forms/addPost";
+<<<<<<< HEAD
 import Progress from './progress'
+=======
+import MotivationDiv from "../posts/motivations";
+>>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
 
 
 
@@ -187,8 +187,8 @@ const Dashboard = props => {
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item className="dropItem" href="#"> <a href="#">Dashboard</a> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem" href="#">  <a href="#">Motivational Posts</a> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem" href="#"> <a href="#">Users Achievements</a> </Dropdown.Item>
+                      {/* <Dropdown.Item className="dropItem" href="#">  <a href="#">Motivational Posts</a> </Dropdown.Item> */}
+                      {/* <Dropdown.Item className="dropItem" href="#"> <a href="#">Users Achievements</a> </Dropdown.Item> */}
                       <Dropdown.Item className="dropItem" href="#"> <a href="#">Chat</a> </Dropdown.Item>
                       <Dropdown.Item className="dropItem" href="#"> <a href="#">About Gadha</a> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
@@ -227,19 +227,17 @@ const Dashboard = props => {
                 <Container className="list-group border-0 text-center text-md-left justify-content-center">
                   <Col xs={12} md={12} xl={12} lg={12} className="list-group border-0 text-center text-md-left justify-content-center">
                     <div class="circle-img">
-                      <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo " />
+                      <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
                     <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Individual Goals</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Achviements</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">911 Motivate</span></a>
+                    {/* <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Achviements</span></a> */}
+                    {/* <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">911 Motivate</span></a> */}
                     <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Home</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
                       <img src={recent} alt="recentimg" />
                     RECENTLY VIEWED
-                    <p>
-                        learn
-                    </p>
+                    <p>{title}</p>
                     </Container>
                     <Container container id="recent-div">
                       <a href="#" onClick={() => setShowAddGoal(true)}> <img src={pluss} />
@@ -253,9 +251,14 @@ const Dashboard = props => {
               <Container fluid>
                 <Row>
                   <Col xs={12} md={12} xl={12} lg={12}>
+<<<<<<< HEAD
                     <Container container className=" justify-content-center">
                       {/* <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} /> */}
                       <Progress done={props.myGoals.progress.progress}/>
+=======
+                    <Container fluid className=" justify-content-center">
+                      <ProgressBar className="progress" variant="dark" now={props.myGoals.progress.progress} label={`${props.myGoals.progress.progress}%`} />
+>>>>>>> 5feacff75e942feb3426d0622c9512d7eab1148b
                     </Container>
                   </Col>
                 </Row>
@@ -283,16 +286,9 @@ const Dashboard = props => {
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
                       </div>
 
-                      <div className="motevationDiv">
-                      
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={clab} alt="clab" /></button>
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={hug} alt="hug" /></button>
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={giveStar} alt="giveStar" /></button>
-                      <button style={{ backgroundColor: "#FFF7EB", border: "0px" }} name={activeGoal._id} onClick={() => setShowEditGoal(true)}><img src={raiseHat} alt="raiseHat" /></button>
-                        <p>
-                          A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-                          A list is a collection of cards. It can be a set of ideas, a group of tasks, or a stage in a achieving your goal. You'll add cards to your list next.
-                        </p>
+                      <div>
+                        <MotivationDiv />
+
                       </div>
                     </Col>
 
@@ -361,7 +357,7 @@ const Dashboard = props => {
                         <p className="story">Story: {activeGoal.story}</p>
                         <p className="dueBy">Due By: {activeGoal.dueBy} </p>
                         <p className="status">Status: {activeGoal.status} </p>
-                        <p className="createdAt">Created On: {activeGoal.createdAt.split(',')[0]}</p>
+                        <p className="createdAt1">Created On: {activeGoal.createdAt.split(',')[0]}</p>
                         <p className="privacy">Private: {activeGoal.private.toString()} </p>
                       </div>
                     </Card>

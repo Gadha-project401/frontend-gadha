@@ -319,7 +319,7 @@ transition-timing-function: ease-out;
     background-image: URL('../../img/s-bg.jpg');
     background-repeat: no-repeat;
     background-position: top;
-    padding: 50px
+    padding: 50px;
 }
     .video-div h1 {
         color: #430D33;
@@ -455,18 +455,26 @@ transition-timing-function: ease-out;
   background-position:top;
   background-repeat:no-repeat;
   background-size:100%;
-  height: 40vh;
-    }
-    .motevationDiv p{
-        padding: 30px;
-        margin-left: 5%;
+  height: 45vh;
+  padding: 30px;
+  margin-bottom: 5%;
     }
     .motevationDiv button{
-        // padding: 20px;
-        margin-top: 5%;
-        margin-left: 6%;
+        // padding: 6px;
+        margin-top: 6.5%;
+        margin-bottom: 2.4%;
     }
-    
+    .createdAt{
+      font-size: 12px;
+    }
+    .title, .story{
+      margin-left: 2%;
+    }
+    .userPicc{
+      margin-left: 2%;
+      width: 25%;
+      height: 120px;
+    }
     
 
 .goalBtn {
@@ -505,4 +513,97 @@ transition-timing-function: ease-out;
     margin-left: 25%;
 }
 }
+.body {
+  // background-color: lightblue;
+  width: 600px;
+  // height: 300px;
+  text-align: center;
+  padding: 15px;
+  margin-top: 10%;
+  margin-left: 28%;
+}
+.step {
+  height: 60px;
+  // border-bottom: 3px solid lightskyblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.step span {
+  display: block;
+  height: 17px;
+  width: 17px;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.step span.active {
+  background: gray;
+}
+.form {
+  padding: 15px;
+  padding-top: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: solid 1px black;
+}
+h3{
+  font-size: 3em;
+  font-family: fantasy;
+  color: #EE9B6F;
+}
+h6{
+  font-size: 1em;
+  font-family: fantasy;
+  color: #EE9B6F;
+}
+.button{
+  color: white;
+  background-color: #EE9B6F;
+  margin-top: 2%;
+}
 
+.profilePic{
+border-radius: 50%;
+width: 40%;
+}
+ul{
+list-style-type: none;
+}
+.progress {
+height: 1.7rem;
+}
+.goalBtn {
+background-color: #E7AD34; 
+border: 2px solid #6949B5;
+color: #6949B5;
+font-family: fantasy;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+margin-top: 5%;
+margin-left: 8%;
+cursor: pointer;
+transition-duration: 0.4s;
+border-radius: 12%;
+}
+.goalBtn:hover {
+background-color:  #6949B5;
+border: 2px solid #E7AD34;
+color: white;
+}
+.secGoalForm{
+padding: 30px;
+width: 70%;
+border: 1px solid rgb(238, 158, 109);
+margin-left: 15%;
+button{
+  margin-left: 0%;
+}
+select:last-of-type {
+  margin-left: 25%;
+}
+}
