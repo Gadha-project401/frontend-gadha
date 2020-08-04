@@ -2,12 +2,14 @@ import React, { Component , useContext} from 'react'
 import './dashboard.scss'
 import Form from '../forms/addGoal'
 import { LoginContext } from '../auth/context';
-
+import logo from "../../img/logo-m.png";
 class Step1 extends Component {
   render() {
     const { handleChange, nextStep } = this.props
 
     return (
+      <>
+      
       <div>
         <div className="field">
             <h6>Welcome to</h6>
@@ -21,6 +23,7 @@ class Step1 extends Component {
           </button>
         </p>
       </div>
+      </>
     )
   }
 }
@@ -132,6 +135,16 @@ export default class extends Component {
 
   render() {
     return (
+      <>
+      <div class="w-100" id="fixed-nav">
+      <div class="row" id="inside-header">
+        <div class="col-11 mx-auto d-flex">
+          <div class="col-6">
+            <img src={logo} class="inside-logo" />
+          </div>
+          </div>
+      </div>
+    </div>
       <div>
         <div className="body">
           <div className="step">
@@ -148,6 +161,7 @@ export default class extends Component {
           <div className="form">{this.renderComponent()}</div>
         </div>
       </div>
+      </>
     )
   }
 }

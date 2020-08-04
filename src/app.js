@@ -3,7 +3,7 @@ import React , {useContext} from 'react';
 
 //Components importation
 import Header from './components/header/homeHeader';
-import LoggedHeader from './components/header/loggedHeader';
+// import LoggedHeader from './components/header/loggedHeader';
 import Body from './components/body/body';
 import Dashboard from './components/dashboard/dashboard'
 import {LoginContext} from './components/auth/context';
@@ -31,7 +31,7 @@ const App = props =>{
      
     <Show condition={user.loggedIn}>
 
-      <LoggedHeader/>
+      {/* <LoggedHeader/> */}
 
       <Show condition={user.active.homepage}>
         <Dashboard/>

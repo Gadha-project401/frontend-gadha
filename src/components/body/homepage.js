@@ -78,7 +78,7 @@ const HomePage = props => {
                 <Row >
                     <Col xs={12} md={2} xl={2} lg={2}></Col>
                     <Col xs={12} md={8} xl={8} lg={8}>
-                        <h1 className="text-center">Don't miss the oppertunity to achive your Goals</h1>
+                        <h1 className="text-center">Don't miss the opportunity to achive your Goals</h1>
                         <p className="text-center">Motivational speakers have had an enormous impact <br /> on my life, and millions of others, no matter what their <br />personal situation in life may be.</p>
                     </Col>
                     <Col xs={12} md={2} xl={2} lg={2}></Col>
