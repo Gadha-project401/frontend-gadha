@@ -195,8 +195,8 @@ const Dashboard = props => {
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item className="dropItem" href="#"> <a href="#">Dashboard</a> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem" href="#">  <a href="#">Motivational Posts</a> </Dropdown.Item>
-                      <Dropdown.Item className="dropItem" href="#"> <a href="#">Users Achievements</a> </Dropdown.Item>
+                      {/* <Dropdown.Item className="dropItem" href="#">  <a href="#">Motivational Posts</a> </Dropdown.Item> */}
+                      {/* <Dropdown.Item className="dropItem" href="#"> <a href="#">Users Achievements</a> </Dropdown.Item> */}
                       <Dropdown.Item className="dropItem" href="#"> <a href="#">Chat</a> </Dropdown.Item>
                       <Dropdown.Item className="dropItem" href="#"> <a href="#">About Gadha</a> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
@@ -238,8 +238,8 @@ const Dashboard = props => {
                       <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
                     <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Individual Goals</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Achviements</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">911 Motivate</span></a>
+                    {/* <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Achviements</span></a> */}
+                    {/* <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">911 Motivate</span></a> */}
                     <a href="#" class="list-group-item d-inline-block collapsed"><span class="d-none d-md-inline">Home</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
