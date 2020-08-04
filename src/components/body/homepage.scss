@@ -75,13 +75,29 @@ img.qoute{width: 20px; margin-bottom:0px; margin-top: -20px;}
   .sec4 h1 span{color:#613D61; font-size:113px;font-family: 'Anton', sans-serif;}
   .sec4 p{line-height: 1.3em;color:#848484; padding-top:20px;padding-right:50px}
   .sec4 .rating-gallery{padding-top:60px}
-  .sec4 .rating-gallery .content{padding-top:10px}
-  .sec4 .rating-gallery .content span{padding-left:10px;font-size:18px}
+  .sec4 .rating-gallery .content{
+    padding-top:10px;
+    width: 18vw;}
+    .scrollAni{
+      float: right;
+
+    }
+  .sec4 .rating-gallery .content span{
+    padding-left:10px;
+    font-size:18px ; 
+    font-weight: bold;
+    font-family: cursive;}
   .controller{padding:100px;padding-top:50px}
 
   .sec5 h1{color:#613D61}
   .sec5 .pp{padding-bottom:30px}
-  .sec5 img{margin-bottom:15px}
+  .sec5 img{
+    margin-bottom:15px;
+    }
+  .usersPic{
+    height: 40%;
+    width: 80%;
+    }
 
 $color-primary: #EE9E6D;
 $color-primary-light: #f3af84;
@@ -145,6 +161,58 @@ $color-text-light: snow;
 }
 
 .zoom:hover {
+  transform: scale(1.1); 
+}
 
-  transform: scale(1.2); 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Warnes&display=swap');
+
+// :root {
+//     background-color: #141414;
+// }
+
+// * {
+//     box-sizing: border-box;
+//     margin: 0;
+// }
+
+// .container {
+//     width: 100vw;
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     max-width: 80rem;
+//     margin: 0 auto;
+//     padding: 2rem;
+// }
+
+// .container > * {
+//     width: 100%;
+// }
+
+
+// body {
+//   background-color: #141414;
+// }
+
+// h1 {
+//     font-family: 'Warnes', cursive;
+//     font-size: 80px;
+//     color: #fff;
+//     text-align: center;
+// }
+
+.glow {
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }
