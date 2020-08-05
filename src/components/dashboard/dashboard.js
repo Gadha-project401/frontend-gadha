@@ -182,15 +182,15 @@ const Dashboard = props => {
   }
   return (
     <>
-      <div class="w-100" id="fixed-nav">
-        <div class="row" id="inside-header">
-          <div class="col-11 mx-auto d-flex">
-            <div class="col-6">
-              <img src={logo} alt='img' class="inside-logo" />
+      <div className="w-100" id="fixed-nav">
+        <div className="row" id="inside-header">
+          <div className="col-11 mx-auto d-flex">
+            <div className="col-6">
+              <img src={logo} alt='img' className="inside-logo" />
             </div>
-            <div class="col-6 ">
-              <div class="col-12 d-flex flex-row-reverse p-0">
-                <div class="circle-img">
+            <div className="col-6 ">
+              <div className="col-12 d-flex flex-row-reverse p-0">
+                <div className="circle-img">
                   <Dropdown >
                     <Dropdown.Toggle variant="failed" id="dropdown-basic">
                       <img className="profilePicc rounded-circle inside-logo user-img-drop ayKelme" alt="profilePicc" src={user.user.userPic} width="70px" />
@@ -212,12 +212,12 @@ const Dashboard = props => {
                     <img style={{cursor:'pointer'}} src={img911} alt='chatIcon' onClick={user.activateChat}/>
                 </div>
                 <div>
-                    <img alt='addIcon' src={plus} onClick={() => setShowAddGoal(true)} class="img2" />
+                    <img alt='addIcon' src={plus} onClick={() => setShowAddGoal(true)} className="img2" />
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-12"></div>
+          <div className="col-12"></div>
         </div>
       </div>
 
@@ -231,13 +231,13 @@ const Dashboard = props => {
               <Container container id="sidebar">
                 <Container className="list-group border-0 text-center text-md-left justify-content-center">
                   <Col xs={12} md={12} xl={12} lg={12} className="list-group border-0 text-center text-md-left justify-content-center">
-                    <div class="circle-img">
-                      <img onClick={e => user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false})} src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
+                    <div className="circle-img">
+                      <img onClick={e => user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false})} src={user.user.userPic} alt='ProfilePic' className="rounded-circle inside-logo userPicc " />
                     </div>
-                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})}><span class="d-none d-md-inline ">911 Motivation</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
+                    <a href="#" className="list-group-item d-inline-block collapsed b-yellow" onClick={e => setShowMyGoals(true)}><span className="d-none d-md-inline">Dashboard</span></a>
+                    <a href="#" className="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})}><span className="d-none d-md-inline ">911 Motivation</span></a>
+                    <a href="#" className="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span className="d-none d-md-inline ">About Gadha</span></a>
+                    <a href="#" className="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
                       <img src={recent} alt="recentimg" />
                     RECENTLY VIEWED
@@ -277,11 +277,11 @@ const Dashboard = props => {
                       </Container>
                     </Col>
                     <Col xs={12} md={12} xl={12} lg={12}>
-                      <div class="video-div text-center">
+                      <div className="video-div text-center">
                         <h1>
                           PICKED FOR YOU | TIP FROM ADVISOR
                             </h1>
-                        <iframe title='motivation' src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
+                        <iframe title='motivation' src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoPlay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
                       </div>
                     </Col>
 

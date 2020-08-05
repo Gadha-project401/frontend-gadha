@@ -25,6 +25,11 @@ const Posts = props => {
     },
         []) // eslint-disable-line react-hooks/exhaustive-deps
 
+        useEffect(() => {
+            fetchData()
+        },
+            [props.posts]) // eslint-disable-line react-hooks/exhaustive-deps
+
     return (
         <>
             <div>
