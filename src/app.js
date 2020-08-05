@@ -12,7 +12,7 @@ import NewUser from './components/dashboard/newUser';
 import Chat from './components/chat/chat';
 import Loader from './components/loader/loader';
 import About from './components/aboutus/aboutus'
-
+import MotivationPage from './components/motivationPage/motivationPage'
 
 const App = props =>{
   let user = useContext(LoginContext);
@@ -53,6 +53,11 @@ const App = props =>{
 
       <Show condition={user.chat}>
         <Chat/>
+      </Show>
+
+      <Show condition={user.active.motivationPage}>
+        <MotivationPage/>
+        
       </Show>
 
     </Show>

@@ -17,8 +17,6 @@ import img911 from "../../img/911-2.png";
 import recent from "../../img/recent.png";
 import pluss from "../../img/s-plus.png";
 import editt from "../../img/edit.png";
-import MotivationPost from "../forms/addPost";
-import MotivationDiv from "../posts/motivations";
 import Progress from './progress'
 
 
@@ -202,6 +200,7 @@ const Dashboard = props => {
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item className="dropItem" onClick={e => setShowMyGoals(true)}> <p>Dashboard</p> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})} > <p>911 Motivation</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})} > <p>About Gadha</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
                         <Show condition={user.loggedIn}>   <button className="dropdown-btn" onClick={user.logout}>Logout</button>   </Show>
@@ -236,6 +235,7 @@ const Dashboard = props => {
                       <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
                     <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})}><span class="d-none d-md-inline ">911 Motivation</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
@@ -282,10 +282,6 @@ const Dashboard = props => {
                           PICKED FOR YOU | TIP FROM ADVISOR
                             </h1>
                         <iframe title='motivation' src="https://www.youtube.com/embed/KlUMrzwmbyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay></iframe>
-                      </div>
-
-                      <div>
-                        <MotivationDiv />
                       </div>
                     </Col>
 
@@ -400,11 +396,6 @@ const Dashboard = props => {
                       </Modal.Body>
                     </Modal>
                   </Show>
-                  <Row>
-                    <Container fluid className=" justify-content-center">
-                      <MotivationPost />
-                    </Container>
-                  </Row>
                 </Show>
               </Container>
             </Col>
@@ -423,8 +414,8 @@ const Dashboard = props => {
         </Modal.Header>
         <Modal.Body >
           <form onSubmit={addPostSubmit}>
-            <label><h5>Goal Story:</h5>
-              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+            <label><h5>Step:</h5>
+              <input type='text' placeholder='Enter Goal Step' name='story' required onChange={addPostHandler} />
             </label><br />
             <div>
               <h5>Goal Privacy:</h5>
@@ -461,8 +452,8 @@ const Dashboard = props => {
             <label><h5>Goal Title:</h5>
               <input type='text' placeholder='Enter Goal Title' name='title' required onChange={addPostHandler} />
             </label><br />
-            <label><h5>Goal Story:</h5>
-              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+            <label><h5>Step:</h5>
+              <input type='text' placeholder='Enter Goal Step' name='story' required onChange={addPostHandler} />
             </label><br />
             <div>
               <h5> Goal Status:</h5>
@@ -515,8 +506,8 @@ const Dashboard = props => {
         </Modal.Header>
         <Modal.Body >
           <form onSubmit={addPostSubmit}>
-            <label><h5>Goal Story:</h5>
-              <input type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+            <label><h5>Step:</h5>
+              <input type='text' placeholder='Enter Goal Step' name='story' required onChange={addPostHandler} />
             </label><br />
             <div>
               <h5>Goal Privacy:</h5>
