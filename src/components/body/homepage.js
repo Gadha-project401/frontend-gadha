@@ -268,7 +268,7 @@ const HomePage = props => {
                                     <img src={pStar} alt="" />
                                     <ScrollAnimation className="scrollAni" animateIn='bounceInRight'
                                    >
-                                    <span>Raghad Alqura'an </span>
+                                    <span>Raghad Alquran </span>
                                     </ScrollAnimation>
                                 </div>
                                 <div className="content">
@@ -277,7 +277,7 @@ const HomePage = props => {
                                     <img src={pStar} alt="" />
                                     <ScrollAnimation className="scrollAni" animateIn='bounceInRight'
                                    >
-                                    <span>Abdallah Obaid</span>
+                                    <span>Osama Mousa</span>
                                     </ScrollAnimation>
                                 </div>
                                 <div className="content">
