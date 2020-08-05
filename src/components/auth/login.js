@@ -2,6 +2,7 @@ import React from 'react';
 import Show from './show';
 import { LoginContext } from './context';
 import './auth.scss';
+import GoogleLogin from 'react-google-login'
 
 
 class Login extends React.Component {
@@ -21,6 +22,14 @@ class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.context.login(this.state.username, this.state.password);
+  }
+
+  responseGoogle=(response)=>{
+    console.log('response',response);
+    console.log('response obj',response.profileObj);
+    let username = response.profileObj.email.split('@')[0];
+    let authUser = {username:username,password:response.profileObj.googleId,profilePic:response.profileObj.imageUrl,}
+    this.context.validateToken(response.accessToken);
   }
 
   render() {
@@ -54,6 +63,16 @@ class Login extends React.Component {
               </div>
             </div>
             <button className="signBtn">Sign In</button>
+        <hr/>
+        <p className="googleP">OR</p>
+
+        <GoogleLogin className="googleBtn"
+        clientId="971207669999-akhiugeha5tk0ohtuvqsost7rv9nr7af.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={this.responseGoogle}
+        onFailure={this.responseGoogle}
+        cookiePolicy={'single_host_origin'}
+        />        
           </form>
         </Show>
         <Show condition={this.context.error}>

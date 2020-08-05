@@ -20,9 +20,11 @@ const App = props =>{
   return(
     <>
 
-    <Show condition={user.active.about}> 
+<Show condition={user.active.about}> 
       <About />
      </Show>
+
+
 
     <Show condition={user.loader}>
       <Loader/>
@@ -63,6 +65,7 @@ const App = props =>{
     </Show>
 
     <Footer/>
+
     </>
   )
 }

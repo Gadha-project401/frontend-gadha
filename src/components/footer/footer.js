@@ -39,7 +39,9 @@ const Footer = props => {
               </div>
             </Col>
             <Col xs={12} md={12} xl={4} lg={4} className="justify-content-center text-center">
+            {/* <Link to="/about"> */}
               <a href="#" className="about" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})} > About Gadha </a>
+              {/* </Link> */}
             </Col>
           </Row>
           <Row>
