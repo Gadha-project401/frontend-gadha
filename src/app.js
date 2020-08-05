@@ -11,21 +11,19 @@ import Footer from './components/footer/footer';
 import NewUser from './components/dashboard/newUser';
 import Chat from './components/chat/chat';
 import Loader from './components/loader/loader';
-import About from './components/aboutus/aboutus';
-import { BrowserRouter, Route } from 'react-router-dom';
-
+import About from './components/aboutus/aboutus'
+import MotivationPage from './components/motivationPage/motivationPage'
 
 const App = props =>{
   let user = useContext(LoginContext);
 
   return(
     <>
-    {/* <BrowserRouter> */}
-{/* <Route path="/about" exact> */}
+
 <Show condition={user.active.about}> 
       <About />
      </Show>
-{/* </Route> */}
+
 
 
     <Show condition={user.loader}>
@@ -59,10 +57,15 @@ const App = props =>{
         <Chat/>
       </Show>
 
+      <Show condition={user.active.motivationPage}>
+        <MotivationPage/>
+        
+      </Show>
+
     </Show>
 
     <Footer/>
-    {/* </BrowserRouter> */}
+
     </>
   )
 }
