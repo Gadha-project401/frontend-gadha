@@ -27,7 +27,7 @@ const PostForm = props => {
     <>
       <Container fluid style={{backgroundColor:"#FFF7EB" , margin:"30px 0px"}}>
         <Row>
-          <h5 style={{marginLeft:"30px", marginTop:"30px"}}>SHARE YOUR EXPERIENCE, FEELING OR YOUR STORY ...</h5>
+          <h5 style={{marginLeft:"160px", marginTop:"30px",textAlign:"center"}}>Learn to light a candle in the darkest moments of someone’s life.<br/> Be the light that helps others see; it is what gives life its deepest significance.</h5>
           <Col xs={12} md={12} xl={12} lg={12}>
             <Form onSubmit={handleSubmit}>
               <Col xs={12} md={12} xl={12} lg={12}>

@@ -11,7 +11,8 @@ import Footer from './components/footer/footer';
 import NewUser from './components/dashboard/newUser';
 import Chat from './components/chat/chat';
 import Loader from './components/loader/loader';
-import About from './components/aboutus/aboutus'
+import About from './components/aboutus/aboutus';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
 const App = props =>{
@@ -19,10 +20,13 @@ const App = props =>{
 
   return(
     <>
-
-    <Show condition={user.active.about}> 
+    {/* <BrowserRouter> */}
+{/* <Route path="/about" exact> */}
+<Show condition={user.active.about}> 
       <About />
      </Show>
+{/* </Route> */}
+
 
     <Show condition={user.loader}>
       <Loader/>
@@ -58,6 +62,7 @@ const App = props =>{
     </Show>
 
     <Footer/>
+    {/* </BrowserRouter> */}
     </>
   )
 }
