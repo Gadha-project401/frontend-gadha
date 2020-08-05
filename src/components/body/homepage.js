@@ -349,9 +349,9 @@ const HomePage = props => {
                         </Row>
                         <Row>
                             <Col className="zoom" xs={12} md={12} xl={5} lg={5}>
-                                <img  className="usersPic"  src="https://lh3.googleusercontent.com/proxy/88ICeKuLOuGtq-RA4Lgb6shSeZiffsl838IQOnNk91BYqvI_KapkuChkm6t9qupAxWGQISclpJ9jsPe8WyIw1i0vxR8G-UllenvVetp0oye5O9CvBOlJhHE" alt="" />
+                                <img  className="usersPic"  src="https://www.blackenterprise.com/wp-content/blogs.dir/1/files/2011/01/Chris_Gardner_final.jpg" alt="" />
                                 <div>
-                                    <h4>William Nilson</h4>
+                                    <h4>Chris Gardner</h4>
                                     <img src={Qout} alt="" className="qoute" />
                                     <p>Unsuccessful people make their decisions based on their current situations. Successful people make their decisions based on where they want to be</p>
                                     <img src={Qout1} alt="" className="qoute" />  
