@@ -43,6 +43,7 @@ const About = props => {
                         <h5 className="username">{user.user.username}</h5></Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item className="dropItem" onClick={e => user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false})}> <p>Dashboard</p> </Dropdown.Item>
+                      <Dropdown.Item className="dropItem" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})} > <p>911 Motivation</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}> <p>About Gadha</p> </Dropdown.Item>
                       <Dropdown.Item className="dropItem">
                       <button className="dropdown-btn" onClick={user.logout}>Logout</button> 

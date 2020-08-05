@@ -31,7 +31,7 @@ const AddGoal = props => {
       <input className='input-goals' type='text' placeholder='Enter Goal Title' name='title' required onChange={addPostHandler} />
     </label><br />
     <label><h5>First Step:</h5>
-      <input className='input-goals' type='text' placeholder='Enter Goal Story' name='story' required onChange={addPostHandler} />
+      <input className='input-goals' type='text' placeholder='Enter Goal Step' name='story' required onChange={addPostHandler} />
     </label><br />
     <div>
       <h5> Step Status:</h5>
