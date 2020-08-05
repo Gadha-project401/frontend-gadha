@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, Row, Col, Card, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col, Dropdown } from 'react-bootstrap';
 import ScrollAnimation from 'react-animate-on-scroll';
 
 
