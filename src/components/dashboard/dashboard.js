@@ -232,11 +232,11 @@ const Dashboard = props => {
                 <Container className="list-group border-0 text-center text-md-left justify-content-center">
                   <Col xs={12} md={12} xl={12} lg={12} className="list-group border-0 text-center text-md-left justify-content-center">
                     <div class="circle-img">
-                      <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
+                      <img onClick={e => user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false})} src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
-                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})}><span class="d-none d-md-inline ">911 Motivation</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:false,newUser:false,motivationPage:true})}><span class="d-none d-md-inline ">911 Motivation</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
                       <img src={recent} alt="recentimg" />
