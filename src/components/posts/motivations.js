@@ -33,7 +33,7 @@ const Posts = props => {
                 </div>
                 {props.posts.posts.map((post, idx) => {
                     return (
-                        <Container fluid className="motevationDiv justify-content-center">
+                        <Container fluid className="motevationDiv justify-content-center animated fadeInUp">
                             <div key={post._id}>
                                 <Row>
                                     <Col xs={3} md={3} xl={3} lg={3}>
