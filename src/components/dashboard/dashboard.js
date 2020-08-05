@@ -235,8 +235,8 @@ const Dashboard = props => {
                     <div class="circle-img">
                       <img src={user.user.userPic} alt='ProfilePic' class="rounded-circle inside-logo userPicc " />
                     </div>
-                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => setShowMyGoals(true)}><span class="d-none d-md-inline">Dashboard</span></a>
+                    <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={e => user.activePage({homepage:false,dashboard:false,publicGoals:false,about:true,newUser:false})}><span class="d-none d-md-inline ">About Gadha</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed b-yellow" onClick={user.logout}><span class="d-none d-md-inline ">Logout</span></a>
                     <Container id="recent-div">
                       <img src={recent} alt="recentimg" />
