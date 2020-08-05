@@ -22,7 +22,7 @@ const About = props => {
         <div class="row" id="inside-header">
           <div class="col-11 mx-auto d-flex">
             <div class="col-6">
-              <img src={logo} alt='img' class="inside-logo" />
+              <img onClick={e => user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false})} src={logo} alt='img' className="inside-logo" />
             </div>
             <div class="col-6 ">
               <div class="col-12 d-flex flex-row-reverse p-0">
@@ -134,7 +134,7 @@ const About = props => {
         <div class="flip-card-inner"> 
         <div class="flip-card-front"> 
            <img className="anasImg" src={israaPng} alt="" />
-           <h2 className="anasH2">Isra'a othman</h2> 
+           <h2 className="anasH2">israa othman</h2> 
            </div>
            <div class="flip-card-back">
            <p>Full Stack Developer
