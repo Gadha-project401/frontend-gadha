@@ -1,34 +1,75 @@
-import React , { useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions';
+import clab from "../../img/clab.png";
+import { Col, Row, Container } from 'react-bootstrap';
+import hug from "../../img/hug.png";
+import giveStar from "../../img/giveStar.png";
+import raiseHat from "../../img/raiseHat.png";
 
-const Posts = props =>{
+const Posts = props => {
 
-    const fetchData = e =>{
+    const [counter, setCounter] = useState(0);
+
+    const fetchData = e => {
         e && e.preventDefault();
         props.get();
     }
 
-    useEffect(()=>{
-        fetchData()},
+    const addLike = () => {
+        setCounter(counter + 1);
+    }
+
+    useEffect(() => {
+        fetchData()
+    },
         []) // eslint-disable-line react-hooks/exhaustive-deps
 
-    return(
-        <>
-         <div className="container">
-             {props.posts.posts.map((post,idx)=>{
-                 return(
-                     <div key={post._id}>
-                         {/* <img className="profilePic" src={post.virtualOwner.profilePic}/> */}
-                         <h5 className="createdBy" >{post.createdBy}</h5>
-                         <p className="createdAt">{post.createdAt}</p>
-                         <p className="title">{post.title}</p>
-                         <p className="story">{post.story}</p>
-                     </div>
-                 )
-             })}
+        useEffect(() => {
+            fetchData()
+        },
+            [props.posts]) // eslint-disable-line react-hooks/exhaustive-deps
 
-         </div>
+    return (
+        <>
+            <div>
+                <div>
+                    <h5 className='motivation-thing'>Feel free to read other users motivational posts and get inspired.</h5>
+                </div>
+                {props.posts.posts.map((post, idx) => {
+                    return (
+                        <Container fluid className="motevationDiv justify-content-center animated fadeInUp">
+                            <div key={post._id}>
+                                <Row>
+                                    <Col xs={3} md={3} xl={3} lg={3}>
+                                        <img className="rounded-circle inside-logo" alt='img' src={post.virtualOwner.profilePic} />
+                                        <h5 className="createdBy" >{post.createdBy}</h5>
+                                        <p className="createdAt">{post.createdAt}</p>
+                                    </Col>
+                                    <Col xs={9} md={9} xl={9} lg={9}>
+                                        <button  onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }}>
+                                            <img title="clap" src={clab} alt="clab" />
+                                        </button>
+                                        <button onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }} >
+                                            <img title="hug" src={hug} alt="hug" />
+                                        </button>
+                                        <button onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }} >
+                                            <img title="give star" src={giveStar} alt="giveStar" />
+                                        </button>
+                                        <button onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }} >
+                                            <img title="raise hat" src={raiseHat} alt="raiseHat" />
+                                        </button>
+                                        <button onClick={addLike} style={{ backgroundColor: "#FFF7EB", border: "0px" }}>{counter}</button>
+                                        <h5 className="title">{post.title}</h5>
+                                        <p className="story">{post.story}</p>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Container>
+                    )
+                })}
+
+            </div>
         </>
     )
 }
@@ -40,8 +81,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
-    get: ()=> dispatch(actions.getRemoteData()),
+    get: () => dispatch(actions.getRemoteData()),
     // put: (id, data) => dispatch(actions.putRemoteData(id, data))
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Posts);
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

@@ -7,41 +7,67 @@ import Body from './components/body/body';
 import Dashboard from './components/dashboard/dashboard'
 import {LoginContext} from './components/auth/context';
 import Show from './components/auth/show';
-import Signup from './components/auth/signup';
 import Footer from './components/footer/footer';
-import { Route } from 'react-router-dom';
-import NewUser from './components/dashboard/newUser' 
+import NewUser from './components/dashboard/newUser';
+import Chat from './components/chat/chat';
+import Loader from './components/loader/loader';
+import About from './components/aboutus/aboutus'
+import MotivationPage from './components/motivationPage/motivationPage'
 
 const App = props =>{
   let user = useContext(LoginContext);
+
   return(
     <>
-    {/* <Header/> */}
+
+<Show condition={user.active.about}> 
+      <About />
+     </Show>
 
 
-    {/* if it is not new user show this  */}
 
-    <Show condition={user.loggedIn}>
-      <Dashboard/>
+    <Show condition={user.loader}>
+      <Loader/>
     </Show>
 
+    <Show condition={!user.loggedIn}>
+      <Show condition={user.active.homepage}>
 
-    {/* if this is a new user show this : */}
-        {/* <NewUser/> */}
+      <Header/>
+      <Body/>
+      
+      </Show>
+      
+    </Show>
+     
+    <Show condition={user.loggedIn}>
 
+     
 
+      <Show condition={user.active.homepage}>
+        <Dashboard/>
+        
+      </Show>
 
-      {/* <Body/>
+      <Show condition={user.active.newUser}>
+        <NewUser/>
+      </Show>
 
-      <Footer/> */}
+      <Show condition={user.chat}>
+        <Chat/>
+      </Show>
+
+      <Show condition={user.active.motivationPage}>
+        <MotivationPage/>
+        
+      </Show>
+
+    </Show>
+
+    <Footer/>
+
     </>
   )
 }
 
 export default App;
-
-/*
-    <Show condition={!user.loggedIn}>
-      <Header/>
-    </Show>
-*/

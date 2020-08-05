@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-// import 'bulma/css/bulma.min.css'
+import React, { Component , useContext} from 'react'
 import './dashboard.scss'
-
+import Form from '../forms/addGoal'
+import { LoginContext } from '../auth/context';
+import logo from "../../img/logo-m.png";
 class Step1 extends Component {
   render() {
-    const { handleChange, nextStep } = this.props
+    const { nextStep } = this.props
 
     return (
+      <>
+      
       <div>
         <div className="field">
             <h6>Welcome to</h6>
@@ -20,61 +23,24 @@ class Step1 extends Component {
           </button>
         </p>
       </div>
+      </>
     )
   }
 }
 
 class Step2 extends Component {
   render() {
-    const { handleChange, nextStep } = this.props
 
     return (
       <div>
         <div className="field">
-          {/* <div className="control">
-            <input
-              onChange={handleChange}
-              name="lastName"
-              type="text"
-              className="input"
-              placeholder="Surname"
-            />
-          </div> */}
+
           <h3>First</h3>
           <p> You Need To Add One Goal You Want To Achive ...</p>
-          <form >
-
-<label>Goal Title: 
-    <input type='text' placeholder='Enter Goal Title' name='title' required />
-</label><br/>
-
-<label>Goal Story: 
-    <input type='text' placeholder='Enter Goal Story' name='story' required />
-</label><br/>
-
-<label>Goal Status: 
-    <select name='status'required>
-      <option value='' hidden >Set Status</option>
-      <option value='inprogress'>In Progress</option>
-      <option value='complete'>Complete</option>
-      <option value='failed'>Failed</option>
-    </select>
-</label><br/>
-
-<label>Goal Privacy: 
-    <select name='private'  required>
-      <option value='' hidden >Set Privacy</option>
-      <option value='true'>Private</option>
-      <option value='false'>Public</option>
-    </select>
-</label><br/>
-
-<label>Goal Due in : 
-    <input type='number' min='0' max='3650' placeholder='Days' name='dueBy' required /> Days
-</label><br/>
-
-<button>Add Goal</button>
-</form>
+          <div className="formContainer">
+            <Form/>
+          </div>
+         
         </div>
         <p className="control">
           <button onClick={this.props.nextStep} className="button">
@@ -86,34 +52,28 @@ class Step2 extends Component {
   }
 }
 
-class Step3 extends Component {
-  render() {
-    const { handleChange, nextStep } = this.props
+const Step3 = props => {
+    let user = useContext(LoginContext);
+    const openDashboard = () =>{
+      user.activePage({homepage:true,dashboard:false,publicGoals:false,about:false,newUser:false},)
+    }
 
     return (
       <div>
         <div className="field">
-          {/* <div className="control">
-            <input
-              onChange={handleChange}
-              name="email"
-              type="email"
-              className="input"
-              placeholder="Email"
-            />
-          </div> */}
+
           <p>Now You Are Ready To Get Started </p>
           <p>Always remember ... you can do it </p>
         </div>
         <p className="control">
-          <button onClick={e => alert('Finished')} className="button">
+          <button onClick={openDashboard} className="button">
             Keep Moving 
           </button>
         </p>
       </div>
     )
   }
-}
+
 
 const maxStep = 3
 
@@ -173,7 +133,17 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
+      <>
+      <div class="w-100" id="fixed-nav">
+      <div class="row" id="inside-header">
+        <div class="col-11 mx-auto d-flex">
+          <div class="col-6">
+            <img alt='img' src={logo} class="inside-logo" />
+          </div>
+          </div>
+      </div>
+    </div>
+      <div className='step-container'>
         <div className="body">
           <div className="step">
             {new Array(maxStep).fill().map((each, idx) => {
@@ -187,9 +157,9 @@ export default class extends Component {
             })}
           </div>
           <div className="form">{this.renderComponent()}</div>
-          {/* <pre>{JSON.stringify(this.state.user)}</pre> */}
         </div>
       </div>
+      </>
     )
   }
 }

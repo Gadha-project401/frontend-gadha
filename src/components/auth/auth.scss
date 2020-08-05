@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 h4 {
+  font-size: 1.1rem;
   color: #6949B5;
 }
 input,
@@ -25,13 +26,13 @@ select {
 }
 input:focus {
   outline: 0;
-  border-color: #64ac15;
+  border-color: #6949B5;
 }
 input:focus + .input-icon i {
-  color: #7ed321;
+  color: #6949B5;
 }
 input:focus + .input-icon:after {
-  border-right-color: #7ed321;
+  border-right-color: #6949B5;
 }
 input[type="radio"] {
   display: none;
@@ -61,7 +62,7 @@ select:focus,
 select:active {
   background-color: #6949B5;
   color: #fff;
-  border-color: #64ac15;
+  border-color: #6949B5;
 }
 input[type="checkbox"] {
   display: none;
@@ -286,4 +287,14 @@ select option {
       border-radius: 0px;
   }
   
+  }
+
+  .googleBtn{
+    margin-left: 37%;
+  }
+
+  .googleP{
+    margin-left: 44%;
+
+    // text-align: center;
   }
